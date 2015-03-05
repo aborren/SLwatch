@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="7519.1" systemVersion="14C109" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7513.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3737"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="SLwatch_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <label alignment="center" text="SL watch" textAlignment="center" id="UQC-sj-6h6">
+                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                        </label>
+                        <button width="1" alignment="left" title="Nearby stations" id="aeX-ge-hOO">
+                            <connections>
+                                <segue destination="cII-kl-DYl" kind="push" id="gfa-AM-1dS"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="Favourite stations" id="Pqk-8w-Kxf">
+                            <connections>
+                                <segue destination="bT7-3J-99L" kind="push" id="AWk-II-hVJ"/>
+                            </connections>
+                        </button>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="220" y="345"/>
+        </scene>
+        <!--Nearby Stations Interface Controller-->
+        <scene sceneID="Y0G-81-evp">
+            <objects>
+                <controller id="cII-kl-DYl" customClass="NearbyStationsInterfaceController" customModule="SLwatch_WatchKit_Extension">
+                    <items>
+                        <label alignment="left" text="Nearby stations" id="NEM-k2-0pW"/>
+                        <label alignment="left" text="Label" id="Qrp-wB-e2o"/>
+                        <table alignment="left" id="PpY-ub-vcq">
+                            <items>
+                                <tableRow identifier="rowcontroller" id="pag-fl-3Zm" customClass="RowController" customModule="SLwatch_WatchKit_Extension">
+                                    <group key="rootItem" width="1" alignment="left" id="qIv-3O-Szq">
+                                        <items>
+                                            <imageView width="35" alignment="left" id="P93-qo-gkE"/>
+                                            <label alignment="left" text="Label" id="N6O-iU-pMK"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="rowDescription" destination="N6O-iU-pMK" id="b62-Iz-an8"/>
+                                        <outlet property="rowImage" destination="P93-qo-gkE" id="f35-uw-vY6"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="stationsTable" destination="PpY-ub-vcq" id="f7Z-fM-t6d"/>
+                        <outlet property="testlabel" destination="Qrp-wB-e2o" id="7dK-Ua-Qtq"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="529" y="219"/>
+        </scene>
+        <!--Interface Controller-->
+        <scene sceneID="gOI-PW-cQv">
+            <objects>
+                <controller id="bT7-3J-99L">
+                    <items>
+                        <label alignment="left" text="Favourite stations" id="3TF-5b-KXY"/>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="529" y="438"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="220" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="SLwatch_WatchKit_App" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="643"/>
+        </scene>
+    </scenes>
+</document>

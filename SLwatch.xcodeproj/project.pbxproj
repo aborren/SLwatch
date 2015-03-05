@@ -7,12 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		558EEBD41162B63764C22BE9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A66392C99987CED2C24417 /* libPods.a */; };
 		B22942351AA0C6A6001F3B72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22942341AA0C6A6001F3B72 /* AppDelegate.swift */; };
 		B22942371AA0C6A6001F3B72 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22942361AA0C6A6001F3B72 /* ViewController.swift */; };
 		B229423A1AA0C6A6001F3B72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B22942381AA0C6A6001F3B72 /* Main.storyboard */; };
 		B229423C1AA0C6A6001F3B72 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B229423B1AA0C6A6001F3B72 /* Images.xcassets */; };
 		B229423F1AA0C6A6001F3B72 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B229423D1AA0C6A6001F3B72 /* LaunchScreen.xib */; };
 		B229424B1AA0C6A6001F3B72 /* SLwatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B229424A1AA0C6A6001F3B72 /* SLwatchTests.swift */; };
+		B2D530251AA71B6000F4FBA2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2D530241AA71B6000F4FBA2 /* CoreLocation.framework */; };
+		B2D530271AA73BDD00F4FBA2 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D530261AA73BDD00F4FBA2 /* Station.swift */; };
+		B2D530291AA73C9900F4FBA2 /* Departure.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D530281AA73C9900F4FBA2 /* Departure.swift */; };
+		B2D5302B1AA7589700F4FBA2 /* NearbyStationsInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D5302A1AA7589700F4FBA2 /* NearbyStationsInterfaceController.swift */; };
+		B2D5302D1AA75AFE00F4FBA2 /* RowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D5302C1AA75AFE00F4FBA2 /* RowController.swift */; };
+		B2D605561AA851E500C0A1C1 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D530261AA73BDD00F4FBA2 /* Station.swift */; };
+		B2D605581AA851EB00C0A1C1 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D530261AA73BDD00F4FBA2 /* Station.swift */; };
+		B2EF0B1C1AA0D0E400AA093B /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EF0B1B1AA0D0E400AA093B /* InterfaceController.swift */; };
+		B2EF0B1E1AA0D0E400AA093B /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EF0B1D1AA0D0E400AA093B /* NotificationController.swift */; };
+		B2EF0B201AA0D0E400AA093B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2EF0B1F1AA0D0E400AA093B /* Images.xcassets */; };
+		B2EF0B241AA0D0E400AA093B /* SLwatch WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = B2EF0B231AA0D0E400AA093B /* SLwatch WatchKit App.app */; };
+		B2EF0B2C1AA0D0E400AA093B /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2EF0B2A1AA0D0E400AA093B /* Interface.storyboard */; };
+		B2EF0B2E1AA0D0E400AA093B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2EF0B2D1AA0D0E400AA093B /* Images.xcassets */; };
+		B2EF0B311AA0D0E400AA093B /* SLwatch WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B2EF0B161AA0D0E400AA093B /* SLwatch WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		DACFE78091DA8D0F8B10A0C7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A66392C99987CED2C24417 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,9 +39,39 @@
 			remoteGlobalIDString = B229422E1AA0C6A6001F3B72;
 			remoteInfo = SLwatch;
 		};
+		B2EF0B251AA0D0E400AA093B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B22942271AA0C6A6001F3B72 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B2EF0B221AA0D0E400AA093B;
+			remoteInfo = "SLwatch WatchKit App";
+		};
+		B2EF0B2F1AA0D0E400AA093B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B22942271AA0C6A6001F3B72 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B2EF0B151AA0D0E400AA093B;
+			remoteInfo = "SLwatch WatchKit Extension";
+		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		B2EF0B381AA0D0E400AA093B /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				B2EF0B311AA0D0E400AA093B /* SLwatch WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		20526A20AE393A3E45AFB72C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		5C9CA7B856BAF1B795E582CD /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		B229422F1AA0C6A6001F3B72 /* SLwatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SLwatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B22942331AA0C6A6001F3B72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B22942341AA0C6A6001F3B72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +82,28 @@
 		B22942441AA0C6A6001F3B72 /* SLwatchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SLwatchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B22942491AA0C6A6001F3B72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B229424A1AA0C6A6001F3B72 /* SLwatchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLwatchTests.swift; sourceTree = "<group>"; };
+		B2BC26251AA8582A00AF7FE7 /* SLwatch WatchKit Extension-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SLwatch WatchKit Extension-Bridging-Header.h"; sourceTree = "<group>"; };
+		B2D530241AA71B6000F4FBA2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		B2D530261AA73BDD00F4FBA2 /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
+		B2D530281AA73C9900F4FBA2 /* Departure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Departure.swift; sourceTree = "<group>"; };
+		B2D5302A1AA7589700F4FBA2 /* NearbyStationsInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyStationsInterfaceController.swift; sourceTree = "<group>"; };
+		B2D5302C1AA75AFE00F4FBA2 /* RowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowController.swift; sourceTree = "<group>"; };
+		B2D6055C1AA853F200C0A1C1 /* libPods-AFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-AFNetworking.a"; path = "Pods/../build/Debug-iphoneos/libPods-AFNetworking.a"; sourceTree = "<group>"; };
+		B2D6055E1AA853FA00C0A1C1 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/../build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
+		B2D605601AA8547900C0A1C1 /* libPods-AFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-AFNetworking.a"; path = "Pods/../build/Debug-iphoneos/libPods-AFNetworking.a"; sourceTree = "<group>"; };
+		B2D605621AA8548E00C0A1C1 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/../build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
+		B2EF0B0F1AA0D0A900AA093B /* SLwatch-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SLwatch-Bridging-Header.h"; sourceTree = "<group>"; };
+		B2EF0B161AA0D0E400AA093B /* SLwatch WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "SLwatch WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2EF0B191AA0D0E400AA093B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B2EF0B1A1AA0D0E400AA093B /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		B2EF0B1B1AA0D0E400AA093B /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		B2EF0B1D1AA0D0E400AA093B /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		B2EF0B1F1AA0D0E400AA093B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		B2EF0B231AA0D0E400AA093B /* SLwatch WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SLwatch WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2EF0B291AA0D0E400AA093B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B2EF0B2B1AA0D0E400AA093B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		B2EF0B2D1AA0D0E400AA093B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D9A66392C99987CED2C24417 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +111,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2D530251AA71B6000F4FBA2 /* CoreLocation.framework in Frameworks */,
+				DACFE78091DA8D0F8B10A0C7 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,15 +123,49 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B2EF0B131AA0D0E400AA093B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				558EEBD41162B63764C22BE9 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2785C6086B91C2E7677ACFC1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B2D605621AA8548E00C0A1C1 /* libPods.a */,
+				B2D605601AA8547900C0A1C1 /* libPods-AFNetworking.a */,
+				B2D6055E1AA853FA00C0A1C1 /* libPods.a */,
+				B2D6055C1AA853F200C0A1C1 /* libPods-AFNetworking.a */,
+				B2D530241AA71B6000F4FBA2 /* CoreLocation.framework */,
+				D9A66392C99987CED2C24417 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A93AAE6C3EB263C5609E2165 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				20526A20AE393A3E45AFB72C /* Pods.debug.xcconfig */,
+				5C9CA7B856BAF1B795E582CD /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		B22942261AA0C6A6001F3B72 = {
 			isa = PBXGroup;
 			children = (
 				B22942311AA0C6A6001F3B72 /* SLwatch */,
 				B22942471AA0C6A6001F3B72 /* SLwatchTests */,
+				B2EF0B171AA0D0E400AA093B /* SLwatch WatchKit Extension */,
+				B2EF0B271AA0D0E400AA093B /* SLwatch WatchKit App */,
 				B22942301AA0C6A6001F3B72 /* Products */,
+				A93AAE6C3EB263C5609E2165 /* Pods */,
+				2785C6086B91C2E7677ACFC1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +174,8 @@
 			children = (
 				B229422F1AA0C6A6001F3B72 /* SLwatch.app */,
 				B22942441AA0C6A6001F3B72 /* SLwatchTests.xctest */,
+				B2EF0B161AA0D0E400AA093B /* SLwatch WatchKit Extension.appex */,
+				B2EF0B231AA0D0E400AA093B /* SLwatch WatchKit App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -79,10 +185,13 @@
 			children = (
 				B22942341AA0C6A6001F3B72 /* AppDelegate.swift */,
 				B22942361AA0C6A6001F3B72 /* ViewController.swift */,
+				B2D530261AA73BDD00F4FBA2 /* Station.swift */,
+				B2D530281AA73C9900F4FBA2 /* Departure.swift */,
 				B22942381AA0C6A6001F3B72 /* Main.storyboard */,
 				B229423B1AA0C6A6001F3B72 /* Images.xcassets */,
 				B229423D1AA0C6A6001F3B72 /* LaunchScreen.xib */,
 				B22942321AA0C6A6001F3B72 /* Supporting Files */,
+				B2EF0B0F1AA0D0A900AA093B /* SLwatch-Bridging-Header.h */,
 			);
 			path = SLwatch;
 			sourceTree = "<group>";
@@ -112,6 +221,47 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		B2EF0B171AA0D0E400AA093B /* SLwatch WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B2EF0B1B1AA0D0E400AA093B /* InterfaceController.swift */,
+				B2BC26251AA8582A00AF7FE7 /* SLwatch WatchKit Extension-Bridging-Header.h */,
+				B2D5302A1AA7589700F4FBA2 /* NearbyStationsInterfaceController.swift */,
+				B2EF0B1D1AA0D0E400AA093B /* NotificationController.swift */,
+				B2D5302C1AA75AFE00F4FBA2 /* RowController.swift */,
+				B2EF0B1F1AA0D0E400AA093B /* Images.xcassets */,
+				B2EF0B181AA0D0E400AA093B /* Supporting Files */,
+			);
+			path = "SLwatch WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		B2EF0B181AA0D0E400AA093B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B2EF0B191AA0D0E400AA093B /* Info.plist */,
+				B2EF0B1A1AA0D0E400AA093B /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B2EF0B271AA0D0E400AA093B /* SLwatch WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				B2EF0B2A1AA0D0E400AA093B /* Interface.storyboard */,
+				B2EF0B2D1AA0D0E400AA093B /* Images.xcassets */,
+				B2EF0B281AA0D0E400AA093B /* Supporting Files */,
+			);
+			path = "SLwatch WatchKit App";
+			sourceTree = "<group>";
+		};
+		B2EF0B281AA0D0E400AA093B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B2EF0B291AA0D0E400AA093B /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -119,13 +269,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B229424E1AA0C6A6001F3B72 /* Build configuration list for PBXNativeTarget "SLwatch" */;
 			buildPhases = (
+				DD81E87D9C049D2C7D26AD6B /* Check Pods Manifest.lock */,
 				B229422B1AA0C6A6001F3B72 /* Sources */,
 				B229422C1AA0C6A6001F3B72 /* Frameworks */,
 				B229422D1AA0C6A6001F3B72 /* Resources */,
+				6723CDAA86A13D0EE5A63CEC /* Copy Pods Resources */,
+				B2EF0B381AA0D0E400AA093B /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				B2EF0B301AA0D0E400AA093B /* PBXTargetDependency */,
 			);
 			name = SLwatch;
 			productName = SLwatch;
@@ -150,6 +304,41 @@
 			productReference = B22942441AA0C6A6001F3B72 /* SLwatchTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		B2EF0B151AA0D0E400AA093B /* SLwatch WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B2EF0B351AA0D0E400AA093B /* Build configuration list for PBXNativeTarget "SLwatch WatchKit Extension" */;
+			buildPhases = (
+				9584267C73B38C94EC6CC954 /* Check Pods Manifest.lock */,
+				B2EF0B121AA0D0E400AA093B /* Sources */,
+				B2EF0B131AA0D0E400AA093B /* Frameworks */,
+				B2EF0B141AA0D0E400AA093B /* Resources */,
+				8D0EE26C0CC7329BC76F8E94 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B2EF0B261AA0D0E400AA093B /* PBXTargetDependency */,
+			);
+			name = "SLwatch WatchKit Extension";
+			productName = "SLwatch WatchKit Extension";
+			productReference = B2EF0B161AA0D0E400AA093B /* SLwatch WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit-extension";
+		};
+		B2EF0B221AA0D0E400AA093B /* SLwatch WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B2EF0B321AA0D0E400AA093B /* Build configuration list for PBXNativeTarget "SLwatch WatchKit App" */;
+			buildPhases = (
+				B2EF0B211AA0D0E400AA093B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SLwatch WatchKit App";
+			productName = "SLwatch WatchKit App";
+			productReference = B2EF0B231AA0D0E400AA093B /* SLwatch WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -165,6 +354,12 @@
 					B22942431AA0C6A6001F3B72 = {
 						CreatedOnToolsVersion = 6.3;
 						TestTargetID = B229422E1AA0C6A6001F3B72;
+					};
+					B2EF0B151AA0D0E400AA093B = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					B2EF0B221AA0D0E400AA093B = {
+						CreatedOnToolsVersion = 6.3;
 					};
 				};
 			};
@@ -183,6 +378,8 @@
 			targets = (
 				B229422E1AA0C6A6001F3B72 /* SLwatch */,
 				B22942431AA0C6A6001F3B72 /* SLwatchTests */,
+				B2EF0B151AA0D0E400AA093B /* SLwatch WatchKit Extension */,
+				B2EF0B221AA0D0E400AA093B /* SLwatch WatchKit App */,
 			);
 		};
 /* End PBXProject section */
@@ -205,7 +402,88 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B2EF0B141AA0D0E400AA093B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2EF0B201AA0D0E400AA093B /* Images.xcassets in Resources */,
+				B2EF0B241AA0D0E400AA093B /* SLwatch WatchKit App.app in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B2EF0B211AA0D0E400AA093B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2EF0B2C1AA0D0E400AA093B /* Interface.storyboard in Resources */,
+				B2EF0B2E1AA0D0E400AA093B /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6723CDAA86A13D0EE5A63CEC /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8D0EE26C0CC7329BC76F8E94 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9584267C73B38C94EC6CC954 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DD81E87D9C049D2C7D26AD6B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B229422B1AA0C6A6001F3B72 /* Sources */ = {
@@ -213,6 +491,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B22942371AA0C6A6001F3B72 /* ViewController.swift in Sources */,
+				B2D530271AA73BDD00F4FBA2 /* Station.swift in Sources */,
+				B2D530291AA73C9900F4FBA2 /* Departure.swift in Sources */,
 				B22942351AA0C6A6001F3B72 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -221,7 +501,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2D605581AA851EB00C0A1C1 /* Station.swift in Sources */,
 				B229424B1AA0C6A6001F3B72 /* SLwatchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B2EF0B121AA0D0E400AA093B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2EF0B1E1AA0D0E400AA093B /* NotificationController.swift in Sources */,
+				B2D605561AA851E500C0A1C1 /* Station.swift in Sources */,
+				B2D5302B1AA7589700F4FBA2 /* NearbyStationsInterfaceController.swift in Sources */,
+				B2D5302D1AA75AFE00F4FBA2 /* RowController.swift in Sources */,
+				B2EF0B1C1AA0D0E400AA093B /* InterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,6 +525,16 @@
 			isa = PBXTargetDependency;
 			target = B229422E1AA0C6A6001F3B72 /* SLwatch */;
 			targetProxy = B22942451AA0C6A6001F3B72 /* PBXContainerItemProxy */;
+		};
+		B2EF0B261AA0D0E400AA093B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B2EF0B221AA0D0E400AA093B /* SLwatch WatchKit App */;
+			targetProxy = B2EF0B251AA0D0E400AA093B /* PBXContainerItemProxy */;
+		};
+		B2EF0B301AA0D0E400AA093B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B2EF0B151AA0D0E400AA093B /* SLwatch WatchKit Extension */;
+			targetProxy = B2EF0B2F1AA0D0E400AA093B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -250,6 +553,14 @@
 				B229423E1AA0C6A6001F3B72 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		B2EF0B2A1AA0D0E400AA093B /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B2EF0B2B1AA0D0E400AA093B /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -338,21 +649,32 @@
 		};
 		B229424F1AA0C6A6001F3B72 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 20526A20AE393A3E45AFB72C /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = SLwatch/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SLwatch/SLwatch-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		B22942501AA0C6A6001F3B72 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C9CA7B856BAF1B795E582CD /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = SLwatch/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SLwatch/SLwatch-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -390,6 +712,77 @@
 			};
 			name = Release;
 		};
+		B2EF0B331AA0D0E400AA093B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IBSC_MODULE = SLwatch_WatchKit_Extension;
+				INFOPLIST_FILE = "SLwatch WatchKit App/Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Debug;
+		};
+		B2EF0B341AA0D0E400AA093B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				IBSC_MODULE = SLwatch_WatchKit_Extension;
+				INFOPLIST_FILE = "SLwatch WatchKit App/Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Release;
+		};
+		B2EF0B361AA0D0E400AA093B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 20526A20AE393A3E45AFB72C /* Pods.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = "SLwatch WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "SLwatch WatchKit Extension/SLwatch WatchKit Extension-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B2EF0B371AA0D0E400AA093B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C9CA7B856BAF1B795E582CD /* Pods.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = "SLwatch WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "SLwatch WatchKit Extension/SLwatch WatchKit Extension-Bridging-Header.h";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -409,6 +802,7 @@
 				B22942501AA0C6A6001F3B72 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B22942511AA0C6A6001F3B72 /* Build configuration list for PBXNativeTarget "SLwatchTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +811,25 @@
 				B22942531AA0C6A6001F3B72 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B2EF0B321AA0D0E400AA093B /* Build configuration list for PBXNativeTarget "SLwatch WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B2EF0B331AA0D0E400AA093B /* Debug */,
+				B2EF0B341AA0D0E400AA093B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B2EF0B351AA0D0E400AA093B /* Build configuration list for PBXNativeTarget "SLwatch WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B2EF0B361AA0D0E400AA093B /* Debug */,
+				B2EF0B371AA0D0E400AA093B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

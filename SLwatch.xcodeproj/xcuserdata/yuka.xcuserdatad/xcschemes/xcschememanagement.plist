@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Notification - SLwatch WatchKit App.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>SLwatch WatchKit App.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
 		<key>SLwatch.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -18,6 +28,11 @@
 			<true/>
 		</dict>
 		<key>B22942431AA0C6A6001F3B72</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B2EF0B221AA0D0E400AA093B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
