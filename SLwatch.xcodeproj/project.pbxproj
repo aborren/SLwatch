@@ -15,12 +15,9 @@
 		B229423F1AA0C6A6001F3B72 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B229423D1AA0C6A6001F3B72 /* LaunchScreen.xib */; };
 		B229424B1AA0C6A6001F3B72 /* SLwatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B229424A1AA0C6A6001F3B72 /* SLwatchTests.swift */; };
 		B2D530251AA71B6000F4FBA2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2D530241AA71B6000F4FBA2 /* CoreLocation.framework */; };
-		B2D530271AA73BDD00F4FBA2 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D530261AA73BDD00F4FBA2 /* Station.swift */; };
 		B2D530291AA73C9900F4FBA2 /* Departure.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D530281AA73C9900F4FBA2 /* Departure.swift */; };
 		B2D5302B1AA7589700F4FBA2 /* NearbyStationsInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D5302A1AA7589700F4FBA2 /* NearbyStationsInterfaceController.swift */; };
 		B2D5302D1AA75AFE00F4FBA2 /* RowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D5302C1AA75AFE00F4FBA2 /* RowController.swift */; };
-		B2D605561AA851E500C0A1C1 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D530261AA73BDD00F4FBA2 /* Station.swift */; };
-		B2D605581AA851EB00C0A1C1 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D530261AA73BDD00F4FBA2 /* Station.swift */; };
 		B2EF0B1C1AA0D0E400AA093B /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EF0B1B1AA0D0E400AA093B /* InterfaceController.swift */; };
 		B2EF0B1E1AA0D0E400AA093B /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EF0B1D1AA0D0E400AA093B /* NotificationController.swift */; };
 		B2EF0B201AA0D0E400AA093B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2EF0B1F1AA0D0E400AA093B /* Images.xcassets */; };
@@ -28,6 +25,13 @@
 		B2EF0B2C1AA0D0E400AA093B /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2EF0B2A1AA0D0E400AA093B /* Interface.storyboard */; };
 		B2EF0B2E1AA0D0E400AA093B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2EF0B2D1AA0D0E400AA093B /* Images.xcassets */; };
 		B2EF0B311AA0D0E400AA093B /* SLwatch WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B2EF0B161AA0D0E400AA093B /* SLwatch WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B2EFB1A11AA87F94001E2F26 /* MMWormhole.m in Sources */ = {isa = PBXBuildFile; fileRef = B2EFB1A01AA87F94001E2F26 /* MMWormhole.m */; };
+		B2EFB1A21AA87FA2001E2F26 /* MMWormhole.m in Sources */ = {isa = PBXBuildFile; fileRef = B2EFB1A01AA87F94001E2F26 /* MMWormhole.m */; };
+		B2EFB1A31AA896A2001E2F26 /* Departure.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D530281AA73C9900F4FBA2 /* Departure.swift */; };
+		B2EFB1A41AA896A3001E2F26 /* Departure.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D530281AA73C9900F4FBA2 /* Departure.swift */; };
+		B2EFB1A51AA8A54D001E2F26 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D530261AA73BDD00F4FBA2 /* Station.swift */; };
+		B2EFB1A61AA8A55C001E2F26 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D530261AA73BDD00F4FBA2 /* Station.swift */; };
+		B2EFB1A71AA8A55D001E2F26 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D530261AA73BDD00F4FBA2 /* Station.swift */; };
 		DACFE78091DA8D0F8B10A0C7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A66392C99987CED2C24417 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -103,6 +107,10 @@
 		B2EF0B291AA0D0E400AA093B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B2EF0B2B1AA0D0E400AA093B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		B2EF0B2D1AA0D0E400AA093B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		B2EFB19D1AA86B4A001E2F26 /* SLwatch WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "SLwatch WatchKit Extension.entitlements"; sourceTree = "<group>"; };
+		B2EFB19E1AA86BD3001E2F26 /* SLwatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SLwatch.entitlements; sourceTree = "<group>"; };
+		B2EFB19F1AA87F94001E2F26 /* MMWormhole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMWormhole.h; sourceTree = "<group>"; };
+		B2EFB1A01AA87F94001E2F26 /* MMWormhole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMWormhole.m; sourceTree = "<group>"; };
 		D9A66392C99987CED2C24417 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -183,15 +191,18 @@
 		B22942311AA0C6A6001F3B72 /* SLwatch */ = {
 			isa = PBXGroup;
 			children = (
+				B2EFB19F1AA87F94001E2F26 /* MMWormhole.h */,
+				B2EFB1A01AA87F94001E2F26 /* MMWormhole.m */,
+				B2EFB19E1AA86BD3001E2F26 /* SLwatch.entitlements */,
 				B22942341AA0C6A6001F3B72 /* AppDelegate.swift */,
-				B22942361AA0C6A6001F3B72 /* ViewController.swift */,
 				B2D530261AA73BDD00F4FBA2 /* Station.swift */,
+				B22942361AA0C6A6001F3B72 /* ViewController.swift */,
 				B2D530281AA73C9900F4FBA2 /* Departure.swift */,
 				B22942381AA0C6A6001F3B72 /* Main.storyboard */,
 				B229423B1AA0C6A6001F3B72 /* Images.xcassets */,
 				B229423D1AA0C6A6001F3B72 /* LaunchScreen.xib */,
-				B22942321AA0C6A6001F3B72 /* Supporting Files */,
 				B2EF0B0F1AA0D0A900AA093B /* SLwatch-Bridging-Header.h */,
+				B22942321AA0C6A6001F3B72 /* Supporting Files */,
 			);
 			path = SLwatch;
 			sourceTree = "<group>";
@@ -224,12 +235,13 @@
 		B2EF0B171AA0D0E400AA093B /* SLwatch WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				B2EFB19D1AA86B4A001E2F26 /* SLwatch WatchKit Extension.entitlements */,
 				B2EF0B1B1AA0D0E400AA093B /* InterfaceController.swift */,
-				B2BC26251AA8582A00AF7FE7 /* SLwatch WatchKit Extension-Bridging-Header.h */,
 				B2D5302A1AA7589700F4FBA2 /* NearbyStationsInterfaceController.swift */,
 				B2EF0B1D1AA0D0E400AA093B /* NotificationController.swift */,
 				B2D5302C1AA75AFE00F4FBA2 /* RowController.swift */,
 				B2EF0B1F1AA0D0E400AA093B /* Images.xcassets */,
+				B2BC26251AA8582A00AF7FE7 /* SLwatch WatchKit Extension-Bridging-Header.h */,
 				B2EF0B181AA0D0E400AA093B /* Supporting Files */,
 			);
 			path = "SLwatch WatchKit Extension";
@@ -350,6 +362,12 @@
 				TargetAttributes = {
 					B229422E1AA0C6A6001F3B72 = {
 						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = 7SX7NNMX7Q;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					B22942431AA0C6A6001F3B72 = {
 						CreatedOnToolsVersion = 6.3;
@@ -357,6 +375,12 @@
 					};
 					B2EF0B151AA0D0E400AA093B = {
 						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = 7SX7NNMX7Q;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					B2EF0B221AA0D0E400AA093B = {
 						CreatedOnToolsVersion = 6.3;
@@ -491,7 +515,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B22942371AA0C6A6001F3B72 /* ViewController.swift in Sources */,
-				B2D530271AA73BDD00F4FBA2 /* Station.swift in Sources */,
+				B2EFB1A61AA8A55C001E2F26 /* Station.swift in Sources */,
+				B2EFB1A11AA87F94001E2F26 /* MMWormhole.m in Sources */,
 				B2D530291AA73C9900F4FBA2 /* Departure.swift in Sources */,
 				B22942351AA0C6A6001F3B72 /* AppDelegate.swift in Sources */,
 			);
@@ -501,7 +526,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2D605581AA851EB00C0A1C1 /* Station.swift in Sources */,
+				B2EFB1A41AA896A3001E2F26 /* Departure.swift in Sources */,
+				B2EFB1A71AA8A55D001E2F26 /* Station.swift in Sources */,
 				B229424B1AA0C6A6001F3B72 /* SLwatchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -511,10 +537,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2EF0B1E1AA0D0E400AA093B /* NotificationController.swift in Sources */,
-				B2D605561AA851E500C0A1C1 /* Station.swift in Sources */,
+				B2EFB1A21AA87FA2001E2F26 /* MMWormhole.m in Sources */,
+				B2EFB1A31AA896A2001E2F26 /* Departure.swift in Sources */,
 				B2D5302B1AA7589700F4FBA2 /* NearbyStationsInterfaceController.swift in Sources */,
 				B2D5302D1AA75AFE00F4FBA2 /* RowController.swift in Sources */,
 				B2EF0B1C1AA0D0E400AA093B /* InterfaceController.swift in Sources */,
+				B2EFB1A51AA8A54D001E2F26 /* Station.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -653,11 +681,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = SLwatch/SLwatch.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = SLwatch/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SLwatch/SLwatch-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -669,11 +701,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = SLwatch/SLwatch.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = SLwatch/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SLwatch/SLwatch-Bridging-Header.h";
 			};
 			name = Release;
@@ -747,6 +783,9 @@
 			baseConfigurationReference = 20526A20AE393A3E45AFB72C /* Pods.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "SLwatch WatchKit Extension/SLwatch WatchKit Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -756,6 +795,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "SLwatch WatchKit Extension/SLwatch WatchKit Extension-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -767,11 +807,15 @@
 			baseConfigurationReference = 5C9CA7B856BAF1B795E582CD /* Pods.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "SLwatch WatchKit Extension/SLwatch WatchKit Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "SLwatch WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "SLwatch WatchKit Extension/SLwatch WatchKit Extension-Bridging-Header.h";
 			};

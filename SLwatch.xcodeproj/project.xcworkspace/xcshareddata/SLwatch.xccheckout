@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>29ECD7C3-7A5B-4847-8AAF-2F98DA583759</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SLwatch</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>2495F496814997DAB6FFCEF8DCC2853EFD1C533B</key>
+		<string>https://github.com/aborren/SLwatch.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>SLwatch.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>2495F496814997DAB6FFCEF8DCC2853EFD1C533B</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/aborren/SLwatch.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>2495F496814997DAB6FFCEF8DCC2853EFD1C533B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2495F496814997DAB6FFCEF8DCC2853EFD1C533B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SLwatch</string>
+		</dict>
+	</array>
+</dict>
+</plist>

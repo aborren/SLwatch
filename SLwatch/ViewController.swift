@@ -14,14 +14,28 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     var locationManager: CLLocationManager!
     var stations: [Station] = []
     
+    var wh: MMWormhole?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.wh = MMWormhole(applicationGroupIdentifier: "group.slwatch", optionalDirectory: "wormhole")
+
+        self.wh!.listenForMessageWithIdentifier("wk", listener: { (test) -> Void in
+            self.startLocationFinder()
+        })
+
+        
         // Do any additional setup after loading the view, typically from a nib.
         locationManager = CLLocationManager()
 
     }
     
     @IBAction func getLocation(sender: AnyObject) {
+        startLocationFinder()
+    }
+    
+    func startLocationFinder(){
         locationManager.requestAlwaysAuthorization()
         locationManager.delegate = self
         locationManager.startUpdatingLocation()
@@ -44,7 +58,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     func getLocalStations(longitude: Double, latitude: Double){
         let radius = 500 //sätt denna som setting senare
-
+        var strArr: [NSString] = []
+        var stationDictionary: [String: String] = [:]
+        
         let manager = AFHTTPRequestOperationManager()
         manager.GET(
             "https://api.trafiklab.se/samtrafiken/resrobot/StationsInZone.json?apiVersion=2.1&centerX=\(longitude)&centerY=\(latitude)&radius=\(radius)&coordSys=WGS84&key=T5Jex4dsGQk03VZlXbvmMMC1hMECZNkm",
@@ -59,6 +75,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                         for location in locations{
                             let name = location["name"] as! String
                             let id = location["@id"] as! String
+                            strArr.append(name)
+                            stationDictionary[name] = id
+
                             self.stations.append(Station(id: id, name: name))
                         }
                     }
@@ -66,9 +85,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                         let location : NSDictionary = results["location"] as! NSDictionary
                         let name = location["name"] as! String
                         let id = location["@id"] as! String
+                        strArr.append(name)
+                        stationDictionary[name] = id
                         self.stations.append(Station(id: id, name: name))
                     }
                 }
+                println(strArr.description)
+                self.wh!.passMessageObject(stationDictionary, identifier: "stations")
                 self.printStations()
                 //println("JSON: " + responseObject.description)
             },
@@ -91,6 +114,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBAction func getDepartures(sender: AnyObject) {
         
+        let test = 1
+        self.wh!.passMessageObject(test, identifier: "nummer")
         
         let manager = AFHTTPRequestOperationManager()
         manager.GET(
@@ -98,7 +123,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             parameters: nil,
             success: { (operation: AFHTTPRequestOperation!,
                 responseObject: AnyObject!) in
-                println("JSON: " + responseObject.description)
+                //println("JSON: " + responseObject.description)
             },
             failure: { (operation: AFHTTPRequestOperation!,
                 error: NSError!) in

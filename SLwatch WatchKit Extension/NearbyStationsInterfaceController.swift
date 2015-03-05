@@ -16,16 +16,28 @@ class NearbyStationsInterfaceController: WKInterfaceController {
     
     var locationManager: CLLocationManager!
     
+    var wh: MMWormhole?
+    
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         
+        self.wh = MMWormhole(applicationGroupIdentifier: "group.slwatch", optionalDirectory: "wormhole")
+        
+        self.wh!.listenForMessageWithIdentifier("stations", listener: { (stations) -> Void in
+            println(stations)
+            self.configureTableWithData(stations as! [String:String])
+        })
         // Configure interface objects here.
-        configureTableWithData()
     }
 
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
+        
+        let test = 1
+        
+        self.wh!.passMessageObject(test, identifier: "wk")
+        
         testlabel.setText("HEJ!")
     }
 
@@ -34,11 +46,17 @@ class NearbyStationsInterfaceController: WKInterfaceController {
         super.didDeactivate()
     }
 
-    func configureTableWithData(){
-        self.stationsTable.setNumberOfRows(5, withRowType: "rowcontroller")
-        for( var i = 0; i < 5; i++){
+    func configureTableWithData(stations: [String: String]){
+        self.stationsTable.setNumberOfRows(stations.count, withRowType: "rowcontroller")
+        /*for( var i = 0; i < stations.count; i++){
             var row: RowController = self.stationsTable.rowControllerAtIndex(i) as! RowController
-            row.rowDescription.setText(i.description)
+            row.rowDescription.setText(stations.)
+        }*/
+        var i = 0
+        for station in stations.keys{
+            var row: RowController = self.stationsTable.rowControllerAtIndex(i) as! RowController
+            row.rowDescription.setText(station)
+            i++
         }
     }
 }
