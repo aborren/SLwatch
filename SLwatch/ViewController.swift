@@ -9,10 +9,11 @@
 import UIKit
 import CoreLocation
 
-class ViewController: UIViewController, CLLocationManagerDelegate {
+class ViewController: UIViewController/*, CLLocationManagerDelegate */{
     @IBOutlet var label: UILabel!
     var locationManager: CLLocationManager!
     var stations: [Station] = []
+    var loc = LocationHandler()
     
     var wh: MMWormhole?
     
@@ -22,7 +23,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         self.wh = MMWormhole(applicationGroupIdentifier: "group.slwatch", optionalDirectory: "wormhole")
 
         self.wh!.listenForMessageWithIdentifier("wk", listener: { (test) -> Void in
-            self.startLocationFinder()
+            //self.startLocationFinder()
         })
 
         
@@ -32,14 +33,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     @IBAction func getLocation(sender: AnyObject) {
-        startLocationFinder()
+        println("klicka")
+
     }
     
-    func startLocationFinder(){
+    /*func startLocationFinder(){
         locationManager.requestAlwaysAuthorization()
         locationManager.delegate = self
         locationManager.startUpdatingLocation()
-    }
+    }*/
     
     func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
         println("failed" + error.description)
@@ -113,17 +115,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     @IBAction func getDepartures(sender: AnyObject) {
-        
-        let test = 1
-        self.wh!.passMessageObject(test, identifier: "nummer")
-        
         let manager = AFHTTPRequestOperationManager()
         manager.GET(
             "https://api.trafiklab.se/samtrafiken/resrobotstops/GetDepartures.json?apiVersion=2.2&coordSys=RT90&locationId=7424928&timeSpan=30&key=TrGAqilPmbAXHY1HpIxGAUkmARCAn4qH",
             parameters: nil,
             success: { (operation: AFHTTPRequestOperation!,
                 responseObject: AnyObject!) in
-                //println("JSON: " + responseObject.description)
+                let jsonResponse = responseObject as! NSDictionary
+                self.wh!.passMessageObject(jsonResponse, identifier: "departures")
+                println("JSON: " + responseObject.description)
             },
             failure: { (operation: AFHTTPRequestOperation!,
                 error: NSError!) in

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		558EEBD41162B63764C22BE9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A66392C99987CED2C24417 /* libPods.a */; };
+		B20016EA1AA8AB9F00886DAB /* LocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20016E91AA8AB9F00886DAB /* LocationHandler.swift */; };
 		B22942351AA0C6A6001F3B72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22942341AA0C6A6001F3B72 /* AppDelegate.swift */; };
 		B22942371AA0C6A6001F3B72 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22942361AA0C6A6001F3B72 /* ViewController.swift */; };
 		B229423A1AA0C6A6001F3B72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B22942381AA0C6A6001F3B72 /* Main.storyboard */; };
@@ -76,6 +77,7 @@
 /* Begin PBXFileReference section */
 		20526A20AE393A3E45AFB72C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		5C9CA7B856BAF1B795E582CD /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		B20016E91AA8AB9F00886DAB /* LocationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationHandler.swift; sourceTree = "<group>"; };
 		B229422F1AA0C6A6001F3B72 /* SLwatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SLwatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B22942331AA0C6A6001F3B72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B22942341AA0C6A6001F3B72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				B2EFB19E1AA86BD3001E2F26 /* SLwatch.entitlements */,
 				B22942341AA0C6A6001F3B72 /* AppDelegate.swift */,
 				B2D530261AA73BDD00F4FBA2 /* Station.swift */,
+				B20016E91AA8AB9F00886DAB /* LocationHandler.swift */,
 				B22942361AA0C6A6001F3B72 /* ViewController.swift */,
 				B2D530281AA73C9900F4FBA2 /* Departure.swift */,
 				B22942381AA0C6A6001F3B72 /* Main.storyboard */,
@@ -517,6 +520,7 @@
 				B22942371AA0C6A6001F3B72 /* ViewController.swift in Sources */,
 				B2EFB1A61AA8A55C001E2F26 /* Station.swift in Sources */,
 				B2EFB1A11AA87F94001E2F26 /* MMWormhole.m in Sources */,
+				B20016EA1AA8AB9F00886DAB /* LocationHandler.swift in Sources */,
 				B2D530291AA73C9900F4FBA2 /* Departure.swift in Sources */,
 				B22942351AA0C6A6001F3B72 /* AppDelegate.swift in Sources */,
 			);

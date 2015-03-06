@@ -34,14 +34,13 @@
                 <controller id="cII-kl-DYl" customClass="NearbyStationsInterfaceController" customModule="SLwatch_WatchKit_Extension">
                     <items>
                         <label alignment="left" text="Nearby stations" id="NEM-k2-0pW"/>
-                        <label alignment="left" text="Label" id="Qrp-wB-e2o"/>
                         <table alignment="left" id="PpY-ub-vcq">
                             <items>
                                 <tableRow identifier="rowcontroller" id="pag-fl-3Zm" customClass="RowController" customModule="SLwatch_WatchKit_Extension">
                                     <group key="rootItem" width="1" alignment="left" id="qIv-3O-Szq">
                                         <items>
-                                            <imageView width="35" alignment="left" id="P93-qo-gkE"/>
-                                            <label alignment="left" text="Label" id="N6O-iU-pMK"/>
+                                            <imageView width="24" alignment="left" id="P93-qo-gkE"/>
+                                            <label width="96" height="37" alignment="left" text="Label" numberOfLines="2" id="N6O-iU-pMK"/>
                                         </items>
                                     </group>
                                     <connections>
@@ -54,7 +53,6 @@
                     </items>
                     <connections>
                         <outlet property="stationsTable" destination="PpY-ub-vcq" id="f7Z-fM-t6d"/>
-                        <outlet property="testlabel" destination="Qrp-wB-e2o" id="7dK-Ua-Qtq"/>
                     </connections>
                 </controller>
             </objects>
