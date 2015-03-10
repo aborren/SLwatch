@@ -22,7 +22,7 @@ class ViewController: UIViewController/*, CLLocationManagerDelegate */{
         
         self.wh = MMWormhole(applicationGroupIdentifier: "group.slwatch", optionalDirectory: "wormhole")
 
-        self.wh!.listenForMessageWithIdentifier("wk", listener: { (test) -> Void in
+        self.wh!.listenForMessageWithIdentifier("requestNearbyStations", listener: { (test) -> Void in
             //self.startLocationFinder()
         })
 
@@ -34,7 +34,7 @@ class ViewController: UIViewController/*, CLLocationManagerDelegate */{
     
     @IBAction func getLocation(sender: AnyObject) {
         println("klicka")
-
+        locationManager.requestAlwaysAuthorization()
     }
     
     /*func startLocationFinder(){
@@ -52,12 +52,12 @@ class ViewController: UIViewController/*, CLLocationManagerDelegate */{
         if let currentLocation = newLocation{
             self.label.text = "long =" + currentLocation.coordinate.longitude.description + " lat =" + currentLocation.coordinate.latitude.description
             
-            getLocalStations(currentLocation.coordinate.longitude, latitude: currentLocation.coordinate.latitude)
+            //getLocalStations(currentLocation.coordinate.longitude, latitude: currentLocation.coordinate.latitude)
             
             locationManager.stopUpdatingLocation()
         }
     }
-    
+    /*
     func getLocalStations(longitude: Double, latitude: Double){
         let radius = 500 //sätt denna som setting senare
         var strArr: [NSString] = []
@@ -70,13 +70,13 @@ class ViewController: UIViewController/*, CLLocationManagerDelegate */{
             success: { (operation: AFHTTPRequestOperation!,
                 responseObject: AnyObject!) in
                 self.stations = []
-                let results : NSDictionary = responseObject["stationsinzoneresult"] as! NSDictionary
+                let results : NSDictionary = responseObject["stationsinzoneresult"] as NSDictionary
                 if(results.count>0){
                     if(results["location"]!.isKindOfClass(NSArray)){
-                        let locations: NSArray  = results["location"] as! NSArray
+                        let locations: NSArray  = results["location"] as NSArray
                         for location in locations{
-                            let name = location["name"] as! String
-                            let id = location["@id"] as! String
+                            let name = location["name"] as String
+                            let id = location["@id"] as String
                             strArr.append(name)
                             stationDictionary[name] = id
 
@@ -84,9 +84,9 @@ class ViewController: UIViewController/*, CLLocationManagerDelegate */{
                         }
                     }
                     else if(results["location"]!.isKindOfClass(NSDictionary)){
-                        let location : NSDictionary = results["location"] as! NSDictionary
-                        let name = location["name"] as! String
-                        let id = location["@id"] as! String
+                        let location : NSDictionary = results["location"] as NSDictionary
+                        let name = location["name"] as String
+                        let id = location["@id"] as String
                         strArr.append(name)
                         stationDictionary[name] = id
                         self.stations.append(Station(id: id, name: name))
@@ -112,7 +112,7 @@ class ViewController: UIViewController/*, CLLocationManagerDelegate */{
             strBuilder += station.name + " id: " + station.id + "\n"
         }
         self.label.text = strBuilder
-    }
+    }*/
     
     @IBAction func getDepartures(sender: AnyObject) {
         let manager = AFHTTPRequestOperationManager()
@@ -121,8 +121,7 @@ class ViewController: UIViewController/*, CLLocationManagerDelegate */{
             parameters: nil,
             success: { (operation: AFHTTPRequestOperation!,
                 responseObject: AnyObject!) in
-                let jsonResponse = responseObject as! NSDictionary
-                self.wh!.passMessageObject(jsonResponse, identifier: "departures")
+                self.wh!.passMessageObject(responseObject as NSDictionary, identifier: "departures")
                 println("JSON: " + responseObject.description)
             },
             failure: { (operation: AFHTTPRequestOperation!,

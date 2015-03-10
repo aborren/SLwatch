@@ -8,21 +8,16 @@
 
 import Foundation
 
-class Station {
-    
-    /**
-    Data needed for stations:
-    
-    Stationname
-    Location ID
-    **/
+class Station: NSObject {
     
     var id: String
     var name: String
+    var transportTypes: String
     
-    init(id : String, name: String){
+    init(id : String, name: String, transportTypes: String){
         self.id = id
         self.name = name
+        self.transportTypes = transportTypes
     }
 
 }

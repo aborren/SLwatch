@@ -21,10 +21,10 @@ class Departure {
     
     let direction: String
     let transportType: String
-    let lineNumber: Int
+    let lineNumber: String
     let departureTime: NSDate
 
-    init(direction: String, transportType: String, lineNumber: Int, departureTime: NSDate){
+    init(direction: String, transportType: String, lineNumber: String, departureTime: NSDate){
         self.direction = direction
         self.transportType = transportType
         self.lineNumber = lineNumber

@@ -12,36 +12,31 @@ import Foundation
 class NearbyStationsInterfaceController: WKInterfaceController {
 
     @IBOutlet var stationsTable: WKInterfaceTable!
-    
     var locationManager: CLLocationManager!
-    
     var wh: MMWormhole?
+    var stations: [Station] = []
+    var userDefaults = NSUserDefaults(suiteName: "group.slwatch")
     
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         
         self.wh = MMWormhole(applicationGroupIdentifier: "group.slwatch", optionalDirectory: "wormhole")
         
-        self.wh!.listenForMessageWithIdentifier("stations", listener: { (stations) -> Void in
-            println(stations)
-            self.configureTableWithData(stations as! [[String]])
+        //wake parent application on iPhone and request nearby stations
+        WKInterfaceController.openParentApplication(["request":"stations"], reply: {(replyInfo, error) -> Void in
+            //self.wh!.passMessageObject([:], identifier: "requestNearbyStations")
+        })
+        
+        self.wh!.listenForMessageWithIdentifier("stations", listener: { (stationsResponse) -> Void in
+            self.stations = self.convertResponseToStations(stationsResponse as NSDictionary)
+            self.configureTableWithData(self.stations)
         })
         // Configure interface objects here.
-        
-           //ENDAST TEST
-        self.wh?.listenForMessageWithIdentifier("departures", listener: { (departures) -> Void in
-            println("got here")
-            println(departures)
-        })
     }
 
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
-        //wake parent application on iPhone and then pass message
-        WKInterfaceController.openParentApplication([:], reply: {(replyInfo, error) -> Void in
-            self.wh!.passMessageObject([:], identifier: "wk")
-        })
     }
 
     override func didDeactivate() {
@@ -49,22 +44,66 @@ class NearbyStationsInterfaceController: WKInterfaceController {
         super.didDeactivate()
     }
 
-    func configureTableWithData(stations: [[String]]){
+    func configureTableWithData(stations: [Station]){
         self.stationsTable.setNumberOfRows(stations.count, withRowType: "rowcontroller")
         for(var i = 0; i < stations.count; i++){
-            var row: RowController = self.stationsTable.rowControllerAtIndex(i) as! RowController
-            row.rowDescription.setText(stations[i][0])
+            var row: RowController = self.stationsTable.rowControllerAtIndex(i) as RowController
+            row.rowDescription.setText(stations[i].name)
+            row.station = stations[i]
+            if let favourites: [String] = self.userDefaults?.objectForKey("favourites") as? [String]{
+                for station in favourites{
+                    if(station == stations[i].id){
+                        row.favouriteButton.setBackgroundImageNamed("star_filled-50.png")
+                    }
+                }
+            }
         }
-        
-        var i = 0
-        /*for station in stations.keys{
-            var row: RowController = self.stationsTable.rowControllerAtIndex(i) as! RowController
-            row.rowDescription.setText(station)
-            i++
-        }*/
     }
     
-    func convertResponseToStations(jsonRespons: NSDictionary){
-           //ENDAST TEST
+    func convertResponseToStations(responseObject: NSDictionary)->[Station]{
+        let results : NSDictionary = responseObject["stationsinzoneresult"] as NSDictionary
+        var stations: [Station] = []
+        if(results.count>0){
+            if(results["location"]!.isKindOfClass(NSArray)){
+                let locations: NSArray  = results["location"] as NSArray
+                for location in locations{
+                    let name = location["name"] as String
+                    let id = location["@id"] as String
+                    let transportTypes = getTransportTypesStringFromTransportList(location["transportlist"] as NSDictionary)
+                    stations.append(Station(id: id, name: name, transportTypes: transportTypes))
+                }
+            }
+            else if(results["location"]!.isKindOfClass(NSDictionary)){
+                let location : NSDictionary = results["location"] as NSDictionary
+                let name = location["name"] as String
+                let id = location["@id"] as String
+                let transportTypes = getTransportTypesStringFromTransportList(location["transportlist"] as NSDictionary)
+                stations.append(Station(id: id, name: name, transportTypes: transportTypes))
+            }
+        }
+        return stations
     }
+    
+    func getTransportTypesStringFromTransportList(transportList: NSDictionary)->String{
+        var transportTypes: String = ""
+        
+        if(transportList.count>0){
+            if(transportList["transport"]!.isKindOfClass(NSArray)){
+                let transports: NSArray  = transportList["transport"] as NSArray
+                for transport in transports{
+                    transportTypes += transport["@displaytype"] as String
+                }
+            }
+            else if(transportList["transport"]!.isKindOfClass(NSDictionary)){
+                transportTypes = (transportList["transport"] as NSDictionary)["@displaytype"] as String
+            }
+        }
+        
+        return transportTypes
+    }
+    
+    override func contextForSegueWithIdentifier(segueIdentifier: String, inTable table: WKInterfaceTable, rowIndex: Int) -> AnyObject? {
+        return self.stations[rowIndex]
+    }
+    
 }

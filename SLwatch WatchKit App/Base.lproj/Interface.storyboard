@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="7519.1" systemVersion="14C109" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7513.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3737"/>
     </dependencies>
     <scenes>
@@ -28,10 +28,10 @@
             </objects>
             <point key="canvasLocation" x="220" y="345"/>
         </scene>
-        <!--Nearby Stations Interface Controller-->
+        <!--nearbyStationsView-->
         <scene sceneID="Y0G-81-evp">
             <objects>
-                <controller id="cII-kl-DYl" customClass="NearbyStationsInterfaceController" customModule="SLwatch_WatchKit_Extension">
+                <controller identifier="nearbyStationsView" id="cII-kl-DYl" customClass="NearbyStationsInterfaceController" customModule="SLwatch_WatchKit_Extension">
                     <items>
                         <label alignment="left" text="Nearby stations" id="NEM-k2-0pW"/>
                         <table alignment="left" id="PpY-ub-vcq">
@@ -39,13 +39,20 @@
                                 <tableRow identifier="rowcontroller" id="pag-fl-3Zm" customClass="RowController" customModule="SLwatch_WatchKit_Extension">
                                     <group key="rootItem" width="1" alignment="left" id="qIv-3O-Szq">
                                         <items>
-                                            <imageView width="24" alignment="left" id="P93-qo-gkE"/>
-                                            <label width="96" height="37" alignment="left" text="Label" numberOfLines="2" id="N6O-iU-pMK"/>
+                                            <label height="37" alignment="left" text="Label" numberOfLines="2" id="N6O-iU-pMK">
+                                                <fontDescription key="font" type="system" pointSize="11"/>
+                                            </label>
+                                            <button width="25" height="25" alignment="right" verticalAlignment="center" backgroundImage="star-50.png" id="6ZF-BQ-v7g">
+                                                <connections>
+                                                    <action selector="favouritePressed" destination="pag-fl-3Zm" id="dyy-UN-SWQ"/>
+                                                </connections>
+                                            </button>
                                         </items>
                                     </group>
                                     <connections>
+                                        <outlet property="favouriteButton" destination="6ZF-BQ-v7g" id="PM6-qH-pM0"/>
                                         <outlet property="rowDescription" destination="N6O-iU-pMK" id="b62-Iz-an8"/>
-                                        <outlet property="rowImage" destination="P93-qo-gkE" id="f35-uw-vY6"/>
+                                        <segue destination="MX0-6l-5lI" kind="push" id="mPj-qZ-8Tc"/>
                                     </connections>
                                 </tableRow>
                             </items>
@@ -56,18 +63,64 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="529" y="219"/>
+            <point key="canvasLocation" x="452" y="169"/>
         </scene>
-        <!--Interface Controller-->
+        <!--favouriteStationsView-->
         <scene sceneID="gOI-PW-cQv">
             <objects>
-                <controller id="bT7-3J-99L">
+                <controller identifier="favouriteStationsView" id="bT7-3J-99L">
                     <items>
                         <label alignment="left" text="Favourite stations" id="3TF-5b-KXY"/>
                     </items>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="529" y="438"/>
+            <point key="canvasLocation" x="461" y="437"/>
+        </scene>
+        <!--departuresView-->
+        <scene sceneID="mr8-XV-AEy">
+            <objects>
+                <controller identifier="departuresView" id="MX0-6l-5lI" customClass="DeparturesInterfaceController" customModule="SLwatch_WatchKit_Extension">
+                    <items>
+                        <label alignment="left" text="Label" id="J6o-4I-75u"/>
+                        <table alignment="left" id="kYm-7q-1pj">
+                            <items>
+                                <tableRow identifier="departuresrowcontroller" selectable="NO" id="ksw-Su-ydE" customClass="DeparturesRowController" customModule="SLwatch_WatchKit_Extension">
+                                    <group key="rootItem" width="1" height="38.5" alignment="left" layout="vertical" id="KWZ-65-FXf">
+                                        <items>
+                                            <label width="1" alignment="left" text="Label" id="3Tf-EF-Eal">
+                                                <fontDescription key="font" type="system" pointSize="12"/>
+                                            </label>
+                                            <label width="1" alignment="left" text="x min" textAlignment="right" id="kkW-pv-9Nv">
+                                                <fontDescription key="font" type="system" pointSize="11"/>
+                                            </label>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="directionLabel" destination="3Tf-EF-Eal" id="3KN-z7-rPN"/>
+                                        <outlet property="timeLabel" destination="kkW-pv-9Nv" id="ncQ-E6-Evo"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <menu key="menu" id="vzL-fE-th9">
+                        <items>
+                            <menuItem title="Favourite" icon="add" id="K0M-Gw-j5g"/>
+                            <menuItem title="Filter" icon="maybe" id="vwV-3p-P9n">
+                                <connections>
+                                    <action selector="filter" destination="MX0-6l-5lI" id="PwM-AN-wYe"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Info" icon="info" id="UKW-Cj-gCt"/>
+                        </items>
+                    </menu>
+                    <connections>
+                        <outlet property="departuresTable" destination="kYm-7q-1pj" id="cRs-OS-F9g"/>
+                        <outlet property="test" destination="J6o-4I-75u" id="2aY-s5-gst"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="708" y="347"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
@@ -91,6 +144,52 @@
                 <controller id="4sK-HA-Art" customClass="NotificationController" customModule="SLwatch_WatchKit_App" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="468" y="643"/>
+        </scene>
+        <!--Filters-->
+        <scene sceneID="18t-1a-uEm">
+            <objects>
+                <controller identifier="filter" title="Filters" id="mCN-k1-QlT" customClass="FilterInterfaceController" customModule="SLwatch_WatchKit_Extension">
+                    <items>
+                        <group width="1" alignment="left" layout="vertical" id="W0Y-qC-aMe">
+                            <items>
+                                <switch width="1" alignment="left" hidden="YES" title="Buss" id="LMA-RE-JGY">
+                                    <connections>
+                                        <action selector="switchedBuss:" destination="mCN-k1-QlT" id="cmd-z0-MWu"/>
+                                    </connections>
+                                </switch>
+                                <switch width="1" alignment="left" hidden="YES" title="Tunnelbana" id="wFf-OG-OOi">
+                                    <connections>
+                                        <action selector="switchedTunnelbana:" destination="mCN-k1-QlT" id="kAU-2m-9PJ"/>
+                                    </connections>
+                                </switch>
+                                <switch width="1" alignment="left" hidden="YES" title="Spårvagn" id="ifD-Fa-4Jv">
+                                    <connections>
+                                        <action selector="switchedSparvagn:" destination="mCN-k1-QlT" id="FLx-rS-qOL"/>
+                                    </connections>
+                                </switch>
+                                <switch width="1" alignment="left" hidden="YES" title="Pendeltåg (samt övriga tåg)" id="tZO-wo-RnP">
+                                    <connections>
+                                        <action selector="switchedPendeltag:" destination="mCN-k1-QlT" id="7ag-qR-o6T"/>
+                                    </connections>
+                                </switch>
+                                <switch width="1" alignment="left" hidden="YES" title="Färja" id="bAL-yc-Agm">
+                                    <connections>
+                                        <action selector="switchedFarja:" destination="mCN-k1-QlT" id="HbY-lU-KsL"/>
+                                    </connections>
+                                </switch>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="bussSwitch" destination="LMA-RE-JGY" id="9Jk-PM-dNK"/>
+                        <outlet property="farjaSwitch" destination="bAL-yc-Agm" id="MYL-Dp-rUq"/>
+                        <outlet property="pendeltagSwitch" destination="tZO-wo-RnP" id="OHv-y3-1Va"/>
+                        <outlet property="sparvagnSwitch" destination="ifD-Fa-4Jv" id="QRd-TY-J0z"/>
+                        <outlet property="tunnelbanaSwitch" destination="wFf-OG-OOi" id="Mmf-3D-Nwq"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="912" y="345"/>
         </scene>
     </scenes>
 </document>

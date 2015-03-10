@@ -13,6 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var locHandler = LocationHandler()
+    var wh: MMWormhole = MMWormhole(applicationGroupIdentifier: "group.slwatch", optionalDirectory: "wormhole")
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -42,9 +43,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(application: UIApplication, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]?, reply: (([NSObject : AnyObject]!) -> Void)!) {
-        self.locHandler.upDateCoordinates()
-        reply(Dictionary())
+        
+        let request: String = (userInfo as [String : String])["request"]!
+        
+        if(request == "stations"){
+            self.locHandler.upDateCoordinates()
+        }else if(request == "departures"){
+            self.apiCallDepartures((userInfo as [String:String])["stationID"]!)
+        }
+    
+        reply(userInfo)
     }
 
+    
+    func apiCallDepartures(stationID: String){
+        let manager = AFHTTPRequestOperationManager()
+        manager.GET(
+            "https://api.trafiklab.se/samtrafiken/resrobotstops/GetDepartures.json?apiVersion=2.2&coordSys=RT90&locationId=\(stationID)&timeSpan=30&key=TrGAqilPmbAXHY1HpIxGAUkmARCAn4qH",
+            parameters: nil,
+            success: { (operation: AFHTTPRequestOperation!,
+                responseObject: AnyObject!) in
+                self.wh.passMessageObject(responseObject as NSDictionary, identifier: "departures")
+                println("JSON: " + responseObject.description)
+            },
+            failure: { (operation: AFHTTPRequestOperation!,
+                error: NSError!) in
+                println("Error: " + error.localizedDescription)
+            }
+        )
+    }
 }
 
