@@ -50,9 +50,11 @@ class NearbyStationsInterfaceController: WKInterfaceController {
             var row: RowController = self.stationsTable.rowControllerAtIndex(i) as RowController
             row.rowDescription.setText(stations[i].name)
             row.station = stations[i]
-            if let favourites: [String] = self.userDefaults?.objectForKey("favourites") as? [String]{
+            if let data = self.userDefaults?.objectForKey("favourites") as? NSData{
+                let unarc = NSKeyedUnarchiver(forReadingWithData: data)
+                let favourites = unarc.decodeObjectForKey("root") as [Station]
                 for station in favourites{
-                    if(station == stations[i].id){
+                    if(station.id == stations[i].id){
                         row.favouriteButton.setBackgroundImageNamed("star_filled-50.png")
                     }
                 }

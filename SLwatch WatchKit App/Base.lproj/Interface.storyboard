@@ -68,10 +68,36 @@
         <!--favouriteStationsView-->
         <scene sceneID="gOI-PW-cQv">
             <objects>
-                <controller identifier="favouriteStationsView" id="bT7-3J-99L">
+                <controller identifier="favouriteStationsView" id="bT7-3J-99L" customClass="FavouritesInterfaceController" customModule="SLwatch_WatchKit_Extension">
                     <items>
                         <label alignment="left" text="Favourite stations" id="3TF-5b-KXY"/>
+                        <table alignment="left" id="7e6-Rl-Y7s">
+                            <items>
+                                <tableRow identifier="rowcontroller" id="8ac-zy-VGo" customClass="RowController" customModule="SLwatch_WatchKit_Extension">
+                                    <group key="rootItem" width="1" alignment="left" id="E9x-Nj-M6N">
+                                        <items>
+                                            <label height="37" alignment="left" text="Label" numberOfLines="2" id="6qf-i2-WWE">
+                                                <fontDescription key="font" type="system" pointSize="11"/>
+                                            </label>
+                                            <button width="25" height="25" alignment="right" verticalAlignment="center" backgroundImage="star-50.png" id="c6g-zz-71E">
+                                                <connections>
+                                                    <action selector="favouritePressed" destination="8ac-zy-VGo" id="WYj-DV-0LN"/>
+                                                </connections>
+                                            </button>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="favouriteButton" destination="c6g-zz-71E" id="QQ8-9m-Avf"/>
+                                        <outlet property="rowDescription" destination="6qf-i2-WWE" id="LSj-7o-Gxp"/>
+                                        <segue destination="MX0-6l-5lI" kind="push" id="Xmq-rv-fma"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
                     </items>
+                    <connections>
+                        <outlet property="stationsTable" destination="7e6-Rl-Y7s" id="dga-ai-2Oq"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="461" y="437"/>
@@ -192,4 +218,7 @@
             <point key="canvasLocation" x="912" y="345"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Xmq-rv-fma"/>
+    </inferredMetricsTieBreakers>
 </document>

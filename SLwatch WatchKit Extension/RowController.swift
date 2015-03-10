@@ -17,32 +17,35 @@ class RowController: NSObject {
     @IBOutlet var favouriteButton: WKInterfaceButton!
     
     @IBOutlet weak var rowDescription: WKInterfaceLabel!
-    
+
     @IBAction func favouritePressed() {
-        if var favourites: [String] = self.userDefaults?.objectForKey("favourites") as? [String]{
+        if let data = self.userDefaults?.objectForKey("favourites") as? NSData{
             var isFavouriteStation = false
+            let unarc = NSKeyedUnarchiver(forReadingWithData: data)
+            var favourites = unarc.decodeObjectForKey("root") as [Station]
+            
             for favourite in favourites{
-                if(self.station.id == favourite){
+                if(self.station.id == favourite.id){
                     isFavouriteStation = true
                 }
             }
             if(isFavouriteStation){
                 //ta bort från favoriter o sätt tom stjärna
                 for(var i = 0; i < favourites.count; i++){
-                    if(self.station.id == favourites[i]){
+                    if(self.station.id == favourites[i].id){
                         favourites.removeAtIndex(i)
                     }
                 }
-                self.userDefaults?.setValue(favourites, forKey: "favourites")
+                self.userDefaults?.setValue(NSKeyedArchiver.archivedDataWithRootObject(favourites), forKey: "favourites")
                 self.favouriteButton.setBackgroundImageNamed("star-50.png")
             }else{
                 //lägg till i favoriter o sätt fylld stjärna
-                favourites.append(self.station.id)
-                self.userDefaults?.setValue(favourites, forKey: "favourites")
+                favourites.append(self.station)
+                self.userDefaults?.setValue(NSKeyedArchiver.archivedDataWithRootObject(favourites), forKey: "favourites")
                 self.favouriteButton.setBackgroundImageNamed("star_filled-50.png")
             }
         }else{
-            self.userDefaults?.setObject([self.station.id], forKey: "favourites")
+            self.userDefaults?.setObject(NSKeyedArchiver.archivedDataWithRootObject([self.station]), forKey: "favourites")
             
         }
         self.userDefaults?.synchronize()
