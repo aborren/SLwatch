@@ -13,11 +13,15 @@ class Station: NSObject, NSCoding {
     var id: String!
     var name: String!
     var transportTypes: String!
+    var longitude: Double!
+    var latitude: Double!
     
-    init(id : String, name: String, transportTypes: String){
+    init(id : String, name: String, transportTypes: String, x: String, y: String){
         self.id = id
         self.name = name
         self.transportTypes = transportTypes
+        self.longitude = (x as NSString).doubleValue
+        self.latitude = (y as NSString).doubleValue
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -30,6 +34,12 @@ class Station: NSObject, NSCoding {
         if let transportTypes = aDecoder.decodeObjectForKey("transportTypes") as? String {
             self.transportTypes = transportTypes
         }
+        if let x = aDecoder.decodeObjectForKey("longitude") as? Double {
+            self.longitude = x
+        }
+        if let y = aDecoder.decodeObjectForKey("latitude") as? Double {
+            self.latitude = y
+        }
     }
     
     func encodeWithCoder(aCoder: NSCoder) {
@@ -41,6 +51,12 @@ class Station: NSObject, NSCoding {
         }
         if let transportTypes = self.transportTypes {
             aCoder.encodeObject(transportTypes, forKey: "transportTypes")
+        }
+        if let id = self.longitude {
+            aCoder.encodeObject(id, forKey: "longitude")
+        }
+        if let id = self.latitude {
+            aCoder.encodeObject(id, forKey: "latitude")
         }
     }
 

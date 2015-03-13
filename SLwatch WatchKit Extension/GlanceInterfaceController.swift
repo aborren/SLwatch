@@ -1,8 +1,8 @@
 //
-//  DeparturesInterfaceController.swift
+//  GlanceInterfaceController.swift
 //  SLwatch
 //
-//  Created by Dan Isacson on 06/03/15.
+//  Created by Dan Isacson on 13/03/15.
 //  Copyright (c) 2015 dna. All rights reserved.
 //
 
@@ -10,36 +10,49 @@ import WatchKit
 import Foundation
 
 
-class DeparturesInterfaceController: WKInterfaceController {
+class GlanceInterfaceController: WKInterfaceController {
 
-    @IBOutlet var stationLabel: WKInterfaceLabel!
+    @IBOutlet var tableLabel: WKInterfaceLabel!
+    @IBOutlet var topLabel: WKInterfaceLabel!
+    @IBOutlet var titleLabel: WKInterfaceLabel!
     @IBOutlet var departuresTable: WKInterfaceTable!
-    var departures: [Departure] = []
     var station: Station?
-    var filterString: String = ""
+    var filterString = ""
+    var departures: [Departure] = []
+    
     var userDefaults = NSUserDefaults(suiteName: "group.slwatch")
     
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         
+        //hämta station
+        self.station = self.getGlanceStation()
+        
         // Configure interface objects here.
-        self.station = context as? Station
-        self.stationLabel.setText(self.station!.name)
-
     }
 
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
-        loadFilterString()
-        if let stationID = self.station?.id {
-            request(.GET, "https://api.trafiklab.se/samtrafiken/resrobotstops/GetDepartures.json?apiVersion=2.2&coordSys=RT90&locationId=\(stationID)&timeSpan=30&key=TrGAqilPmbAXHY1HpIxGAUkmARCAn4qH")
-                    .responseJSON { (_, _, JSON, _) in
-                        if let response: AnyObject = JSON {
-                            self.departures = self.convertResponseToDepartures(response)
-                            self.configureTableWithData(self.departures)
-                        }
+        
+        if let station = self.station {
+            self.titleLabel.setText(station.name)
+            self.loadFilterString()
+            request(.GET, "https://api.trafiklab.se/samtrafiken/resrobotstops/GetDepartures.json?apiVersion=2.2&coordSys=RT90&locationId=\(station.id)&timeSpan=30&key=TrGAqilPmbAXHY1HpIxGAUkmARCAn4qH")
+                .responseJSON { (_, _, JSON, _) in
+                    if let response: AnyObject = JSON {
+                        self.departures = self.convertResponseToDepartures(response)
+                        self.configureTableWithData(self.departures)
+                    }
             }
+        }else{
+            self.topLabel.setText("")
+            self.titleLabel.setText("No station for glance view set")
+            self.departuresTable.setHidden(true)
+            self.tableLabel.setHidden(false)
+            self.tableLabel.setText("Click here to open the application to set a station for glance view.")
+            println("No glance set")
+            //show some msg
         }
     }
 
@@ -49,18 +62,15 @@ class DeparturesInterfaceController: WKInterfaceController {
     }
     
     func configureTableWithData(departures: [Departure]){
-        self.departuresTable.setNumberOfRows(departures.count, withRowType: "departuresrowcontroller")
-        for(var i = 0; i < departures.count; i++){
-            var row: DeparturesRowController = self.departuresTable.rowControllerAtIndex(i) as DeparturesRowController
-            row.setUpRow(departures[i]) 
+        var numberOfRows = departures.count
+        if(numberOfRows > 3){
+            numberOfRows = 3
         }
-    }
-    
-    func loadFilterString(){
-        if let filter = self.userDefaults?.stringForKey(self.station!.id){
-            self.filterString = filter
-        }else{
-            self.filterString = self.station!.transportTypes
+        
+        self.departuresTable.setNumberOfRows(numberOfRows, withRowType: "departuresrowcontroller")
+        for(var i = 0; i < numberOfRows; i++){
+            var row: DeparturesRowController = self.departuresTable.rowControllerAtIndex(i) as DeparturesRowController
+            row.setUpRow(departures[i])
         }
     }
     
@@ -110,16 +120,21 @@ class DeparturesInterfaceController: WKInterfaceController {
         return departures
     }
     
-    @IBAction func map() {
-        presentControllerWithName("map", context: self.station!)
+    func getGlanceStation()->Station?{
+        var glanceStation: Station?
+        if let data = self.userDefaults?.objectForKey("glance") as? NSData{
+            let unarc = NSKeyedUnarchiver(forReadingWithData: data)
+            glanceStation = unarc.decodeObjectForKey("root") as? Station
+        }
+        return glanceStation
     }
     
-    @IBAction func filter() {
-        presentControllerWithName("filter", context: self.station!)
+    func loadFilterString(){
+        if let filter = self.userDefaults?.stringForKey(self.station!.id){
+            self.filterString = filter
+        }else{
+            self.filterString = self.station!.transportTypes
+        }
     }
 
-    @IBAction func glance() {
-        self.userDefaults?.setObject(NSKeyedArchiver.archivedDataWithRootObject(self.station!), forKey: "glance")
-        self.userDefaults?.synchronize()
-    }
 }

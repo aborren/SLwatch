@@ -46,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let request: String = (userInfo as [String : String])["request"]!
         
-        if(request == "stations"){
+        if(request == "location"){
             self.locHandler.upDateCoordinates()
         }
         

@@ -1,39 +1,101 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3737"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
+        <!--SL watch-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="SLwatch_WatchKit_App" customModuleProvider="target">
+                <controller title="SL watch" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="SLwatch_WatchKit_App" customModuleProvider="target">
                     <items>
-                        <label alignment="center" text="SL watch" textAlignment="center" id="UQC-sj-6h6">
-                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                        <label alignment="center" verticalAlignment="center" text="SL watch" textAlignment="center" id="UQC-sj-6h6">
+                            <fontDescription key="font" type="boldSystem" pointSize="20"/>
                         </label>
-                        <button width="1" alignment="left" title="Nearby stations" id="aeX-ge-hOO">
+                        <separator alignment="center" verticalAlignment="center" id="3UZ-3R-3Qh">
+                            <color key="color" red="0.99215686270000003" green="0.89411764709999997" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </separator>
+                        <button width="1" alignment="left" verticalAlignment="center" title="Nearby stations" id="aeX-ge-hOO">
+                            <fontDescription key="font" type="system" pointSize="15"/>
                             <connections>
                                 <segue destination="cII-kl-DYl" kind="push" id="gfa-AM-1dS"/>
                             </connections>
                         </button>
-                        <button width="1" alignment="left" title="Favourite stations" id="Pqk-8w-Kxf">
+                        <button width="1" alignment="left" verticalAlignment="center" title="Favourite stations" id="Pqk-8w-Kxf">
+                            <fontDescription key="font" type="system" pointSize="15"/>
                             <connections>
                                 <segue destination="bT7-3J-99L" kind="push" id="AWk-II-hVJ"/>
                             </connections>
                         </button>
                     </items>
+                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 </controller>
             </objects>
             <point key="canvasLocation" x="220" y="345"/>
         </scene>
-        <!--nearbyStationsView-->
+        <!--Glance Interface Controller-->
+        <scene sceneID="Qt1-iN-8Xo">
+            <objects>
+                <glanceController id="W4C-4Y-6Ij" customClass="GlanceInterfaceController" customModule="SLwatch_WatchKit_Extension">
+                    <items>
+                        <group alignment="left" layout="vertical" id="YsP-gH-u2r">
+                            <items>
+                                <label alignment="left" verticalAlignment="bottom" text="Departures from:" id="g5r-DA-7i8">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="font" type="system" pointSize="8"/>
+                                </label>
+                                <label alignment="left" verticalAlignment="bottom" text="Label" textAlignment="left" numberOfLines="0" id="5dl-RF-t3N">
+                                    <fontDescription key="font" type="system" pointSize="13"/>
+                                </label>
+                            </items>
+                        </group>
+                        <group alignment="left" id="chv-6R-ory">
+                            <items>
+                                <label alignment="center" verticalAlignment="center" hidden="YES" numberOfLines="0" id="uIM-24-3H5">
+                                    <fontDescription key="font" type="system" pointSize="13"/>
+                                </label>
+                                <table alignment="center" verticalAlignment="center" id="yNZ-tN-M5X">
+                                    <items>
+                                        <tableRow identifier="departuresrowcontroller" selectable="NO" id="x6F-dk-BzD" customClass="DeparturesRowController" customModule="SLwatch_WatchKit_Extension">
+                                            <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" id="ZCH-MO-o5I">
+                                                <items>
+                                                    <label width="1" alignment="left" text="Label" id="2mZ-vV-tuT">
+                                                        <fontDescription key="font" type="system" pointSize="10"/>
+                                                    </label>
+                                                    <label width="1" alignment="left" text="x min" textAlignment="right" id="EoX-uG-UJv">
+                                                        <fontDescription key="font" type="system" pointSize="9"/>
+                                                    </label>
+                                                </items>
+                                            </group>
+                                            <connections>
+                                                <outlet property="directionLabel" destination="2mZ-vV-tuT" id="e3e-w2-JVW"/>
+                                                <outlet property="timeLabel" destination="EoX-uG-UJv" id="3hl-LP-pOE"/>
+                                            </connections>
+                                        </tableRow>
+                                    </items>
+                                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </table>
+                            </items>
+                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="departuresTable" destination="yNZ-tN-M5X" id="Cb6-nS-4ca"/>
+                        <outlet property="tableLabel" destination="uIM-24-3H5" id="gxs-Dc-3ZC"/>
+                        <outlet property="titleLabel" destination="5dl-RF-t3N" id="cnQ-8U-hvR"/>
+                        <outlet property="topLabel" destination="g5r-DA-7i8" id="prr-Ww-jnH"/>
+                    </connections>
+                </glanceController>
+            </objects>
+            <point key="canvasLocation" x="220" y="-126"/>
+        </scene>
+        <!--SL watch-->
         <scene sceneID="Y0G-81-evp">
             <objects>
-                <controller identifier="nearbyStationsView" id="cII-kl-DYl" customClass="NearbyStationsInterfaceController" customModule="SLwatch_WatchKit_Extension">
+                <controller identifier="nearbyStationsView" title="SL watch" id="cII-kl-DYl" customClass="NearbyStationsInterfaceController" customModule="SLwatch_WatchKit_Extension">
                     <items>
-                        <label alignment="left" text="Nearby stations" id="NEM-k2-0pW"/>
+                        <label alignment="center" text="Nearby stations" textAlignment="center" id="wLs-kO-U8S"/>
                         <table alignment="left" id="PpY-ub-vcq">
                             <items>
                                 <tableRow identifier="rowcontroller" id="pag-fl-3Zm" customClass="RowController" customModule="SLwatch_WatchKit_Extension">
@@ -56,8 +118,10 @@
                                     </connections>
                                 </tableRow>
                             </items>
+                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </table>
                     </items>
+                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
                         <outlet property="stationsTable" destination="PpY-ub-vcq" id="f7Z-fM-t6d"/>
                     </connections>
@@ -65,12 +129,12 @@
             </objects>
             <point key="canvasLocation" x="452" y="169"/>
         </scene>
-        <!--favouriteStationsView-->
+        <!--SL watch-->
         <scene sceneID="gOI-PW-cQv">
             <objects>
-                <controller identifier="favouriteStationsView" id="bT7-3J-99L" customClass="FavouritesInterfaceController" customModule="SLwatch_WatchKit_Extension">
+                <controller identifier="favouriteStationsView" title="SL watch" id="bT7-3J-99L" customClass="FavouritesInterfaceController" customModule="SLwatch_WatchKit_Extension">
                     <items>
-                        <label alignment="left" text="Favourite stations" id="3TF-5b-KXY"/>
+                        <label alignment="center" text="Favourite stations" textAlignment="center" id="3TF-5b-KXY"/>
                         <table alignment="left" id="7e6-Rl-Y7s">
                             <items>
                                 <tableRow identifier="rowcontroller" id="8ac-zy-VGo" customClass="RowController" customModule="SLwatch_WatchKit_Extension">
@@ -93,8 +157,10 @@
                                     </connections>
                                 </tableRow>
                             </items>
+                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </table>
                     </items>
+                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
                         <outlet property="stationsTable" destination="7e6-Rl-Y7s" id="dga-ai-2Oq"/>
                     </connections>
@@ -102,16 +168,16 @@
             </objects>
             <point key="canvasLocation" x="461" y="437"/>
         </scene>
-        <!--departuresView-->
+        <!--SL watch-->
         <scene sceneID="mr8-XV-AEy">
             <objects>
-                <controller identifier="departuresView" id="MX0-6l-5lI" customClass="DeparturesInterfaceController" customModule="SLwatch_WatchKit_Extension">
+                <controller identifier="departuresView" title="SL watch" id="MX0-6l-5lI" customClass="DeparturesInterfaceController" customModule="SLwatch_WatchKit_Extension">
                     <items>
-                        <label alignment="left" text="Label" id="J6o-4I-75u"/>
+                        <label alignment="center" text="Station" textAlignment="center" numberOfLines="0" id="bh6-sV-eIB"/>
                         <table alignment="left" id="kYm-7q-1pj">
                             <items>
                                 <tableRow identifier="departuresrowcontroller" selectable="NO" id="ksw-Su-ydE" customClass="DeparturesRowController" customModule="SLwatch_WatchKit_Extension">
-                                    <group key="rootItem" width="1" height="38.5" alignment="left" layout="vertical" id="KWZ-65-FXf">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" id="KWZ-65-FXf">
                                         <items>
                                             <label width="1" alignment="left" text="Label" id="3Tf-EF-Eal">
                                                 <fontDescription key="font" type="system" pointSize="12"/>
@@ -127,22 +193,32 @@
                                     </connections>
                                 </tableRow>
                             </items>
+                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </table>
                     </items>
                     <menu key="menu" id="vzL-fE-th9">
                         <items>
-                            <menuItem title="Favourite" icon="add" id="K0M-Gw-j5g"/>
-                            <menuItem title="Filter" icon="maybe" id="vwV-3p-P9n">
+                            <menuItem title="Departure Settings" image="filter" id="vwV-3p-P9n">
                                 <connections>
                                     <action selector="filter" destination="MX0-6l-5lI" id="PwM-AN-wYe"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Info" icon="info" id="UKW-Cj-gCt"/>
+                            <menuItem title="Set as Glance" image="glance" id="5Wc-Qp-2qO">
+                                <connections>
+                                    <action selector="glance" destination="MX0-6l-5lI" id="74v-Xl-lUF"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Station location" image="map" id="UKW-Cj-gCt" userLabel="Map">
+                                <connections>
+                                    <action selector="map" destination="MX0-6l-5lI" id="XZ6-QI-QZ2"/>
+                                </connections>
+                            </menuItem>
                         </items>
                     </menu>
+                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
                         <outlet property="departuresTable" destination="kYm-7q-1pj" id="cRs-OS-F9g"/>
-                        <outlet property="test" destination="J6o-4I-75u" id="2aY-s5-gst"/>
+                        <outlet property="stationLabel" destination="bh6-sV-eIB" id="PDc-CD-aKP"/>
                     </connections>
                 </controller>
             </objects>
@@ -171,34 +247,43 @@
             </objects>
             <point key="canvasLocation" x="468" y="643"/>
         </scene>
-        <!--Filters-->
+        <!--Back-->
         <scene sceneID="18t-1a-uEm">
             <objects>
-                <controller identifier="filter" title="Filters" id="mCN-k1-QlT" customClass="FilterInterfaceController" customModule="SLwatch_WatchKit_Extension">
+                <controller identifier="filter" title="Back" id="mCN-k1-QlT" customClass="FilterInterfaceController" customModule="SLwatch_WatchKit_Extension">
                     <items>
                         <group width="1" alignment="left" layout="vertical" id="W0Y-qC-aMe">
                             <items>
                                 <switch width="1" alignment="left" hidden="YES" title="Buss" id="LMA-RE-JGY">
+                                    <fontDescription key="font" type="system" pointSize="13"/>
+                                    <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <connections>
                                         <action selector="switchedBuss:" destination="mCN-k1-QlT" id="cmd-z0-MWu"/>
                                     </connections>
                                 </switch>
                                 <switch width="1" alignment="left" hidden="YES" title="Tunnelbana" id="wFf-OG-OOi">
+                                    <fontDescription key="font" type="system" pointSize="13"/>
+                                    <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <connections>
-                                        <action selector="switchedTunnelbana:" destination="mCN-k1-QlT" id="kAU-2m-9PJ"/>
+                                        <action selector="switchedTunnelbana:" destination="mCN-k1-QlT" id="XDR-Ys-q0w"/>
                                     </connections>
                                 </switch>
                                 <switch width="1" alignment="left" hidden="YES" title="Spårvagn" id="ifD-Fa-4Jv">
+                                    <fontDescription key="font" type="system" pointSize="13"/>
+                                    <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <connections>
                                         <action selector="switchedSparvagn:" destination="mCN-k1-QlT" id="FLx-rS-qOL"/>
                                     </connections>
                                 </switch>
                                 <switch width="1" alignment="left" hidden="YES" title="Pendeltåg (samt övriga tåg)" id="tZO-wo-RnP">
+                                    <fontDescription key="font" type="system" pointSize="13"/>
+                                    <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <connections>
                                         <action selector="switchedPendeltag:" destination="mCN-k1-QlT" id="7ag-qR-o6T"/>
                                     </connections>
                                 </switch>
                                 <switch width="1" alignment="left" hidden="YES" title="Färja" id="bAL-yc-Agm">
+                                    <fontDescription key="font" type="system" pointSize="13"/>
                                     <connections>
                                         <action selector="switchedFarja:" destination="mCN-k1-QlT" id="HbY-lU-KsL"/>
                                     </connections>
@@ -217,8 +302,23 @@
             </objects>
             <point key="canvasLocation" x="912" y="345"/>
         </scene>
+        <!--Back-->
+        <scene sceneID="TZg-fb-sJB">
+            <objects>
+                <controller identifier="map" title="Back" id="SYd-4J-bhU" customClass="MapInterfaceController" customModule="SLwatch_WatchKit_Extension">
+                    <items>
+                        <map width="1" height="1" alignment="left" id="Lke-Sb-6I6"/>
+                    </items>
+                    <connections>
+                        <outlet property="map" destination="Lke-Sb-6I6" id="F24-B7-bQd"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="912" y="95"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Xmq-rv-fma"/>
+        <segue reference="mPj-qZ-8Tc"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>

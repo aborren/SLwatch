@@ -23,9 +23,8 @@ class NearbyStationsInterfaceController: WKInterfaceController {
         self.wh = MMWormhole(applicationGroupIdentifier: "group.slwatch", optionalDirectory: "wormhole")
         
         //wake parent application on iPhone and reques GPS location
-        WKInterfaceController.openParentApplication(["request":"stations"], reply: {(replyInfo, error) -> Void in
+        WKInterfaceController.openParentApplication(["request":"location"], reply: {(replyInfo, error) -> Void in
         })
-        
         
         self.wh!.listenForMessageWithIdentifier("location", listener: { (locationResponse) -> Void in
             if let longitude: Double = locationResponse["longitude"] as? Double{
@@ -75,18 +74,22 @@ class NearbyStationsInterfaceController: WKInterfaceController {
                 for location in locations{
                     let name = location["name"] as String
                     let id = location["@id"] as String
+                    let long = location["@x"] as String
+                    let lat = location["@y"] as String
                     //println(self.getSLidFromGTFSid(id) + " " + id)
                     let transportTypes = getTransportTypesStringFromTransportList(location["transportlist"] as NSDictionary)
-                    stations.append(Station(id: id, name: name, transportTypes: transportTypes))
+                    stations.append(Station(id: id, name: name, transportTypes: transportTypes, x: long, y: lat))
                 }
             }
             else if(results["location"]!.isKindOfClass(NSDictionary)){
                 let location : NSDictionary = results["location"] as NSDictionary
                 let name = location["name"] as String
                 let id = location["@id"] as String
+                let long = location["@x"] as String
+                let lat = location["@y"] as String
                 //println(self.getSLidFromGTFSid(id) + " " + id)
                 let transportTypes = getTransportTypesStringFromTransportList(location["transportlist"] as NSDictionary)
-                stations.append(Station(id: id, name: name, transportTypes: transportTypes))
+                stations.append(Station(id: id, name: name, transportTypes: transportTypes, x: long, y: lat))
             }
         }
         return stations
@@ -122,7 +125,6 @@ class NearbyStationsInterfaceController: WKInterfaceController {
                     self.stations = self.convertResponseToStations(stationsResponse as NSDictionary)
                     self.configureTableWithData(self.stations)
                 }
-                println(JSON)
         }
     }
     

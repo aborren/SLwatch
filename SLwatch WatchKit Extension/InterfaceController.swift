@@ -25,7 +25,11 @@ class InterfaceController: WKInterfaceController {
      
         
     }
+    @IBOutlet var testt: WKInterfaceSwitch!
 
+    @IBAction func test(value: Bool) {
+        println(value)
+    }
     override func didDeactivate() {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()

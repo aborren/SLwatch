@@ -19,6 +19,7 @@ class RowController: NSObject {
     @IBOutlet weak var rowDescription: WKInterfaceLabel!
 
     @IBAction func favouritePressed() {
+        println("pressed")
         if let data = self.userDefaults?.objectForKey("favourites") as? NSData{
             var isFavouriteStation = false
             let unarc = NSKeyedUnarchiver(forReadingWithData: data)

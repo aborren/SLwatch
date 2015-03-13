@@ -18,6 +18,13 @@ class FilterInterfaceController: WKInterfaceController {
     @IBOutlet var pendeltagSwitch: WKInterfaceSwitch!
     @IBOutlet var farjaSwitch: WKInterfaceSwitch!
     
+    //friggin bug forces me to do this...
+    var buss: Bool = false
+    var tunnelbana: Bool = false
+    var sparvagn: Bool = false
+    var pendeltag: Bool = false
+    var farja: Bool = false
+    
     var station: Station?
     var transportTypes: String = ""
     var filterString: String = ""
@@ -68,37 +75,47 @@ class FilterInterfaceController: WKInterfaceController {
     func setSwitches(filterString: String){
         if(filterString.rangeOfString("B", options: nil, range: nil, locale: nil) != nil){
             self.bussSwitch.setOn(true)
+            self.buss = true
         }
         if(filterString.rangeOfString("U", options: nil, range: nil, locale: nil) != nil){
             self.tunnelbanaSwitch.setOn(true)
+            self.tunnelbana = true
         }
         if(filterString.rangeOfString("S", options: nil, range: nil, locale: nil) != nil){
             self.sparvagnSwitch.setOn(true)
+            self.sparvagn = true
         }
         if(filterString.rangeOfString("J", options: nil, range: nil, locale: nil) != nil){
             self.pendeltagSwitch.setOn(true)
+            self.pendeltag = true
         }
         if(filterString.rangeOfString("F", options: nil, range: nil, locale: nil) != nil){
             self.farjaSwitch.setOn(true)
+            self.farja = true
         }
     }
 
     @IBAction func switchedBuss(value: Bool) {
-        self.addOrDeleteFilterLetter(value, letter: "B")
+        self.buss = !self.buss
+        self.addOrDeleteFilterLetter(self.buss, letter: "B")
     }
     @IBAction func switchedTunnelbana(value: Bool) {
-        self.addOrDeleteFilterLetter(value, letter: "U")
+        self.tunnelbana = !self.tunnelbana
+        self.addOrDeleteFilterLetter(self.tunnelbana, letter: "U")
     }
     @IBAction func switchedSparvagn(value: Bool) {
-        self.addOrDeleteFilterLetter(value, letter: "S")
+        self.sparvagn = !self.sparvagn
+        self.addOrDeleteFilterLetter(self.sparvagn, letter: "S")
     }
     @IBAction func switchedPendeltag(value: Bool) {
-        self.addOrDeleteFilterLetter(value, letter: "J")
+        self.pendeltag = !self.pendeltag
+        self.addOrDeleteFilterLetter(self.pendeltag, letter: "J")
     }
     @IBAction func switchedFarja(value: Bool) {
-        self.addOrDeleteFilterLetter(value, letter: "F")
+        self.farja = !self.farja
+        self.addOrDeleteFilterLetter(self.farja, letter: "F")
     }
-    
+
     func addOrDeleteFilterLetter(add: Bool, letter: String){
         if(add){
             self.filterString += letter
