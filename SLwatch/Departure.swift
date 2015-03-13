@@ -19,12 +19,12 @@ class Departure {
     Departure time (countdown)
     **/
     
-    let direction: String
-    let transportType: String
-    let lineNumber: String
-    let departureTime: NSDate
+    let direction: String?
+    let transportType: String?
+    let lineNumber: String?
+    let departureTime: NSDate?
 
-    init(direction: String, transportType: String, lineNumber: String, departureTime: NSDate){
+    init(direction: String?, transportType: String?, lineNumber: String?, departureTime: NSDate?){
         self.direction = direction
         self.transportType = transportType
         self.lineNumber = lineNumber

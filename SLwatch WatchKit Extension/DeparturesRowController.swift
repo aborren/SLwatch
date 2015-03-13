@@ -10,9 +10,28 @@ import UIKit
 import WatchKit
 
 class DeparturesRowController: NSObject {
-    //@IBOutlet var numberLabel: WKInterfaceLabel!
-    //@IBOutlet var typeImage: WKInterfaceImage!
     @IBOutlet var directionLabel: WKInterfaceLabel!
     @IBOutlet var timeLabel: WKInterfaceLabel!
-   
+ 
+    func setUpRow(departure: Departure){
+        if let line = departure.lineNumber {
+            if let direction = departure.direction{
+                self.directionLabel.setText("\(line) \(direction)")
+            }else{
+                self.directionLabel.setText(line)
+            }
+        }else{
+            if let direction = departure.direction{
+                self.directionLabel.setText("\(direction)")
+            }else{
+                self.directionLabel.setText("Unknown destination")
+            }
+        }
+        
+        if let departureTime = departure.departureTime {
+            var df = NSDateFormatter()
+            df.dateFormat = "HH:mm"
+            self.timeLabel.setText(df.stringFromDate(departureTime))
+        }
+    }
 }
