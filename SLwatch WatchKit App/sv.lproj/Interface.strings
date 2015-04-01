@@ -1,0 +1,90 @@
+
+/* Class = "WKInterfaceLabel"; text = "Label"; ObjectID = "2mZ-vV-tuT"; */
+"2mZ-vV-tuT.text" = "Label";
+
+/* Class = "WKInterfaceLabel"; text = "Favourite stations"; ObjectID = "3TF-5b-KXY"; */
+"3TF-5b-KXY.text" = "Stjärnmarkerade stationer";
+
+/* Class = "WKInterfaceLabel"; text = "Label"; ObjectID = "3Tf-EF-Eal"; */
+"3Tf-EF-Eal.text" = "Label";
+
+/* Class = "WKInterfaceMenuItem"; title = "Set as Glance"; ObjectID = "5Wc-Qp-2qO"; */
+"5Wc-Qp-2qO.title" = "Sätt som överblicksvy";
+
+/* Class = "WKInterfaceLabel"; text = "Label"; ObjectID = "5dl-RF-t3N"; */
+"5dl-RF-t3N.text" = "Label";
+
+/* Class = "WKInterfaceLabel"; text = "Label"; ObjectID = "6qf-i2-WWE"; */
+"6qf-i2-WWE.text" = "Label";
+
+/* Class = "WKInterfaceController"; title = "SL watch"; ObjectID = "AgC-eL-Hgc"; */
+"AgC-eL-Hgc.title" = "SL watch";
+
+/* Class = "WKInterfaceLabel"; text = "x min"; ObjectID = "EoX-uG-UJv"; */
+"EoX-uG-UJv.text" = "x min";
+
+/* Class = "WKInterfaceLabel"; text = "Alert Label"; ObjectID = "IdU-wH-bcW"; */
+"IdU-wH-bcW.text" = "Alert Label";
+
+/* Class = "WKInterfaceSwitch"; title = "Buss"; ObjectID = "LMA-RE-JGY"; */
+"LMA-RE-JGY.title" = "Buss";
+
+/* Class = "WKInterfaceController"; title = "SL watch"; ObjectID = "MX0-6l-5lI"; */
+"MX0-6l-5lI.title" = "SL watch";
+
+/* Class = "WKInterfaceLabel"; text = "Label"; ObjectID = "N6O-iU-pMK"; */
+"N6O-iU-pMK.text" = "Label";
+
+/* Class = "WKInterfaceButton"; title = "Favourite stations"; ObjectID = "Pqk-8w-Kxf"; */
+"Pqk-8w-Kxf.title" = "Stjärnmarkerade stationer";
+
+/* Class = "WKInterfaceController"; title = "Back"; ObjectID = "SYd-4J-bhU"; */
+"SYd-4J-bhU.title" = "Tillbaka";
+
+/* Class = "WKInterfaceMenuItem"; title = "Station location"; ObjectID = "UKW-Cj-gCt"; */
+"UKW-Cj-gCt.title" = "Karta";
+
+/* Class = "WKInterfaceLabel"; text = "SL watch"; ObjectID = "UQC-sj-6h6"; */
+"UQC-sj-6h6.text" = "SL watch";
+
+/* Class = "WKInterfaceLabel"; text = "Label"; ObjectID = "Zgl-YO-k1W"; */
+"Zgl-YO-k1W.text" = "Label";
+
+/* Class = "WKInterfaceButton"; title = "Nearby stations"; ObjectID = "aeX-ge-hOO"; */
+"aeX-ge-hOO.title" = "Närliggande stationer";
+
+/* Class = "WKInterfaceSwitch"; title = "Färja"; ObjectID = "bAL-yc-Agm"; */
+"bAL-yc-Agm.title" = "Färja";
+
+/* Class = "WKInterfaceController"; title = "SL watch"; ObjectID = "bT7-3J-99L"; */
+"bT7-3J-99L.title" = "SL watch";
+
+/* Class = "WKInterfaceLabel"; text = "Station"; ObjectID = "bh6-sV-eIB"; */
+"bh6-sV-eIB.text" = "Station";
+
+/* Class = "WKInterfaceController"; title = "SL watch"; ObjectID = "cII-kl-DYl"; */
+"cII-kl-DYl.title" = "SL watch";
+
+/* Class = "WKInterfaceLabel"; text = "Departures from:"; ObjectID = "g5r-DA-7i8"; */
+"g5r-DA-7i8.text" = "Avgångar från:";
+
+/* Class = "WKInterfaceSwitch"; title = "Spårvagn"; ObjectID = "ifD-Fa-4Jv"; */
+"ifD-Fa-4Jv.title" = "Spårvagn";
+
+/* Class = "WKInterfaceLabel"; text = "x min"; ObjectID = "kkW-pv-9Nv"; */
+"kkW-pv-9Nv.text" = "x min";
+
+/* Class = "WKInterfaceController"; title = "Back"; ObjectID = "mCN-k1-QlT"; */
+"mCN-k1-QlT.title" = "Tillbaka";
+
+/* Class = "WKInterfaceSwitch"; title = "Pendeltåg (samt övriga tåg)"; ObjectID = "tZO-wo-RnP"; */
+"tZO-wo-RnP.title" = "Pendeltåg (samt övriga tåg)";
+
+/* Class = "WKInterfaceMenuItem"; title = "Departure Settings"; ObjectID = "vwV-3p-P9n"; */
+"vwV-3p-P9n.title" = "Filter";
+
+/* Class = "WKInterfaceSwitch"; title = "Tunnelbana"; ObjectID = "wFf-OG-OOi"; */
+"wFf-OG-OOi.title" = "Tunnelbana";
+
+/* Class = "WKInterfaceLabel"; text = "Nearby stations"; ObjectID = "wLs-kO-U8S"; */
+"wLs-kO-U8S.text" = "Närliggande stationer";

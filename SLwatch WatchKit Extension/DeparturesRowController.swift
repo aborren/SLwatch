@@ -29,9 +29,14 @@ class DeparturesRowController: NSObject {
         }
         
         if let departureTime = departure.departureTime {
-            var df = NSDateFormatter()
-            df.dateFormat = "HH:mm"
-            self.timeLabel.setText(df.stringFromDate(departureTime))
+            self.setUpTime(departureTime)
         }
+
+    }
+    
+    func setUpTime(departureTime: NSDate){
+        var df = NSDateFormatter()
+        df.dateFormat = "HH:mm"
+        self.timeLabel.setText(df.stringFromDate(departureTime))
     }
 }

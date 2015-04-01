@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  SLwatch
+
+  Created by Dan Isacson on 01/04/15.
+  Copyright (c) 2015 dna. All rights reserved.
+*/
+ NO_GPS_MESSAGE = "Vänligen öppna SL Watch på din iPhone och tillåt den komma åt GPS:n";
+NO_DEPARTURES_MESSAGE = "Inga avgångar från denna station funna.";
+NO_GLANCE_MESSAGE = "Ingen station inställd som överblicksvy";
+NO_GLANCE_INSTRUCTION = "Klicka här för att öppna applikationen och ställa in en station som överblick";

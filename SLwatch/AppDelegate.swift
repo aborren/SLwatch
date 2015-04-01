@@ -8,12 +8,12 @@
 
 import UIKit
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var locHandler = LocationHandler()
-    var wh: MMWormhole = MMWormhole(applicationGroupIdentifier: "group.slwatch", optionalDirectory: "wormhole")
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -47,10 +47,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let request: String = (userInfo as [String : String])["request"]!
         
         if(request == "location"){
-            self.locHandler.upDateCoordinates()
+            let gpsAvailable = self.locHandler.upDateCoordinates()
+            if (gpsAvailable){
+                reply(["gpsAvailable":true])
+            }else{
+                reply(["gpsAvailable":false])
+            }
         }
         
-        reply(userInfo)
+        
     }
 
 }

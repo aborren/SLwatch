@@ -16,6 +16,7 @@ class NearbyStationsInterfaceController: WKInterfaceController {
     var wh: MMWormhole?
     var stations: [Station] = []
     var userDefaults = NSUserDefaults(suiteName: "group.slwatch")
+    @IBOutlet var informationLabel: WKInterfaceLabel!
     
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
@@ -24,9 +25,17 @@ class NearbyStationsInterfaceController: WKInterfaceController {
         
         //wake parent application on iPhone and reques GPS location
         WKInterfaceController.openParentApplication(["request":"location"], reply: {(replyInfo, error) -> Void in
+            let gpsAvailable = replyInfo["gpsAvailable"] as Bool
+            if(!gpsAvailable){
+                //do something to prompt user to open
+                self.informationLabel.setHidden(false)
+                self.informationLabel.setText(NSLocalizedString("NO_GPS_MESSAGE", comment: "Hi"))
+                println("Set gps")
+            }
         })
         
         self.wh!.listenForMessageWithIdentifier("location", listener: { (locationResponse) -> Void in
+            println("got message")
             if let longitude: Double = locationResponse["longitude"] as? Double{
                 if let latitude: Double = locationResponse["latitude"] as? Double{
                     self.setUpTableFromLocation(longitude.description, latitude: latitude.description)
@@ -65,64 +74,17 @@ class NearbyStationsInterfaceController: WKInterfaceController {
         }
     }
     
-    func convertResponseToStations(responseObject: NSDictionary)->[Station]{
-        let results : NSDictionary = responseObject["stationsinzoneresult"] as NSDictionary
-        var stations: [Station] = []
-        if(results.count>0){
-            if(results["location"]!.isKindOfClass(NSArray)){
-                let locations: NSArray  = results["location"] as NSArray
-                for location in locations{
-                    let name = location["name"] as String
-                    let id = location["@id"] as String
-                    let long = location["@x"] as String
-                    let lat = location["@y"] as String
-                    //println(self.getSLidFromGTFSid(id) + " " + id)
-                    let transportTypes = getTransportTypesStringFromTransportList(location["transportlist"] as NSDictionary)
-                    stations.append(Station(id: id, name: name, transportTypes: transportTypes, x: long, y: lat))
-                }
-            }
-            else if(results["location"]!.isKindOfClass(NSDictionary)){
-                let location : NSDictionary = results["location"] as NSDictionary
-                let name = location["name"] as String
-                let id = location["@id"] as String
-                let long = location["@x"] as String
-                let lat = location["@y"] as String
-                //println(self.getSLidFromGTFSid(id) + " " + id)
-                let transportTypes = getTransportTypesStringFromTransportList(location["transportlist"] as NSDictionary)
-                stations.append(Station(id: id, name: name, transportTypes: transportTypes, x: long, y: lat))
-            }
-        }
-        return stations
-    }
-    
-    func getTransportTypesStringFromTransportList(transportList: NSDictionary)->String{
-        var transportTypes: String = ""
-        
-        if(transportList.count>0){
-            if(transportList["transport"]!.isKindOfClass(NSArray)){
-                let transports: NSArray  = transportList["transport"] as NSArray
-                for transport in transports{
-                    transportTypes += transport["@displaytype"] as String
-                }
-            }
-            else if(transportList["transport"]!.isKindOfClass(NSDictionary)){
-                transportTypes = (transportList["transport"] as NSDictionary)["@displaytype"] as String
-            }
-        }
-        
-        return transportTypes
-    }
-    
     override func contextForSegueWithIdentifier(segueIdentifier: String, inTable table: WKInterfaceTable, rowIndex: Int) -> AnyObject? {
         return self.stations[rowIndex]
     }
     
     func setUpTableFromLocation(longitude: String, latitude: String){
+        println("got coordinates")
         let radius = 500 //sätt som setting
         request(.GET, "https://api.trafiklab.se/samtrafiken/resrobot/StationsInZone.json?apiVersion=2.1&centerX=\(longitude)&centerY=\(latitude)&radius=\(radius)&coordSys=WGS84&key=T5Jex4dsGQk03VZlXbvmMMC1hMECZNkm")
             .responseJSON { (_, _, JSON, _) in
                 if let stationsResponse = JSON as? NSDictionary {
-                    self.stations = self.convertResponseToStations(stationsResponse as NSDictionary)
+                    self.stations = UtilityFunctions.convertResponseToStations(stationsResponse as NSDictionary)
                     self.configureTableWithData(self.stations)
                 }
         }

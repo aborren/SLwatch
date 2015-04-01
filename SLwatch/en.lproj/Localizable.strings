@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  SLwatch
+
+  Created by Dan Isacson on 01/04/15.
+  Copyright (c) 2015 dna. All rights reserved.
+*/
+NO_GPS_MESSAGE = "Please open the SLwatch application on your iPhone and enable the GPS";
+NO_DEPARTURES_MESSAGE = "No departures from this station found.";
+NO_GLANCE_MESSAGE = "No station for glance view set.";
+NO_GLANCE_INSTRUCTION = "Click here to open the application to set a station for glance view.";

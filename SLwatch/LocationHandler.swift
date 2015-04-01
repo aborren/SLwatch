@@ -18,10 +18,15 @@ class LocationHandler: NSObject, CLLocationManagerDelegate {
         self.wh = MMWormhole(applicationGroupIdentifier: "group.slwatch", optionalDirectory: "wormhole")
     }
     
-    func upDateCoordinates(){
+    func upDateCoordinates()->Bool{
         self.locationManager.requestAlwaysAuthorization()
-        self.locationManager.delegate = self
-        self.locationManager.startUpdatingLocation()
+        let status = CLLocationManager.authorizationStatus()
+        if(status == CLAuthorizationStatus.AuthorizedAlways){
+            self.locationManager.delegate = self
+            self.locationManager.startUpdatingLocation()
+            return true
+        }
+        return false
     }
 
     func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {

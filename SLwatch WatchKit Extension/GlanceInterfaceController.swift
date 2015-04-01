@@ -47,15 +47,15 @@ class GlanceInterfaceController: WKInterfaceController {
             }
         }else{
             self.topLabel.setText("")
-            self.titleLabel.setText("No station for glance view set")
+            self.titleLabel.setText(NSLocalizedString("NO_GLANCE_MESSAGE", comment: "no glance set"))
             self.departuresTable.setHidden(true)
             self.tableLabel.setHidden(false)
-            self.tableLabel.setText("Click here to open the application to set a station for glance view.")
+            self.tableLabel.setText(NSLocalizedString("NO_GLANCE_INSTRUCTION", comment: "no glance instruction"))
             println("No glance set")
             //show some msg
         }
     }
-
+    
     override func didDeactivate() {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()

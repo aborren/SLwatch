@@ -30,11 +30,12 @@ class MapInterfaceController: WKInterfaceController {
             if let longitude: Double = locationResponse["longitude"] as? Double{
                 if let latitude: Double = locationResponse["latitude"] as? Double{
                     let currentLoc = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-                    self.map.addAnnotation(currentLoc, withPinColor: WKInterfaceMapPinColor.Green)
+                    //self.map.addAnnotation(currentLoc, withPinColor: WKInterfaceMapPinColor.Green)
+                    self.map.addAnnotation(currentLoc, withImageNamed: "public-50", centerOffset: CGPoint(x: 0, y: 0))
                     
                     let station = context as Station
                     let stationLoc = CLLocationCoordinate2D(latitude: station.latitude, longitude: station.longitude)
-                    self.map.addAnnotation(stationLoc, withPinColor: WKInterfaceMapPinColor.Purple)
+                    self.map.addAnnotation(stationLoc, withPinColor: WKInterfaceMapPinColor.Red)
                     
                     let delta = max(abs(stationLoc.latitude - currentLoc.latitude), abs(stationLoc.longitude - currentLoc.longitude)) * 2
                     println(delta)
