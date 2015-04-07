@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NearbyStationsTableViewController: UITableViewController {
+class NearbyStationsTableViewController: UITableViewController, UIAlertViewDelegate {
 
     var wh: MMWormhole?
     var locHandler = LocationHandler()
@@ -17,8 +17,14 @@ class NearbyStationsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = NSLocalizedString("NEARBY_STATIONS", comment: "Nearby stations")
+        
         self.wh = MMWormhole(applicationGroupIdentifier: "group.slwatch", optionalDirectory: "wormhole")
-        self.locHandler.upDateCoordinates()
+        
+        if(!self.locHandler.upDateCoordinates()){
+            println("no gps")
+            self.alertNoGPS()
+        }
         
         self.wh!.listenForMessageWithIdentifier("location", listener: { (locationResponse) -> Void in
             if let longitude: Double = locationResponse["longitude"] as? Double{
@@ -131,6 +137,18 @@ class NearbyStationsTableViewController: UITableViewController {
         var departuresView = segue.destinationViewController as DeparturesTableViewController
         let index = self.tableView.indexPathForSelectedRow()!.row
         departuresView.station = self.stations[index]
+    }
+    
+    func alertNoGPS(){
+        var alertView = UIAlertView(title: NSLocalizedString("NO_GPS_TITLE", comment: ""), message: NSLocalizedString("NO_GPS_IPHONEMESSAGE", comment: ""), delegate: self, cancelButtonTitle: NSLocalizedString("CANCEL", comment: ""), otherButtonTitles: NSLocalizedString("SETTINGS", comment: ""))
+        alertView.show()
+    }
+    
+    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+        println(buttonIndex)
+        if(buttonIndex == 1){
+            UIApplication.sharedApplication().openURL(NSURL(string: UIApplicationOpenSettingsURLString)!)
+        }
     }
 
 }

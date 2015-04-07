@@ -72,6 +72,10 @@ class NearbyStationsInterfaceController: WKInterfaceController {
                 }
             }
         }
+        if(stations.count == 0){
+            self.informationLabel.setHidden(false)
+            self.informationLabel.setText(NSLocalizedString("NO_NEARBYSTATIONS_MESSAGE", comment: "No nearby stations"))
+        }
     }
     
     override func contextForSegueWithIdentifier(segueIdentifier: String, inTable table: WKInterfaceTable, rowIndex: Int) -> AnyObject? {

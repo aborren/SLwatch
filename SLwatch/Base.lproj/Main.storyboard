@@ -18,7 +18,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KfY-4C-beU">
                                 <rect key="frame" x="16" y="20" width="46" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.47450980390000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.47058823529411764" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="diE-Ng-gNf"/>
                                 </constraints>
@@ -85,7 +85,7 @@
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="PpM-5c-DpB">
                                 <rect key="frame" x="0.0" y="-2" width="150" height="2"/>
                                 <color key="progressTintColor" red="0.99215686270000003" green="0.89411764709999997" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="trackTintColor" red="0.99215686270000003" green="0.89411764709999997" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="trackTintColor" red="0.98431372549019602" green="0.8784313725490196" blue="0.37254901960784315" alpha="1" colorSpace="calibratedRGB"/>
                             </progressView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -165,16 +165,16 @@
             </objects>
             <point key="canvasLocation" x="1257" y="285"/>
         </scene>
-        <!--Favourite Stations Table View Controller-->
+        <!-- -->
         <scene sceneID="SzV-GM-6aD">
             <objects>
-                <tableViewController id="Y6s-Zs-KZc" customClass="FavouriteStationsTableViewController" customModule="SLwatch" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="7I5-pc-jSm">
+                <tableViewController title=" " id="Y6s-Zs-KZc" customClass="FavouriteStationsTableViewController" customModule="SLwatch" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="plain" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="7I5-pc-jSm">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="favouriteStation" id="fTc-7Q-mOm" customClass="StationTableViewCell" customModule="SLwatch" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="favouriteStation" rowHeight="60" id="fTc-7Q-mOm" customClass="StationTableViewCell" customModule="SLwatch" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fTc-7Q-mOm" id="gho-Rt-Mcm">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -266,16 +266,16 @@
             </objects>
             <point key="canvasLocation" x="2079" y="615.75"/>
         </scene>
-        <!--Nearby Stations Table View Controller-->
+        <!-- -->
         <scene sceneID="LoL-pK-dTl">
             <objects>
-                <tableViewController id="vv3-Xw-T4t" customClass="NearbyStationsTableViewController" customModule="SLwatch" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="HvB-6j-r6R">
+                <tableViewController title=" " id="vv3-Xw-T4t" customClass="NearbyStationsTableViewController" customModule="SLwatch" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="plain" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="HvB-6j-r6R">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="nearbyStation" id="sMb-6f-mmC" customClass="StationTableViewCell" customModule="SLwatch" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="nearbyStation" rowHeight="60" id="sMb-6f-mmC" customClass="StationTableViewCell" customModule="SLwatch" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sMb-6f-mmC" id="7Wg-T7-aCM">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -371,12 +371,12 @@
         <scene sceneID="CZ2-Wu-h8V">
             <objects>
                 <tableViewController id="8mi-z9-mE2" customClass="DeparturesTableViewController" customModule="SLwatch" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="76" sectionHeaderHeight="22" sectionFooterHeight="22" id="K1K-Eh-aLt">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="K1K-Eh-aLt">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="departure" rowHeight="76" id="eJB-7y-LB4" customClass="DepartureTableViewCell" customModule="SLwatch" customModuleProvider="target">
+                            <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="departure" rowHeight="60" id="eJB-7y-LB4" customClass="DepartureTableViewCell" customModule="SLwatch" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eJB-7y-LB4" id="ESj-dJ-Dqx">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -384,7 +384,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pq0-RQ-bgE">
                                             <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="20" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PCM-KF-kuq">
@@ -394,7 +394,7 @@
                                                 <constraint firstAttribute="height" constant="60" id="gpc-Hz-Jqv"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.99215686270000003" green="0.89411764709999997" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="default">
                                                 <mask key="constraints">
@@ -447,6 +447,7 @@
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.0" green="0.47450980390000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="firstLabel" destination="pq0-RQ-bgE" id="8Mv-vf-3YH"/>
                                     <outlet property="secondLabel" destination="PCM-KF-kuq" id="INt-Fl-Rna"/>
@@ -466,8 +467,9 @@
         <!--Navigation Controller-->
         <scene sceneID="YpP-UM-gmf">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4g6-Es-Zov" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="crossDissolve" id="4g6-Es-Zov" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="or5-hX-yKt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

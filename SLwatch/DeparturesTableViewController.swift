@@ -24,6 +24,7 @@ class DeparturesTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         loadFilterString()
+        self.title = station?.name
         if let stationID = self.station?.id {
             request(.GET, "https://api.trafiklab.se/samtrafiken/resrobotstops/GetDepartures.json?apiVersion=2.2&coordSys=RT90&locationId=\(stationID)&timeSpan=30&key=TrGAqilPmbAXHY1HpIxGAUkmARCAn4qH")
                 .responseJSON { (_, _, JSON, _) in

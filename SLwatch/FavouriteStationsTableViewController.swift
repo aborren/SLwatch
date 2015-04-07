@@ -22,6 +22,7 @@ class FavouriteStationsTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         self.stations = self.getFavouriteStations()
+        self.title = NSLocalizedString("FAVOURITE_STATIONS", comment: "Favourite stations")
     }
     
     override func didReceiveMemoryWarning() {
