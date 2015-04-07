@@ -22,14 +22,11 @@ class InterfaceController: WKInterfaceController {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
         
-     
-        
+        //Required to use Station in both extension and main application
+        NSKeyedUnarchiver.setClass(Station.self, forClassName: "Station")
+        NSKeyedArchiver.setClassName("Station", forClass: Station.self)
     }
-    @IBOutlet var testt: WKInterfaceSwitch!
-
-    @IBAction func test(value: Bool) {
-        println(value)
-    }
+    
     override func didDeactivate() {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()

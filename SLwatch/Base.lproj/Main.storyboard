@@ -76,8 +76,7 @@
                                         <exclude reference="SLN-XO-Ts0"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="164" y="290" width="72" height="21"/>
+                                <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="SLN-XO-Ts0"/>
                                     </mask>
@@ -87,9 +86,6 @@
                                 <rect key="frame" x="0.0" y="-2" width="150" height="2"/>
                                 <color key="progressTintColor" red="0.99215686270000003" green="0.89411764709999997" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="trackTintColor" red="0.99215686270000003" green="0.89411764709999997" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="125" y="319" width="150" height="3"/>
-                                </variation>
                             </progressView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -121,13 +117,13 @@
                                 <exclude reference="NB5-NG-3GC"/>
                                 <exclude reference="oCA-iM-Tbh"/>
                                 <exclude reference="vae-hX-taP"/>
+                                <exclude reference="4fi-ic-AJJ"/>
+                                <exclude reference="Fpt-oV-NJq"/>
+                                <exclude reference="ZQI-Pf-vPl"/>
                                 <exclude reference="0Zu-ss-RYO"/>
                                 <exclude reference="M5U-rJ-jaK"/>
                                 <exclude reference="Nzs-AE-E8P"/>
                                 <exclude reference="pcf-HX-pSn"/>
-                                <exclude reference="4fi-ic-AJJ"/>
-                                <exclude reference="Fpt-oV-NJq"/>
-                                <exclude reference="ZQI-Pf-vPl"/>
                                 <exclude reference="BLV-rd-BZK"/>
                                 <exclude reference="VA1-Zi-bgc"/>
                                 <exclude reference="qIR-Yl-mFQ"/>
@@ -145,13 +141,13 @@
                                 <include reference="NB5-NG-3GC"/>
                                 <include reference="oCA-iM-Tbh"/>
                                 <include reference="vae-hX-taP"/>
+                                <include reference="4fi-ic-AJJ"/>
+                                <include reference="Fpt-oV-NJq"/>
+                                <include reference="ZQI-Pf-vPl"/>
                                 <include reference="0Zu-ss-RYO"/>
                                 <include reference="M5U-rJ-jaK"/>
                                 <include reference="Nzs-AE-E8P"/>
                                 <include reference="pcf-HX-pSn"/>
-                                <include reference="4fi-ic-AJJ"/>
-                                <include reference="Fpt-oV-NJq"/>
-                                <include reference="ZQI-Pf-vPl"/>
                                 <include reference="BLV-rd-BZK"/>
                                 <include reference="VA1-Zi-bgc"/>
                                 <include reference="qIR-Yl-mFQ"/>
@@ -169,20 +165,95 @@
             </objects>
             <point key="canvasLocation" x="1257" y="285"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Favourite Stations Table View Controller-->
         <scene sceneID="SzV-GM-6aD">
             <objects>
-                <tableViewController id="Y6s-Zs-KZc" sceneMemberID="viewController">
+                <tableViewController id="Y6s-Zs-KZc" customClass="FavouriteStationsTableViewController" customModule="SLwatch" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="7I5-pc-jSm">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="favouriteStation" id="fTc-7Q-mOm">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="favouriteStation" id="fTc-7Q-mOm" customClass="StationTableViewCell" customModule="SLwatch" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fTc-7Q-mOm" id="gho-Rt-Mcm">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iTo-Vj-0Mb">
+                                            <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="50" id="kZQ-ax-TOx"/>
+                                            </constraints>
+                                            <state key="normal" image="star-50-1">
+                                                <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="kZQ-ax-TOx"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <mask key="constraints">
+                                                    <include reference="kZQ-ax-TOx"/>
+                                                </mask>
+                                            </variation>
+                                            <connections>
+                                                <action selector="favouriteBtnPressed:" destination="fTc-7Q-mOm" eventType="touchUpInside" id="5Mn-lA-Wff"/>
+                                            </connections>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZCr-XC-Z4U">
+                                            <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="iTo-Vj-0Mb" firstAttribute="top" secondItem="gho-Rt-Mcm" secondAttribute="top" constant="7" id="4LU-iA-ykT"/>
+                                        <constraint firstItem="ZCr-XC-Z4U" firstAttribute="top" secondItem="gho-Rt-Mcm" secondAttribute="top" constant="8" id="7pG-sR-2Fk"/>
+                                        <constraint firstItem="ZCr-XC-Z4U" firstAttribute="leading" secondItem="gho-Rt-Mcm" secondAttribute="leading" constant="8" id="PT3-fj-93V"/>
+                                        <constraint firstAttribute="trailing" secondItem="iTo-Vj-0Mb" secondAttribute="trailing" constant="8" id="TYf-Rx-b6k"/>
+                                        <constraint firstAttribute="bottom" secondItem="iTo-Vj-0Mb" secondAttribute="bottom" constant="7" id="jHU-EE-HiW"/>
+                                        <constraint firstItem="iTo-Vj-0Mb" firstAttribute="leading" secondItem="ZCr-XC-Z4U" secondAttribute="trailing" constant="8" id="pbB-Tv-k6N"/>
+                                        <constraint firstAttribute="bottom" secondItem="ZCr-XC-Z4U" secondAttribute="bottom" constant="7" id="tvE-g8-2M8"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="subviews">
+                                            <exclude reference="iTo-Vj-0Mb"/>
+                                            <exclude reference="ZCr-XC-Z4U"/>
+                                        </mask>
+                                        <mask key="constraints">
+                                            <exclude reference="7pG-sR-2Fk"/>
+                                            <exclude reference="PT3-fj-93V"/>
+                                            <exclude reference="tvE-g8-2M8"/>
+                                            <exclude reference="4LU-iA-ykT"/>
+                                            <exclude reference="TYf-Rx-b6k"/>
+                                            <exclude reference="jHU-EE-HiW"/>
+                                            <exclude reference="pbB-Tv-k6N"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="heightClass=regular-widthClass=compact">
+                                        <mask key="subviews">
+                                            <include reference="iTo-Vj-0Mb"/>
+                                            <include reference="ZCr-XC-Z4U"/>
+                                        </mask>
+                                        <mask key="constraints">
+                                            <include reference="7pG-sR-2Fk"/>
+                                            <include reference="PT3-fj-93V"/>
+                                            <include reference="tvE-g8-2M8"/>
+                                            <include reference="4LU-iA-ykT"/>
+                                            <include reference="TYf-Rx-b6k"/>
+                                            <include reference="jHU-EE-HiW"/>
+                                            <include reference="pbB-Tv-k6N"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.0" green="0.47450980390000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="starButton" destination="iTo-Vj-0Mb" id="nJ8-Kp-YMd"/>
+                                    <segue destination="8mi-z9-mE2" kind="show" id="zaq-fg-c2x"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -193,7 +264,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MDc-Te-cNk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2079" y="616.5"/>
+            <point key="canvasLocation" x="2079" y="615.75"/>
         </scene>
         <!--Nearby Stations Table View Controller-->
         <scene sceneID="LoL-pK-dTl">
@@ -214,16 +285,13 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
-                                            <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                <rect key="frame" x="8" y="8" width="340" height="28"/>
-                                            </variation>
                                         </label>
                                         <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lnS-0p-Gpd">
                                             <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="30" id="D1m-A6-xy0"/>
+                                                <constraint firstAttribute="width" constant="50" id="D1m-A6-xy0"/>
                                             </constraints>
-                                            <state key="normal" image="star-50">
+                                            <state key="normal" image="star-50-1">
                                                 <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
@@ -232,8 +300,7 @@
                                                     <exclude reference="D1m-A6-xy0"/>
                                                 </mask>
                                             </variation>
-                                            <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                <rect key="frame" x="356" y="7" width="36" height="25"/>
+                                            <variation key="heightClass=regular-widthClass=compact">
                                                 <mask key="constraints">
                                                     <include reference="D1m-A6-xy0"/>
                                                 </mask>
@@ -309,7 +376,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="departure" rowHeight="76" id="eJB-7y-LB4" customClass="DepartureTableViewCell" customModule="SLwatch" customModuleProvider="target">
+                            <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="departure" rowHeight="76" id="eJB-7y-LB4" customClass="DepartureTableViewCell" customModule="SLwatch" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eJB-7y-LB4" id="ESj-dJ-Dqx">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -416,7 +483,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="star-50" width="25" height="25"/>
+        <image name="star-50-1" width="25" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="zaq-fg-c2x"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.47450980390000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

@@ -59,5 +59,9 @@ class Station: NSObject, NSCoding {
             aCoder.encodeObject(id, forKey: "latitude")
         }
     }
+    
+    class func supportsSecureCoding() -> Bool {
+        return true
+    }
 
 }

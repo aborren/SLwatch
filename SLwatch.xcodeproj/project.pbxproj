@@ -24,6 +24,7 @@
 		B2764B1B1AAEF48B00B22A85 /* FilterInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2764B1A1AAEF48B00B22A85 /* FilterInterfaceController.swift */; };
 		B2764B251AAF464900B22A85 /* FavouritesInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2764B241AAF464900B22A85 /* FavouritesInterfaceController.swift */; };
 		B29AD4AF1AB30A3900A5B853 /* MapInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29AD4AE1AB30A3900A5B853 /* MapInterfaceController.swift */; };
+		B2B133791AD4109300D90F58 /* FavouriteStationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B133781AD4109300D90F58 /* FavouriteStationsTableViewController.swift */; };
 		B2CD7CEA1AB2E39F000502E5 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CD7CE91AB2E39F000502E5 /* SwiftyJSON.swift */; };
 		B2CD7CEC1AB2EAF6000502E5 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CD7CEB1AB2EAF6000502E5 /* Alamofire.swift */; };
 		B2D253191AB334E200565001 /* GlanceInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D253181AB334E200565001 /* GlanceInterfaceController.swift */; };
@@ -119,6 +120,7 @@
 		B2764B1A1AAEF48B00B22A85 /* FilterInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterInterfaceController.swift; sourceTree = "<group>"; };
 		B2764B241AAF464900B22A85 /* FavouritesInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritesInterfaceController.swift; sourceTree = "<group>"; };
 		B29AD4AE1AB30A3900A5B853 /* MapInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapInterfaceController.swift; sourceTree = "<group>"; };
+		B2B133781AD4109300D90F58 /* FavouriteStationsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouriteStationsTableViewController.swift; sourceTree = "<group>"; };
 		B2BC26251AA8582A00AF7FE7 /* SLwatch WatchKit Extension-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SLwatch WatchKit Extension-Bridging-Header.h"; sourceTree = "<group>"; };
 		B2CD7CE91AB2E39F000502E5 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		B2CD7CEB1AB2EAF6000502E5 /* Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alamofire.swift; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 				B2D312B21AB71D3500F72B6A /* DeparturesTableViewController.swift */,
 				B2D312B91AB725CD00F72B6A /* StationTableViewCell.swift */,
 				B2D312B71AB7246D00F72B6A /* DepartureTableViewCell.swift */,
+				B2B133781AD4109300D90F58 /* FavouriteStationsTableViewController.swift */,
 				B2D312AA1AB7135A00F72B6A /* NearbyStationsTableViewController.swift */,
 				B22942361AA0C6A6001F3B72 /* ViewController.swift */,
 				B2D530281AA73C9900F4FBA2 /* Departure.swift */,
@@ -600,6 +603,7 @@
 				B25E5D9F1AB349FB0081EB94 /* MMWormhole.m in Sources */,
 				B2D312AB1AB7135A00F72B6A /* NearbyStationsTableViewController.swift in Sources */,
 				B20016EA1AA8AB9F00886DAB /* LocationHandler.swift in Sources */,
+				B2B133791AD4109300D90F58 /* FavouriteStationsTableViewController.swift in Sources */,
 				B2D530291AA73C9900F4FBA2 /* Departure.swift in Sources */,
 				B2D312B81AB7246D00F72B6A /* DepartureTableViewCell.swift in Sources */,
 				B22942351AA0C6A6001F3B72 /* AppDelegate.swift in Sources */,
