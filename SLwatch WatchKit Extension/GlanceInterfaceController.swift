@@ -69,7 +69,7 @@ class GlanceInterfaceController: WKInterfaceController {
         
         self.departuresTable.setNumberOfRows(numberOfRows, withRowType: "departuresrowcontroller")
         for(var i = 0; i < numberOfRows; i++){
-            var row: DeparturesRowController = self.departuresTable.rowControllerAtIndex(i) as DeparturesRowController
+            var row: DeparturesRowController = self.departuresTable.rowControllerAtIndex(i) as! DeparturesRowController
             row.setUpRow(departures[i])
         }
     }

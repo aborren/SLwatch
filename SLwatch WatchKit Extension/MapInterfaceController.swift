@@ -33,7 +33,7 @@ class MapInterfaceController: WKInterfaceController {
                     //self.map.addAnnotation(currentLoc, withPinColor: WKInterfaceMapPinColor.Green)
                     self.map.addAnnotation(currentLoc, withImageNamed: "public-50", centerOffset: CGPoint(x: 0, y: 0))
                     
-                    let station = context as Station
+                    let station = context as! Station
                     let stationLoc = CLLocationCoordinate2D(latitude: station.latitude, longitude: station.longitude)
                     self.map.addAnnotation(stationLoc, withPinColor: WKInterfaceMapPinColor.Red)
                     

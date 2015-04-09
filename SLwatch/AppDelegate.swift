@@ -48,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]?, reply: (([NSObject : AnyObject]!) -> Void)!) {
         
-        let request: String = (userInfo as [String : String])["request"]!
+        let request: String = (userInfo as! [String : String])["request"]!
         
         if(request == "location"){
             let gpsAvailable = self.locHandler.upDateCoordinates()

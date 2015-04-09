@@ -66,7 +66,7 @@ class DeparturesTableViewController: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("departure", forIndexPath: indexPath) as DepartureTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("departure", forIndexPath: indexPath) as! DepartureTableViewCell
         cell.setUpRow(departures[indexPath.row])
         // Configure the cell...
 

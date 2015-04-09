@@ -62,15 +62,15 @@ class NearbyStationsTableViewController: UITableViewController, UIAlertViewDeleg
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("nearbyStation", forIndexPath: indexPath) as StationTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("nearbyStation", forIndexPath: indexPath) as! StationTableViewCell
 
         // Configure the cell...
-        (cell.viewWithTag(1) as UILabel).text = self.stations[indexPath.row].name
+        (cell.viewWithTag(1) as! UILabel).text = self.stations[indexPath.row].name
         cell.station = self.stations[indexPath.row]
         
         if let data = self.userDefaults?.objectForKey("favourites") as? NSData{
             let unarc = NSKeyedUnarchiver(forReadingWithData: data)
-            let favourites = unarc.decodeObjectForKey("root") as [Station]
+            let favourites = unarc.decodeObjectForKey("root") as! [Station]
             for station in favourites{
                 if(station.id == stations[indexPath.row].id){
                     cell.starButton.setImage(UIImage(named: "star_filled-50-1"), forState: UIControlState.Normal)
@@ -134,7 +134,7 @@ class NearbyStationsTableViewController: UITableViewController, UIAlertViewDeleg
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
         
-        var departuresView = segue.destinationViewController as DeparturesTableViewController
+        var departuresView = segue.destinationViewController as! DeparturesTableViewController
         let index = self.tableView.indexPathForSelectedRow()!.row
         departuresView.station = self.stations[index]
     }

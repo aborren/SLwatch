@@ -48,15 +48,15 @@ class FavouriteStationsTableViewController: UITableViewController {
         var favourites: [Station] = []
         if let data = self.userDefaults?.objectForKey("favourites") as? NSData{
             let unarc = NSKeyedUnarchiver(forReadingWithData: data)
-            favourites = unarc.decodeObjectForKey("root") as [Station]
+            favourites = unarc.decodeObjectForKey("root") as! [Station]
         }
         return favourites
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("favouriteStation", forIndexPath: indexPath) as StationTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("favouriteStation", forIndexPath: indexPath) as! StationTableViewCell
         
-        (cell.viewWithTag(1) as UILabel).text = self.stations[indexPath.row].name
+        (cell.viewWithTag(1) as! UILabel).text = self.stations[indexPath.row].name
         cell.station = self.stations[indexPath.row]
         cell.starButton.setImage(UIImage(named: "star_filled-50-1"), forState: UIControlState.Normal)
         return cell
@@ -104,7 +104,7 @@ class FavouriteStationsTableViewController: UITableViewController {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
         
-        var departuresView = segue.destinationViewController as DeparturesTableViewController
+        var departuresView = segue.destinationViewController as! DeparturesTableViewController
         let index = self.tableView.indexPathForSelectedRow()!.row
         departuresView.station = self.stations[index]
     }

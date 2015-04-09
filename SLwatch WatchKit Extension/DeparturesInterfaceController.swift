@@ -53,7 +53,7 @@ class DeparturesInterfaceController: WKInterfaceController {
     func configureTableWithData(departures: [Departure]){
         self.departuresTable.setNumberOfRows(departures.count, withRowType: "departuresrowcontroller")
         for(var i = 0; i < departures.count; i++){
-            var row: DeparturesRowController = self.departuresTable.rowControllerAtIndex(i) as DeparturesRowController
+            var row: DeparturesRowController = self.departuresTable.rowControllerAtIndex(i) as! DeparturesRowController
             row.setUpRow(departures[i]) 
         }
         

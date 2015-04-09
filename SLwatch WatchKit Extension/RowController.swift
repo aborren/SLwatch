@@ -23,7 +23,7 @@ class RowController: NSObject {
         if let data = self.userDefaults?.objectForKey("favourites") as? NSData{
             var isFavouriteStation = false
             let unarc = NSKeyedUnarchiver(forReadingWithData: data)
-            var favourites = unarc.decodeObjectForKey("root") as [Station]
+            var favourites = unarc.decodeObjectForKey("root") as! [Station]
             
             for favourite in favourites{
                 if(self.station.id == favourite.id){

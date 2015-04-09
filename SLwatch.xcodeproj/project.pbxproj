@@ -16,25 +16,24 @@
 		B229423F1AA0C6A6001F3B72 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B229423D1AA0C6A6001F3B72 /* LaunchScreen.xib */; };
 		B229424B1AA0C6A6001F3B72 /* SLwatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B229424A1AA0C6A6001F3B72 /* SLwatchTests.swift */; };
 		B244118F1AA9FE6D0005F26C /* DeparturesRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B244118E1AA9FE6D0005F26C /* DeparturesRowController.swift */; };
-		B25C61DD1AB1F8CF00048B30 /* CSV.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25C61DC1AB1F8CF00048B30 /* CSV.swift */; };
 		B25C61E01AB1F8E600048B30 /* mtr-station.csv in Resources */ = {isa = PBXBuildFile; fileRef = B25C61DE1AB1F8E600048B30 /* mtr-station.csv */; };
 		B25C61E11AB1F8E600048B30 /* sl-gtfs.csv in Resources */ = {isa = PBXBuildFile; fileRef = B25C61DF1AB1F8E600048B30 /* sl-gtfs.csv */; };
 		B25E5D9F1AB349FB0081EB94 /* MMWormhole.m in Sources */ = {isa = PBXBuildFile; fileRef = B25E5D9E1AB349FB0081EB94 /* MMWormhole.m */; };
 		B25E5DA01AB349FB0081EB94 /* MMWormhole.m in Sources */ = {isa = PBXBuildFile; fileRef = B25E5D9E1AB349FB0081EB94 /* MMWormhole.m */; };
+		B25F2CAD1AD68307002731A7 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25F2CAC1AD68307002731A7 /* SwiftyJSON.swift */; };
+		B25F2CAE1AD68307002731A7 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25F2CAC1AD68307002731A7 /* SwiftyJSON.swift */; };
+		B25F2CB01AD6835C002731A7 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25F2CAF1AD6835C002731A7 /* Alamofire.swift */; };
+		B25F2CB11AD6835C002731A7 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25F2CAF1AD6835C002731A7 /* Alamofire.swift */; };
 		B2764B1B1AAEF48B00B22A85 /* FilterInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2764B1A1AAEF48B00B22A85 /* FilterInterfaceController.swift */; };
 		B2764B251AAF464900B22A85 /* FavouritesInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2764B241AAF464900B22A85 /* FavouritesInterfaceController.swift */; };
 		B29AD4AF1AB30A3900A5B853 /* MapInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29AD4AE1AB30A3900A5B853 /* MapInterfaceController.swift */; };
 		B2B133791AD4109300D90F58 /* FavouriteStationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B133781AD4109300D90F58 /* FavouriteStationsTableViewController.swift */; };
 		B2BB1E851AD434B7000EBB49 /* 1024.png in Resources */ = {isa = PBXBuildFile; fileRef = B2BB1E841AD434B7000EBB49 /* 1024.png */; };
-		B2CD7CEA1AB2E39F000502E5 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CD7CE91AB2E39F000502E5 /* SwiftyJSON.swift */; };
-		B2CD7CEC1AB2EAF6000502E5 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CD7CEB1AB2EAF6000502E5 /* Alamofire.swift */; };
 		B2D253191AB334E200565001 /* GlanceInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D253181AB334E200565001 /* GlanceInterfaceController.swift */; };
 		B2D312AB1AB7135A00F72B6A /* NearbyStationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D312AA1AB7135A00F72B6A /* NearbyStationsTableViewController.swift */; };
 		B2D312AD1AB717CA00F72B6A /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D312AC1AB717CA00F72B6A /* UtilityFunctions.swift */; };
-		B2D312AE1AB7190600F72B6A /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CD7CEB1AB2EAF6000502E5 /* Alamofire.swift */; };
 		B2D312AF1AB7192C00F72B6A /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D312AC1AB717CA00F72B6A /* UtilityFunctions.swift */; };
 		B2D312B31AB71D3500F72B6A /* DeparturesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D312B21AB71D3500F72B6A /* DeparturesTableViewController.swift */; };
-		B2D312B41AB71EE800F72B6A /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CD7CE91AB2E39F000502E5 /* SwiftyJSON.swift */; };
 		B2D312B81AB7246D00F72B6A /* DepartureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D312B71AB7246D00F72B6A /* DepartureTableViewCell.swift */; };
 		B2D312BA1AB725CD00F72B6A /* StationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D312B91AB725CD00F72B6A /* StationTableViewCell.swift */; };
 		B2D530251AA71B6000F4FBA2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2D530241AA71B6000F4FBA2 /* CoreLocation.framework */; };
@@ -113,19 +112,18 @@
 		B22942491AA0C6A6001F3B72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B229424A1AA0C6A6001F3B72 /* SLwatchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLwatchTests.swift; sourceTree = "<group>"; };
 		B244118E1AA9FE6D0005F26C /* DeparturesRowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeparturesRowController.swift; sourceTree = "<group>"; };
-		B25C61DC1AB1F8CF00048B30 /* CSV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSV.swift; sourceTree = "<group>"; };
 		B25C61DE1AB1F8E600048B30 /* mtr-station.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "mtr-station.csv"; sourceTree = "<group>"; };
 		B25C61DF1AB1F8E600048B30 /* sl-gtfs.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "sl-gtfs.csv"; sourceTree = "<group>"; };
 		B25E5D9D1AB349FB0081EB94 /* MMWormhole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMWormhole.h; sourceTree = "<group>"; };
 		B25E5D9E1AB349FB0081EB94 /* MMWormhole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMWormhole.m; sourceTree = "<group>"; };
+		B25F2CAC1AD68307002731A7 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		B25F2CAF1AD6835C002731A7 /* Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alamofire.swift; sourceTree = "<group>"; };
 		B2764B1A1AAEF48B00B22A85 /* FilterInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterInterfaceController.swift; sourceTree = "<group>"; };
 		B2764B241AAF464900B22A85 /* FavouritesInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritesInterfaceController.swift; sourceTree = "<group>"; };
 		B29AD4AE1AB30A3900A5B853 /* MapInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapInterfaceController.swift; sourceTree = "<group>"; };
 		B2B133781AD4109300D90F58 /* FavouriteStationsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouriteStationsTableViewController.swift; sourceTree = "<group>"; };
 		B2BB1E841AD434B7000EBB49 /* 1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1024.png; sourceTree = "<group>"; };
 		B2BC26251AA8582A00AF7FE7 /* SLwatch WatchKit Extension-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SLwatch WatchKit Extension-Bridging-Header.h"; sourceTree = "<group>"; };
-		B2CD7CE91AB2E39F000502E5 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
-		B2CD7CEB1AB2EAF6000502E5 /* Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alamofire.swift; sourceTree = "<group>"; };
 		B2D253181AB334E200565001 /* GlanceInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlanceInterfaceController.swift; sourceTree = "<group>"; };
 		B2D312AA1AB7135A00F72B6A /* NearbyStationsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyStationsTableViewController.swift; sourceTree = "<group>"; };
 		B2D312AC1AB717CA00F72B6A /* UtilityFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilityFunctions.swift; sourceTree = "<group>"; };
@@ -292,9 +290,8 @@
 		B25C61DB1AB1F8BE00048B30 /* Swift Extension Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				B2CD7CEB1AB2EAF6000502E5 /* Alamofire.swift */,
-				B2CD7CE91AB2E39F000502E5 /* SwiftyJSON.swift */,
-				B25C61DC1AB1F8CF00048B30 /* CSV.swift */,
+				B25F2CAF1AD6835C002731A7 /* Alamofire.swift */,
+				B25F2CAC1AD68307002731A7 /* SwiftyJSON.swift */,
 			);
 			name = "Swift Extension Libraries";
 			sourceTree = "<group>";
@@ -601,9 +598,9 @@
 				B22942371AA0C6A6001F3B72 /* ViewController.swift in Sources */,
 				B2D312BA1AB725CD00F72B6A /* StationTableViewCell.swift in Sources */,
 				B2EFB1A61AA8A55C001E2F26 /* Station.swift in Sources */,
-				B2D312B41AB71EE800F72B6A /* SwiftyJSON.swift in Sources */,
-				B2D312AE1AB7190600F72B6A /* Alamofire.swift in Sources */,
 				B2D312B31AB71D3500F72B6A /* DeparturesTableViewController.swift in Sources */,
+				B25F2CAD1AD68307002731A7 /* SwiftyJSON.swift in Sources */,
+				B25F2CB01AD6835C002731A7 /* Alamofire.swift in Sources */,
 				B25E5D9F1AB349FB0081EB94 /* MMWormhole.m in Sources */,
 				B2D312AB1AB7135A00F72B6A /* NearbyStationsTableViewController.swift in Sources */,
 				B20016EA1AA8AB9F00886DAB /* LocationHandler.swift in Sources */,
@@ -634,15 +631,14 @@
 				B2EFB1A31AA896A2001E2F26 /* Departure.swift in Sources */,
 				B2D5302B1AA7589700F4FBA2 /* NearbyStationsInterfaceController.swift in Sources */,
 				B29AD4AF1AB30A3900A5B853 /* MapInterfaceController.swift in Sources */,
-				B2CD7CEC1AB2EAF6000502E5 /* Alamofire.swift in Sources */,
 				B2D5302D1AA75AFE00F4FBA2 /* RowController.swift in Sources */,
 				B2D253191AB334E200565001 /* GlanceInterfaceController.swift in Sources */,
 				B2EF0B1C1AA0D0E400AA093B /* InterfaceController.swift in Sources */,
-				B25C61DD1AB1F8CF00048B30 /* CSV.swift in Sources */,
 				B2EFB1A51AA8A54D001E2F26 /* Station.swift in Sources */,
 				B2D312AD1AB717CA00F72B6A /* UtilityFunctions.swift in Sources */,
 				B2764B251AAF464900B22A85 /* FavouritesInterfaceController.swift in Sources */,
-				B2CD7CEA1AB2E39F000502E5 /* SwiftyJSON.swift in Sources */,
+				B25F2CAE1AD68307002731A7 /* SwiftyJSON.swift in Sources */,
+				B25F2CB11AD6835C002731A7 /* Alamofire.swift in Sources */,
 				B25E5DA01AB349FB0081EB94 /* MMWormhole.m in Sources */,
 				B244118F1AA9FE6D0005F26C /* DeparturesRowController.swift in Sources */,
 			);

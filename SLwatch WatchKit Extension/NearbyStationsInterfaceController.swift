@@ -25,7 +25,7 @@ class NearbyStationsInterfaceController: WKInterfaceController {
         
         //wake parent application on iPhone and reques GPS location
         WKInterfaceController.openParentApplication(["request":"location"], reply: {(replyInfo, error) -> Void in
-            let gpsAvailable = replyInfo["gpsAvailable"] as Bool
+            let gpsAvailable = replyInfo["gpsAvailable"] as! Bool
             if(!gpsAvailable){
                 //do something to prompt user to open
                 self.informationLabel.setHidden(false)
@@ -58,13 +58,13 @@ class NearbyStationsInterfaceController: WKInterfaceController {
     func configureTableWithData(stations: [Station]){
         self.stationsTable.setNumberOfRows(stations.count, withRowType: "rowcontroller")
         for(var i = 0; i < stations.count; i++){
-            var row: RowController = self.stationsTable.rowControllerAtIndex(i) as RowController
+            var row: RowController = self.stationsTable.rowControllerAtIndex(i) as! RowController
             row.rowDescription.setText(stations[i].name)
             row.station = stations[i]
             
             if let data = self.userDefaults?.objectForKey("favourites") as? NSData{
                 let unarc = NSKeyedUnarchiver(forReadingWithData: data)
-                let favourites = unarc.decodeObjectForKey("root") as [Station]
+                let favourites = unarc.decodeObjectForKey("root") as! [Station]
                 for station in favourites{
                     if(station.id == stations[i].id){
                         row.favouriteButton.setBackgroundImageNamed("star_filled-50.png")
@@ -94,7 +94,7 @@ class NearbyStationsInterfaceController: WKInterfaceController {
         }
     }
     
-    func getSLidFromGTFSid(gtfsId: String)->String{
+    /*func getSLidFromGTFSid(gtfsId: String)->String{
         //if let url = NSURL(string: "mtr-station.csv") {
         if let url = NSBundle.mainBundle().URLForResource("mtr-station", withExtension:"csv") {
             var error: NSErrorPointer = nil
@@ -125,5 +125,5 @@ class NearbyStationsInterfaceController: WKInterfaceController {
         
         return ""
     }
-    
+    */
 }

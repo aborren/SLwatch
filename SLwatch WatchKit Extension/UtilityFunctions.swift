@@ -10,29 +10,29 @@ import Foundation
 
 class UtilityFunctions{
     class func convertResponseToStations(responseObject: NSDictionary)->[Station]{
-        let results : NSDictionary = responseObject["stationsinzoneresult"] as NSDictionary
+        let results : NSDictionary = responseObject["stationsinzoneresult"] as! NSDictionary
         var stations: [Station] = []
         if(results.count>0){
             if(results["location"]!.isKindOfClass(NSArray)){
-                let locations: NSArray  = results["location"] as NSArray
+                let locations: NSArray  = results["location"] as! NSArray
                 for location in locations{
-                    let name = location["name"] as String
-                    let id = location["@id"] as String
-                    let long = location["@x"] as String
-                    let lat = location["@y"] as String
+                    let name = location["name"] as! String
+                    let id = location["@id"] as! String
+                    let long = location["@x"] as! String
+                    let lat = location["@y"] as! String
                     //println(self.getSLidFromGTFSid(id) + " " + id)
-                    let transportTypes = self.getTransportTypesStringFromTransportList(location["transportlist"] as NSDictionary)
+                    let transportTypes = self.getTransportTypesStringFromTransportList(location["transportlist"] as! NSDictionary)
                     stations.append(Station(id: id, name: name, transportTypes: transportTypes, x: long, y: lat))
                 }
             }
             else if(results["location"]!.isKindOfClass(NSDictionary)){
-                let location : NSDictionary = results["location"] as NSDictionary
-                let name = location["name"] as String
-                let id = location["@id"] as String
-                let long = location["@x"] as String
-                let lat = location["@y"] as String
+                let location : NSDictionary = results["location"] as! NSDictionary
+                let name = location["name"] as! String
+                let id = location["@id"] as! String
+                let long = location["@x"] as! String
+                let lat = location["@y"] as! String
                 //println(self.getSLidFromGTFSid(id) + " " + id)
-                let transportTypes = self.getTransportTypesStringFromTransportList(location["transportlist"] as NSDictionary)
+                let transportTypes = self.getTransportTypesStringFromTransportList(location["transportlist"] as! NSDictionary)
                 stations.append(Station(id: id, name: name, transportTypes: transportTypes, x: long, y: lat))
             }
         }
@@ -44,13 +44,13 @@ class UtilityFunctions{
         
         if(transportList.count>0){
             if(transportList["transport"]!.isKindOfClass(NSArray)){
-                let transports: NSArray  = transportList["transport"] as NSArray
+                let transports: NSArray  = transportList["transport"] as! NSArray
                 for transport in transports{
-                    transportTypes += transport["@displaytype"] as String
+                    transportTypes += transport["@displaytype"] as! String
                 }
             }
             else if(transportList["transport"]!.isKindOfClass(NSDictionary)){
-                transportTypes = (transportList["transport"] as NSDictionary)["@displaytype"] as String
+                transportTypes = (transportList["transport"] as! NSDictionary)["@displaytype"] as! String
             }
         }
         
