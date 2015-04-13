@@ -86,7 +86,12 @@ class NearbyStationsTableViewController: UITableViewController, UIAlertViewDeleg
             .responseJSON { (_, _, JSON, _) in
                 if let stationsResponse = JSON as? NSDictionary {
                     self.stations = UtilityFunctions.convertResponseToStations(stationsResponse as NSDictionary)
-                    self.tableView.reloadData()
+                    if(self.stations.count == 0){
+                        self.tableView.hidden = true
+                        self.title = NSLocalizedString("NO_NEARBYSTATIONS_MESSAGE", comment: "No nearby stations")
+                    }else{
+                        self.tableView.reloadData()
+                    }
                 }
         }
     }

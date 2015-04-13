@@ -8,8 +8,8 @@
 NO_GPS_TITLE = "Tillåt GPS";
 NO_GPS_IPHONEMESSAGE = "Vänligen tillåt SL watch att alltid komma åt GPS:n";
 NO_GPS_MESSAGE = "Vänligen öppna SL Watch på din iPhone och tillåt den komma åt GPS:n";
-NO_DEPARTURES_MESSAGE = "Inga avgångar från denna station funna.";
-NO_NEARBYSTATIONS_MESSAGE = "Hittade inga närliggande stationer";
+NO_DEPARTURES_MESSAGE = "Inga avgångar funna";
+NO_NEARBYSTATIONS_MESSAGE = "Inga närliggande stationer";
 
 NO_GLANCE_MESSAGE = "Ingen station inställd som överblicksvy";
 NO_GLANCE_INSTRUCTION = "Klicka här för att öppna applikationen och ställa in en station som överblick";

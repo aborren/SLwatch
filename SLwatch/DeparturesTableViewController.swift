@@ -30,7 +30,12 @@ class DeparturesTableViewController: UITableViewController {
                 .responseJSON { (_, _, JSON, _) in
                     if let response: AnyObject = JSON {
                         self.departures = UtilityFunctions.convertResponseToDepartures(response, filterString: self.filterString)
-                        self.tableView.reloadData()
+                        if(self.departures.count == 0){
+                            self.title = NSLocalizedString("NO_DEPARTURES_MESSAGE", comment: "no departures")
+                            self.tableView.hidden = true
+                        }else{
+                            self.tableView.reloadData()
+                        }
                     }
             }
         }

@@ -28,7 +28,6 @@
 		B2764B251AAF464900B22A85 /* FavouritesInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2764B241AAF464900B22A85 /* FavouritesInterfaceController.swift */; };
 		B29AD4AF1AB30A3900A5B853 /* MapInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29AD4AE1AB30A3900A5B853 /* MapInterfaceController.swift */; };
 		B2B133791AD4109300D90F58 /* FavouriteStationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B133781AD4109300D90F58 /* FavouriteStationsTableViewController.swift */; };
-		B2BB1E851AD434B7000EBB49 /* 1024.png in Resources */ = {isa = PBXBuildFile; fileRef = B2BB1E841AD434B7000EBB49 /* 1024.png */; };
 		B2D253191AB334E200565001 /* GlanceInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D253181AB334E200565001 /* GlanceInterfaceController.swift */; };
 		B2D312AB1AB7135A00F72B6A /* NearbyStationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D312AA1AB7135A00F72B6A /* NearbyStationsTableViewController.swift */; };
 		B2D312AD1AB717CA00F72B6A /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D312AC1AB717CA00F72B6A /* UtilityFunctions.swift */; };
@@ -44,6 +43,7 @@
 		B2D6EE191ACC1EC400FA53F3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2D6EE161ACC1CEA00FA53F3 /* Localizable.strings */; };
 		B2D6EE1A1ACC1EC500FA53F3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2D6EE161ACC1CEA00FA53F3 /* Localizable.strings */; };
 		B2E2D1B71AA9D4A9006B2FE9 /* DeparturesInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E2D1B61AA9D4A9006B2FE9 /* DeparturesInterfaceController.swift */; };
+		B2EE3B6F1ADB5C1F0019F21C /* 1024.png in Resources */ = {isa = PBXBuildFile; fileRef = B2EE3B6E1ADB5C1F0019F21C /* 1024.png */; };
 		B2EF0B1C1AA0D0E400AA093B /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EF0B1B1AA0D0E400AA093B /* InterfaceController.swift */; };
 		B2EF0B1E1AA0D0E400AA093B /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EF0B1D1AA0D0E400AA093B /* NotificationController.swift */; };
 		B2EF0B201AA0D0E400AA093B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2EF0B1F1AA0D0E400AA093B /* Images.xcassets */; };
@@ -122,7 +122,6 @@
 		B2764B241AAF464900B22A85 /* FavouritesInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritesInterfaceController.swift; sourceTree = "<group>"; };
 		B29AD4AE1AB30A3900A5B853 /* MapInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapInterfaceController.swift; sourceTree = "<group>"; };
 		B2B133781AD4109300D90F58 /* FavouriteStationsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouriteStationsTableViewController.swift; sourceTree = "<group>"; };
-		B2BB1E841AD434B7000EBB49 /* 1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1024.png; sourceTree = "<group>"; };
 		B2BC26251AA8582A00AF7FE7 /* SLwatch WatchKit Extension-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SLwatch WatchKit Extension-Bridging-Header.h"; sourceTree = "<group>"; };
 		B2D253181AB334E200565001 /* GlanceInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlanceInterfaceController.swift; sourceTree = "<group>"; };
 		B2D312AA1AB7135A00F72B6A /* NearbyStationsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyStationsTableViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +144,7 @@
 		B2D6EE151ACC1CEA00FA53F3 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B2D6EE171ACC1CF700FA53F3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B2E2D1B61AA9D4A9006B2FE9 /* DeparturesInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeparturesInterfaceController.swift; sourceTree = "<group>"; };
+		B2EE3B6E1ADB5C1F0019F21C /* 1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1024.png; sourceTree = "<group>"; };
 		B2EF0B0F1AA0D0A900AA093B /* SLwatch-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SLwatch-Bridging-Header.h"; sourceTree = "<group>"; };
 		B2EF0B161AA0D0E400AA093B /* SLwatch WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "SLwatch WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2EF0B191AA0D0E400AA093B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -253,7 +253,7 @@
 				B2D530281AA73C9900F4FBA2 /* Departure.swift */,
 				B22942381AA0C6A6001F3B72 /* Main.storyboard */,
 				B229423B1AA0C6A6001F3B72 /* Images.xcassets */,
-				B2BB1E841AD434B7000EBB49 /* 1024.png */,
+				B2EE3B6E1ADB5C1F0019F21C /* 1024.png */,
 				B229423D1AA0C6A6001F3B72 /* LaunchScreen.xib */,
 				B2EF0B0F1AA0D0A900AA093B /* SLwatch-Bridging-Header.h */,
 				B22942321AA0C6A6001F3B72 /* Supporting Files */,
@@ -489,7 +489,7 @@
 			files = (
 				B229423A1AA0C6A6001F3B72 /* Main.storyboard in Resources */,
 				B2D6EE141ACC1CEA00FA53F3 /* Localizable.strings in Resources */,
-				B2BB1E851AD434B7000EBB49 /* 1024.png in Resources */,
+				B2EE3B6F1ADB5C1F0019F21C /* 1024.png in Resources */,
 				B229423F1AA0C6A6001F3B72 /* LaunchScreen.xib in Resources */,
 				B229423C1AA0C6A6001F3B72 /* Images.xcassets in Resources */,
 			);
