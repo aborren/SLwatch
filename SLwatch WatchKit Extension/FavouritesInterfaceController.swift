@@ -48,7 +48,8 @@ class FavouritesInterfaceController: WKInterfaceController {
             var row: RowController = self.stationsTable.rowControllerAtIndex(i) as! RowController
             row.rowDescription.setText(stations[i].name)
             row.station = stations[i]
-            row.favouriteButton.setBackgroundImageNamed("star_filled-50.png")
+            row.favouriteButtonImage.setImageNamed("star_filled-50.png")
+            //row.favouriteButton.setBackgroundImageNamed("star_filled-50.png")
         }
     }
     

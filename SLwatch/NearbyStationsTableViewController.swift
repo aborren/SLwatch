@@ -26,11 +26,15 @@ class NearbyStationsTableViewController: UITableViewController, UIAlertViewDeleg
             self.alertNoGPS()
         }
         
+        var didReceiveLocation = false
         self.wh!.listenForMessageWithIdentifier("location", listener: { (locationResponse) -> Void in
             if let longitude: Double = locationResponse["longitude"] as? Double{
                 if let latitude: Double = locationResponse["latitude"] as? Double{
-                    println("got coordinates")
-                    self.setUpTableFromLocation(longitude.description, latitude: latitude.description)
+                    if(!didReceiveLocation){
+                        println("got coordinates")
+                        self.setUpTableFromLocation(longitude.description, latitude: latitude.description)
+                        didReceiveLocation = true
+                    }
                 }
             }
         })

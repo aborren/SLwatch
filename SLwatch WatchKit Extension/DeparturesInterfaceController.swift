@@ -61,6 +61,8 @@ class DeparturesInterfaceController: WKInterfaceController {
         if(departures.count == 0){
             self.noDeparturesLabel.setText(NSLocalizedString("NO_DEPARTURES_MESSAGE", comment: "no departures"))
             self.noDeparturesLabel.setHidden(false)
+        }else{
+            self.noDeparturesLabel.setHidden(true)
         }
     }
     

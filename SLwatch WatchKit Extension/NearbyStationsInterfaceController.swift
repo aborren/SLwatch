@@ -23,7 +23,7 @@ class NearbyStationsInterfaceController: WKInterfaceController {
         
         self.wh = MMWormhole(applicationGroupIdentifier: "group.slwatch", optionalDirectory: "wormhole")
         
-        //wake parent application on iPhone and reques GPS location
+        //wake parent application on iPhone and request GPS location
         WKInterfaceController.openParentApplication(["request":"location"], reply: {(replyInfo, error) -> Void in
             let gpsAvailable = replyInfo["gpsAvailable"] as! Bool
             if(!gpsAvailable){
@@ -34,11 +34,15 @@ class NearbyStationsInterfaceController: WKInterfaceController {
             }
         })
         
+        var didReceiveLocation = false
         self.wh!.listenForMessageWithIdentifier("location", listener: { (locationResponse) -> Void in
             println("got message")
             if let longitude: Double = locationResponse["longitude"] as? Double{
                 if let latitude: Double = locationResponse["latitude"] as? Double{
-                    self.setUpTableFromLocation(longitude.description, latitude: latitude.description)
+                    if(!didReceiveLocation){
+                        didReceiveLocation = true
+                        self.setUpTableFromLocation(longitude.description, latitude: latitude.description)
+                    }
                 }
             }
         })
@@ -67,7 +71,8 @@ class NearbyStationsInterfaceController: WKInterfaceController {
                 let favourites = unarc.decodeObjectForKey("root") as! [Station]
                 for station in favourites{
                     if(station.id == stations[i].id){
-                        row.favouriteButton.setBackgroundImageNamed("star_filled-50.png")
+                        //row.favouriteButton.setBackgroundImageNamed("star_filled-50.png")
+                        row.favouriteButtonImage.setImageNamed("star_filled-50.png")
                     }
                 }
             }
@@ -93,37 +98,4 @@ class NearbyStationsInterfaceController: WKInterfaceController {
                 }
         }
     }
-    
-    /*func getSLidFromGTFSid(gtfsId: String)->String{
-        //if let url = NSURL(string: "mtr-station.csv") {
-        if let url = NSBundle.mainBundle().URLForResource("mtr-station", withExtension:"csv") {
-            var error: NSErrorPointer = nil
-            if let csv = CSV(contentsOfURL: url, error: error) {
-                // Rows
-                let rows = csv.rows
-                let headers = csv.headers  //=> [slid, gtfsid, gtfsnamn, stationsnamn, pageurl, mapurl]
-                for row in rows {
-                    if(row["gtfsid"] == gtfsId){
-                        return row["slid"]!
-                    }
-                }
-            }
-        }
-        if let url = NSBundle.mainBundle().URLForResource("sl-gtfs", withExtension:"csv") {
-            var error: NSErrorPointer = nil
-            if let csv = CSV(contentsOfURL: url, error: error) {
-                // Rows
-                let rows = csv.rows
-                let headers = csv.headers  //=> [SiteID;GTFSID]
-                for row in rows {
-                    if(row["GTFSID"] == gtfsId){
-                        return row["SiteID"]!
-                    }
-                }
-            }
-        }
-        
-        return ""
-    }
-    */
 }

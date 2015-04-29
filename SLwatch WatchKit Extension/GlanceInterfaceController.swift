@@ -25,6 +25,10 @@ class GlanceInterfaceController: WKInterfaceController {
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         
+        //Required to use Station in both extension and main application
+        NSKeyedUnarchiver.setClass(Station.self, forClassName: "Station")
+        NSKeyedArchiver.setClassName("Station", forClass: Station.self)
+        
         //hämta station
         self.station = self.getGlanceStation()
         

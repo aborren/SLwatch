@@ -15,6 +15,7 @@ class RowController: NSObject {
     var userDefaults = NSUserDefaults(suiteName: "group.slwatch")
     
     @IBOutlet var favouriteButton: WKInterfaceButton!
+    @IBOutlet var favouriteButtonImage: WKInterfaceImage!
     
     @IBOutlet weak var rowDescription: WKInterfaceLabel!
 
@@ -38,12 +39,14 @@ class RowController: NSObject {
                     }
                 }
                 self.userDefaults?.setValue(NSKeyedArchiver.archivedDataWithRootObject(favourites), forKey: "favourites")
-                self.favouriteButton.setBackgroundImageNamed("star-50.png")
+                self.favouriteButtonImage.setImageNamed("star-50.png")
+                //self.favouriteButton.setBackgroundImageNamed("star-50.png")
             }else{
                 //lägg till i favoriter o sätt fylld stjärna
                 favourites.append(self.station)
                 self.userDefaults?.setValue(NSKeyedArchiver.archivedDataWithRootObject(favourites), forKey: "favourites")
-                self.favouriteButton.setBackgroundImageNamed("star_filled-50.png")
+                self.favouriteButtonImage.setImageNamed("star_filled-50.png")
+                //self.favouriteButton.setBackgroundImageNamed("star_filled-50.png")
             }
         }else{
             self.userDefaults?.setObject(NSKeyedArchiver.archivedDataWithRootObject([self.station]), forKey: "favourites")

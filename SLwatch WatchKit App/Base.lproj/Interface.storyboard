@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3737"/>
@@ -14,16 +14,16 @@
                             <fontDescription key="font" type="boldSystem" pointSize="20"/>
                         </label>
                         <separator alignment="center" verticalAlignment="center" id="3UZ-3R-3Qh">
-                            <color key="color" red="0.0" green="0.67450980390000004" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="color" red="0.0" green="0.67450980392156867" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </separator>
                         <button width="1" alignment="center" verticalAlignment="center" title="Nearby stations" id="aeX-ge-hOO">
-                            <fontDescription key="font" type="system" pointSize="15"/>
+                            <fontDescription key="font" type="system" pointSize="13"/>
                             <connections>
                                 <segue destination="cII-kl-DYl" kind="push" id="gfa-AM-1dS"/>
                             </connections>
                         </button>
                         <button width="1" alignment="center" verticalAlignment="center" title="Favourite stations" id="Pqk-8w-Kxf">
-                            <fontDescription key="font" type="system" pointSize="15"/>
+                            <fontDescription key="font" type="system" pointSize="13"/>
                             <connections>
                                 <segue destination="bT7-3J-99L" kind="push" id="AWk-II-hVJ"/>
                             </connections>
@@ -41,17 +41,17 @@
                         <group alignment="left" layout="vertical" id="YsP-gH-u2r">
                             <items>
                                 <label alignment="left" verticalAlignment="bottom" text="Departures from:" id="g5r-DA-7i8">
-                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="textColor" red="0.0" green="0.67450980390000004" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="font" type="system" pointSize="8"/>
                                 </label>
-                                <label alignment="left" verticalAlignment="bottom" text="Label" textAlignment="left" numberOfLines="0" id="5dl-RF-t3N">
+                                <label alignment="left" verticalAlignment="bottom" text="Label" textAlignment="left" numberOfLines="0" minimumScaleFactor="0.70000000000000007" id="5dl-RF-t3N">
                                     <fontDescription key="font" type="system" pointSize="13"/>
                                 </label>
                             </items>
                         </group>
-                        <group alignment="left" id="chv-6R-ory">
+                        <group alignment="left" layout="vertical" id="chv-6R-ory">
                             <items>
-                                <label alignment="center" verticalAlignment="center" hidden="YES" numberOfLines="0" id="uIM-24-3H5">
+                                <label alignment="center" verticalAlignment="center" hidden="YES" numberOfLines="0" minimumScaleFactor="0.70000000000000007" id="uIM-24-3H5">
                                     <fontDescription key="font" type="system" pointSize="13"/>
                                 </label>
                                 <table alignment="center" verticalAlignment="center" id="yNZ-tN-M5X">
@@ -59,10 +59,11 @@
                                         <tableRow identifier="departuresrowcontroller" selectable="NO" id="x6F-dk-BzD" customClass="DeparturesRowController" customModule="SLwatch_WatchKit_Extension">
                                             <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" id="ZCH-MO-o5I">
                                                 <items>
-                                                    <label width="1" alignment="left" text="Label" id="2mZ-vV-tuT">
-                                                        <fontDescription key="font" type="system" pointSize="10"/>
+                                                    <label width="1" alignment="left" text="Label" minimumScaleFactor="0.70000000000000007" id="2mZ-vV-tuT">
+                                                        <fontDescription key="font" type="system" pointSize="11"/>
                                                     </label>
                                                     <label width="1" alignment="left" text="x min" textAlignment="right" id="EoX-uG-UJv">
+                                                        <color key="textColor" red="0.0" green="0.67450980390000004" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="font" type="system" pointSize="9"/>
                                                     </label>
                                                 </items>
@@ -73,10 +74,8 @@
                                             </connections>
                                         </tableRow>
                                     </items>
-                                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </table>
                             </items>
-                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </group>
                     </items>
                     <connections>
@@ -98,12 +97,18 @@
                         <table alignment="left" id="PpY-ub-vcq">
                             <items>
                                 <tableRow identifier="rowcontroller" id="pag-fl-3Zm" customClass="RowController" customModule="SLwatch_WatchKit_Extension">
-                                    <group key="rootItem" width="1" alignment="left" id="qIv-3O-Szq">
+                                    <group key="rootItem" width="1" alignment="left" spacing="0.0" id="qIv-3O-Szq">
                                         <items>
-                                            <label height="37" alignment="left" text="Label" numberOfLines="2" minimumScaleFactor="0.70000000000000007" id="N6O-iU-pMK">
+                                            <label width="85" height="1" alignment="left" text="Label" numberOfLines="2" minimumScaleFactor="0.70000000000000007" id="N6O-iU-pMK">
                                                 <fontDescription key="font" type="system" pointSize="11"/>
+                                                <variation key="device=watch42mm" width="100"/>
                                             </label>
-                                            <button width="25" height="25" alignment="right" verticalAlignment="center" backgroundImage="star-50.png" id="6ZF-BQ-v7g">
+                                            <button alignment="right" verticalAlignment="center" id="6ZF-BQ-v7g">
+                                                <group key="contentGroup" width="45" height="38" alignment="left" id="rhn-GE-m5z">
+                                                    <items>
+                                                        <imageView alignment="right" verticalAlignment="center" image="star-50" id="7yQ-9q-gqD"/>
+                                                    </items>
+                                                </group>
                                                 <connections>
                                                     <action selector="favouritePressed" destination="pag-fl-3Zm" id="dyy-UN-SWQ"/>
                                                 </connections>
@@ -112,6 +117,7 @@
                                     </group>
                                     <connections>
                                         <outlet property="favouriteButton" destination="6ZF-BQ-v7g" id="PM6-qH-pM0"/>
+                                        <outlet property="favouriteButtonImage" destination="7yQ-9q-gqD" id="Qsh-6I-P4s"/>
                                         <outlet property="rowDescription" destination="N6O-iU-pMK" id="b62-Iz-an8"/>
                                         <segue destination="MX0-6l-5lI" kind="push" id="mPj-qZ-8Tc"/>
                                     </connections>
@@ -139,10 +145,16 @@
                                 <tableRow identifier="rowcontroller" id="8ac-zy-VGo" customClass="RowController" customModule="SLwatch_WatchKit_Extension">
                                     <group key="rootItem" width="1" alignment="left" id="E9x-Nj-M6N">
                                         <items>
-                                            <label height="37" alignment="left" text="Label" numberOfLines="2" minimumScaleFactor="0.70000000000000007" id="6qf-i2-WWE">
+                                            <label width="85" height="1" alignment="left" text="Label" numberOfLines="2" minimumScaleFactor="0.70000000000000007" id="6qf-i2-WWE">
                                                 <fontDescription key="font" type="system" pointSize="11"/>
+                                                <variation key="device=watch42mm" width="100"/>
                                             </label>
-                                            <button width="25" height="25" alignment="right" verticalAlignment="center" backgroundImage="star-50.png" id="c6g-zz-71E">
+                                            <button alignment="right" verticalAlignment="center" id="c6g-zz-71E">
+                                                <group key="contentGroup" width="45" height="1" alignment="left" id="IB2-uL-1DF">
+                                                    <items>
+                                                        <imageView alignment="right" verticalAlignment="center" image="star-50" id="d9A-S3-Auk"/>
+                                                    </items>
+                                                </group>
                                                 <connections>
                                                     <action selector="favouritePressed" destination="8ac-zy-VGo" id="WYj-DV-0LN"/>
                                                 </connections>
@@ -151,6 +163,7 @@
                                     </group>
                                     <connections>
                                         <outlet property="favouriteButton" destination="c6g-zz-71E" id="QQ8-9m-Avf"/>
+                                        <outlet property="favouriteButtonImage" destination="d9A-S3-Auk" id="N4u-fk-d8D"/>
                                         <outlet property="rowDescription" destination="6qf-i2-WWE" id="LSj-7o-Gxp"/>
                                         <segue destination="MX0-6l-5lI" kind="push" id="Xmq-rv-fma"/>
                                     </connections>
@@ -179,14 +192,36 @@
                                             <label width="1" alignment="left" text="Label" minimumScaleFactor="0.70000000000000007" id="3Tf-EF-Eal">
                                                 <fontDescription key="font" type="system" pointSize="11"/>
                                             </label>
-                                            <label width="1" alignment="left" text="x min" textAlignment="right" id="kkW-pv-9Nv">
-                                                <color key="textColor" red="0.0" green="0.67450980390000004" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="font" type="system" pointSize="11"/>
-                                            </label>
+                                            <group width="1" alignment="left" id="L0X-kU-yaW">
+                                                <items>
+                                                    <group width="15" height="20" alignment="left" layout="vertical" spacing="0.0" id="L1U-VO-gAC">
+                                                        <items>
+                                                            <separator alignment="center" verticalAlignment="center" id="ezu-sr-aOx">
+                                                                <color key="color" red="0.0" green="0.39421500720721642" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </separator>
+                                                            <label alignment="center" verticalAlignment="center" text="T" textAlignment="center" id="yv1-5Q-inh">
+                                                                <fontDescription key="font" type="boldSystem" pointSize="11"/>
+                                                            </label>
+                                                            <separator alignment="center" verticalAlignment="center" id="rXa-ts-YEy"/>
+                                                        </items>
+                                                    </group>
+                                                    <label alignment="left" verticalAlignment="center" text="19" textAlignment="right" id="kH9-R4-xPM">
+                                                        <fontDescription key="font" type="system" pointSize="11"/>
+                                                    </label>
+                                                    <label alignment="right" verticalAlignment="center" text="13:37" textAlignment="right" id="kkW-pv-9Nv">
+                                                        <color key="textColor" red="0.0" green="0.67450980392156867" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="font" type="system" pointSize="13"/>
+                                                    </label>
+                                                </items>
+                                            </group>
                                         </items>
                                     </group>
                                     <connections>
+                                        <outlet property="departureTypeColorSeparator" destination="ezu-sr-aOx" id="tOb-4d-9uI"/>
+                                        <outlet property="departureTypeGroup" destination="L1U-VO-gAC" id="RnO-hB-pz5"/>
+                                        <outlet property="departureTypeLabel" destination="yv1-5Q-inh" id="1cE-kx-Tw9"/>
                                         <outlet property="directionLabel" destination="3Tf-EF-Eal" id="3KN-z7-rPN"/>
+                                        <outlet property="lineNumberLabel" destination="kH9-R4-xPM" id="DRg-TP-UOe"/>
                                         <outlet property="timeLabel" destination="kkW-pv-9Nv" id="ncQ-E6-Evo"/>
                                     </connections>
                                 </tableRow>
@@ -254,34 +289,35 @@
                             <items>
                                 <switch width="1" alignment="left" hidden="YES" title="Bus" id="LMA-RE-JGY">
                                     <fontDescription key="font" type="system" pointSize="13"/>
-                                    <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="tintColor" red="0.0" green="0.67450980390000004" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <connections>
                                         <action selector="switchedBuss:" destination="mCN-k1-QlT" id="cmd-z0-MWu"/>
                                     </connections>
                                 </switch>
                                 <switch width="1" alignment="left" hidden="YES" title="Metro" id="wFf-OG-OOi">
                                     <fontDescription key="font" type="system" pointSize="13"/>
-                                    <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="tintColor" red="0.0" green="0.67450980390000004" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <connections>
                                         <action selector="switchedTunnelbana:" destination="mCN-k1-QlT" id="XDR-Ys-q0w"/>
                                     </connections>
                                 </switch>
                                 <switch width="1" alignment="left" hidden="YES" title="Tram" id="ifD-Fa-4Jv">
                                     <fontDescription key="font" type="system" pointSize="13"/>
-                                    <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="tintColor" red="0.0" green="0.67450980390000004" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <connections>
                                         <action selector="switchedSparvagn:" destination="mCN-k1-QlT" id="FLx-rS-qOL"/>
                                     </connections>
                                 </switch>
                                 <switch width="1" alignment="left" hidden="YES" title="Train" id="tZO-wo-RnP">
                                     <fontDescription key="font" type="system" pointSize="13"/>
-                                    <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="tintColor" red="0.0" green="0.67450980390000004" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <connections>
                                         <action selector="switchedPendeltag:" destination="mCN-k1-QlT" id="7ag-qR-o6T"/>
                                     </connections>
                                 </switch>
                                 <switch width="1" alignment="left" hidden="YES" title="Ferry" id="bAL-yc-Agm">
                                     <fontDescription key="font" type="system" pointSize="13"/>
+                                    <color key="tintColor" red="0.0" green="0.67450980390000004" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <connections>
                                         <action selector="switchedFarja:" destination="mCN-k1-QlT" id="HbY-lU-KsL"/>
                                     </connections>
