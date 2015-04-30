@@ -43,13 +43,10 @@ class DeparturesRowController: NSObject {
         }else{
             self.departureTypeGroup.setHidden(true)
         }
-        
-        println(departure.transportType)
     }
     
     func setupTypeLogo(type: String, linenumber: String){
         switch type{
-            //"BUSFJ"
         case "U":
             self.departureTypeLabel.setText("T")
             self.setupMetroColor(linenumber)

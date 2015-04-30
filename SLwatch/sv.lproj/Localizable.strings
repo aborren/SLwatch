@@ -17,6 +17,8 @@ NO_GLANCE_INSTRUCTION = "Klicka här för att öppna applikationen och ställa i
 NEARBY_STATIONS = "Närliggande stationer";
 FAVOURITE_STATIONS = "Stjärnmarkerade stationer";
 
+FAILED_LOCATION = "Misslyckades hämta platsdata";
+SERVER_FAILED = "Misslyckades hämta data från servern";
 
 SETTINGS = "Inställningar";
 

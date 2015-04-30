@@ -31,6 +31,7 @@ class LocationHandler: NSObject, CLLocationManagerDelegate {
 
     func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
         println("failed" + error.description)
+        self.wh!.passMessageObject(nil, identifier: "failedLocation")
     }
     
     //uses wormhole to message receiver with coordinates

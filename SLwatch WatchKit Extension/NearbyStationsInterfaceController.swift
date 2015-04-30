@@ -17,6 +17,7 @@ class NearbyStationsInterfaceController: WKInterfaceController {
     var stations: [Station] = []
     var userDefaults = NSUserDefaults(suiteName: "group.slwatch")
     @IBOutlet var informationLabel: WKInterfaceLabel!
+    @IBOutlet var loadingImage: WKInterfaceImage!
     
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
@@ -30,22 +31,28 @@ class NearbyStationsInterfaceController: WKInterfaceController {
                 //do something to prompt user to open
                 self.informationLabel.setHidden(false)
                 self.informationLabel.setText(NSLocalizedString("NO_GPS_MESSAGE", comment: "Hi"))
-                println("Set gps")
+                self.loadingImage.setHidden(true)
             }
         })
         
         var didReceiveLocation = false
         self.wh!.listenForMessageWithIdentifier("location", listener: { (locationResponse) -> Void in
-            println("got message")
             if let longitude: Double = locationResponse["longitude"] as? Double{
                 if let latitude: Double = locationResponse["latitude"] as? Double{
                     if(!didReceiveLocation){
                         didReceiveLocation = true
+                        self.informationLabel.setHidden(true)
                         self.setUpTableFromLocation(longitude.description, latitude: latitude.description)
                     }
                 }
             }
         })
+        self.wh!.listenForMessageWithIdentifier("failedLocation", listener: { (locationResponse) -> Void in
+            self.loadingImage.setHidden(true)
+            self.informationLabel.setHidden(false)
+            self.informationLabel.setText(NSLocalizedString("FAILED_LOCATION", comment: "Hi"))
+        })
+        
         // Configure interface objects here.
     }
 
@@ -71,7 +78,6 @@ class NearbyStationsInterfaceController: WKInterfaceController {
                 let favourites = unarc.decodeObjectForKey("root") as! [Station]
                 for station in favourites{
                     if(station.id == stations[i].id){
-                        //row.favouriteButton.setBackgroundImageNamed("star_filled-50.png")
                         row.favouriteButtonImage.setImageNamed("star_filled-50.png")
                     }
                 }
@@ -91,10 +97,16 @@ class NearbyStationsInterfaceController: WKInterfaceController {
         println("got coordinates")
         let radius = 500 //sätt som setting
         request(.GET, "https://api.trafiklab.se/samtrafiken/resrobot/StationsInZone.json?apiVersion=2.1&centerX=\(longitude)&centerY=\(latitude)&radius=\(radius)&coordSys=WGS84&key=T5Jex4dsGQk03VZlXbvmMMC1hMECZNkm")
-            .responseJSON { (_, _, JSON, _) in
+            .responseJSON { (_, _, JSON, error) in
                 if let stationsResponse = JSON as? NSDictionary {
                     self.stations = UtilityFunctions.convertResponseToStations(stationsResponse as NSDictionary)
                     self.configureTableWithData(self.stations)
+                    self.loadingImage.setHidden(true)
+                }
+                if let error = error{
+                    self.loadingImage.setHidden(true)
+                    self.informationLabel.setHidden(false)
+                    self.informationLabel.setText(NSLocalizedString("SERVER_FAILED", comment: "Hi"))
                 }
         }
     }

@@ -16,6 +16,7 @@ class GlanceInterfaceController: WKInterfaceController {
     @IBOutlet var topLabel: WKInterfaceLabel!
     @IBOutlet var titleLabel: WKInterfaceLabel!
     @IBOutlet var departuresTable: WKInterfaceTable!
+    @IBOutlet var loadingImage: WKInterfaceImage!
     var station: Station?
     var filterString = ""
     var departures: [Departure] = []
@@ -23,15 +24,7 @@ class GlanceInterfaceController: WKInterfaceController {
     var userDefaults = NSUserDefaults(suiteName: "group.slwatch")
     
     override func awakeWithContext(context: AnyObject?) {
-        super.awakeWithContext(context)
-        
-        //Required to use Station in both extension and main application
-        NSKeyedUnarchiver.setClass(Station.self, forClassName: "Station")
-        NSKeyedArchiver.setClassName("Station", forClass: Station.self)
-        
-        //hämta station
-        self.station = self.getGlanceStation()
-        
+        super.awakeWithContext(context)        
         // Configure interface objects here.
     }
 
@@ -39,24 +32,41 @@ class GlanceInterfaceController: WKInterfaceController {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
         
+        //Required to use Station in both extension and main application
+        NSKeyedUnarchiver.setClass(Station.self, forClassName: "Station")
+        NSKeyedArchiver.setClassName("Station", forClass: Station.self)
+        //hämta station
+        self.station = self.getGlanceStation()
+        
         if let station = self.station {
             self.titleLabel.setText(station.name)
+            //for handoff to main app (opens station view)
+            self.passStationToMainApp(station)
             self.loadFilterString()
+            self.loadingImage.setHidden(false)
+            self.departuresTable.setHidden(true)
             request(.GET, "https://api.trafiklab.se/samtrafiken/resrobotstops/GetDepartures.json?apiVersion=2.2&coordSys=RT90&locationId=\(station.id)&timeSpan=30&key=TrGAqilPmbAXHY1HpIxGAUkmARCAn4qH")
-                .responseJSON { (_, _, JSON, _) in
+                .responseJSON { (_, _, JSON, error) in
                     if let response: AnyObject = JSON {
+                        self.loadingImage.setHidden(true)
+                        self.departuresTable.setHidden(false)
                         self.departures = self.convertResponseToDepartures(response)
                         self.configureTableWithData(self.departures)
                     }
+                    if let error = error {
+                        self.loadingImage.setHidden(true)
+                        self.tableLabel.setHidden(false)
+                        self.tableLabel.setText(NSLocalizedString("SERVER_FAILED", comment: "server failed"))
+                    }
+                    
             }
         }else{
+            self.loadingImage.setHidden(true)
             self.topLabel.setText("")
             self.titleLabel.setText(NSLocalizedString("NO_GLANCE_MESSAGE", comment: "no glance set"))
             self.departuresTable.setHidden(true)
             self.tableLabel.setHidden(false)
             self.tableLabel.setText(NSLocalizedString("NO_GLANCE_INSTRUCTION", comment: "no glance instruction"))
-            println("No glance set")
-            //show some msg
         }
     }
     
@@ -65,10 +75,16 @@ class GlanceInterfaceController: WKInterfaceController {
         super.didDeactivate()
     }
     
+    func passStationToMainApp(station: Station){
+        let data = NSKeyedArchiver.archivedDataWithRootObject(station)
+        updateUserActivity("dna.SLwatch.watchkitextension", userInfo: ["station":data], webpageURL: nil)
+
+    }
+    
     func configureTableWithData(departures: [Departure]){
         var numberOfRows = departures.count
-        if(numberOfRows > 3){
-            numberOfRows = 3
+        if(numberOfRows > 2){
+            numberOfRows = 2
         }
         
         self.departuresTable.setNumberOfRows(numberOfRows, withRowType: "departuresrowcontroller")

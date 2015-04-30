@@ -15,6 +15,7 @@ class DeparturesInterfaceController: WKInterfaceController {
     @IBOutlet var stationLabel: WKInterfaceLabel!
     @IBOutlet var departuresTable: WKInterfaceTable!
     @IBOutlet var noDeparturesLabel: WKInterfaceLabel!
+    @IBOutlet var loadingImage: WKInterfaceImage!
     
     var departures: [Departure] = []
     var station: Station?
@@ -35,11 +36,19 @@ class DeparturesInterfaceController: WKInterfaceController {
         super.willActivate()
         loadFilterString()
         if let stationID = self.station?.id {
+            self.loadingImage.setHidden(false)
+            self.noDeparturesLabel.setHidden(true)
             request(.GET, "https://api.trafiklab.se/samtrafiken/resrobotstops/GetDepartures.json?apiVersion=2.2&coordSys=RT90&locationId=\(stationID)&timeSpan=30&key=TrGAqilPmbAXHY1HpIxGAUkmARCAn4qH")
-                    .responseJSON { (_, _, JSON, _) in
+                    .responseJSON { (_, _, JSON, error) in
                         if let response: AnyObject = JSON {
+                            self.loadingImage.setHidden(true)
                             self.departures = UtilityFunctions.convertResponseToDepartures(response, filterString: self.filterString)
                             self.configureTableWithData(self.departures)
+                        }
+                        if let error = error{
+                            self.loadingImage.setHidden(true)
+                            self.noDeparturesLabel.setHidden(false)
+                            self.noDeparturesLabel.setText(NSLocalizedString("SERVER_FAILED", comment: "Hi"))
                         }
             }
         }

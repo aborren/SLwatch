@@ -17,6 +17,9 @@ NO_GLANCE_INSTRUCTION = "Click here to open the application to set a station for
 NEARBY_STATIONS = "Nearby stations";
 FAVOURITE_STATIONS = "Favourite stations";
 
+FAILED_LOCATION = "Failed to get location data";
+SERVER_FAILED = "Failed to get data from server";
+
 SETTINGS = "Settings";
 
 CANCEL = "Cancel";

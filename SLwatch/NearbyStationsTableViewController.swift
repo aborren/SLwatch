@@ -86,9 +86,13 @@ class NearbyStationsTableViewController: UITableViewController, UIAlertViewDeleg
 
     func setUpTableFromLocation(longitude: String, latitude: String){
         let radius = 500 //sätt som setting
+        println("got here")
         request(.GET, "https://api.trafiklab.se/samtrafiken/resrobot/StationsInZone.json?apiVersion=2.1&centerX=\(longitude)&centerY=\(latitude)&radius=\(radius)&coordSys=WGS84&key=T5Jex4dsGQk03VZlXbvmMMC1hMECZNkm")
-            .responseJSON { (_, _, JSON, _) in
+            .responseJSON { (_, response, JSON, error) in
+                println(error)
+                println(response)
                 if let stationsResponse = JSON as? NSDictionary {
+                    println(stationsResponse)
                     self.stations = UtilityFunctions.convertResponseToStations(stationsResponse as NSDictionary)
                     if(self.stations.count == 0){
                         self.tableView.hidden = true

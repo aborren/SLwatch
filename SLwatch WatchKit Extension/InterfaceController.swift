@@ -31,5 +31,16 @@ class InterfaceController: WKInterfaceController {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
     }
+    
+    override func handleUserActivity(userInfo: [NSObject : AnyObject]?) {
+        NSKeyedUnarchiver.setClass(Station.self, forClassName: "Station")
+        NSKeyedArchiver.setClassName("Station", forClass: Station.self)
+        
+        if let data = userInfo?["station"] as? NSData{
+            let unarc = NSKeyedUnarchiver(forReadingWithData: data)
+            let station = unarc.decodeObjectForKey("root") as? Station
+            pushControllerWithName("departuresView", context: station)
+        }
+    }
 
 }
