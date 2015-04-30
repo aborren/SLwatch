@@ -41,6 +41,8 @@ class LocationHandler: NSObject, CLLocationManagerDelegate {
             let response = ["longitude":currentLocation.coordinate.longitude, "latitude":currentLocation.coordinate.latitude]
             self.wh!.passMessageObject(response as NSDictionary, identifier: "location")
             locationManager.stopUpdatingLocation()
+        }else{
+            println("lol")
         }
     }
     

@@ -44,6 +44,7 @@ class GlanceInterfaceController: WKInterfaceController {
             self.passStationToMainApp(station)
             self.loadFilterString()
             self.loadingImage.setHidden(false)
+            self.tableLabel.setHidden(true)
             self.departuresTable.setHidden(true)
             request(.GET, "https://api.trafiklab.se/samtrafiken/resrobotstops/GetDepartures.json?apiVersion=2.2&coordSys=RT90&locationId=\(station.id)&timeSpan=30&key=TrGAqilPmbAXHY1HpIxGAUkmARCAn4qH")
                 .responseJSON { (_, _, JSON, error) in
@@ -85,6 +86,9 @@ class GlanceInterfaceController: WKInterfaceController {
         var numberOfRows = departures.count
         if(numberOfRows > 2){
             numberOfRows = 2
+        }else if(numberOfRows == 0){
+            self.tableLabel.setHidden(false)
+            self.tableLabel.setText(NSLocalizedString("NO_DEPARTURES_MESSAGE", comment: "no deps"))
         }
         
         self.departuresTable.setNumberOfRows(numberOfRows, withRowType: "departuresrowcontroller")
