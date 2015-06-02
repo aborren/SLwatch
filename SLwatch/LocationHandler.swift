@@ -19,9 +19,9 @@ class LocationHandler: NSObject, CLLocationManagerDelegate {
     }
     
     func upDateCoordinates()->Bool{
-        self.locationManager.requestAlwaysAuthorization()
+        self.locationManager.requestWhenInUseAuthorization()//requestAlwaysAuthorization()
         let status = CLLocationManager.authorizationStatus()
-        if(status == CLAuthorizationStatus.AuthorizedAlways){
+        if(status == CLAuthorizationStatus.AuthorizedWhenInUse){//AuthorizedAlways){
             self.locationManager.delegate = self
             self.locationManager.startUpdatingLocation()
             return true

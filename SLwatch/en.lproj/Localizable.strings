@@ -25,3 +25,5 @@ SETTINGS = "Settings";
 CANCEL = "Cancel";
 
 NOW = "Now";
+
+GLANCE_DEPFROM = "Departures from:";

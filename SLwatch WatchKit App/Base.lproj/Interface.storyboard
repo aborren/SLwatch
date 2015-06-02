@@ -40,7 +40,7 @@
                     <items>
                         <group alignment="left" layout="vertical" id="YsP-gH-u2r">
                             <items>
-                                <label alignment="left" verticalAlignment="bottom" text="Departures from:" id="g5r-DA-7i8">
+                                <label alignment="left" verticalAlignment="bottom" id="g5r-DA-7i8">
                                     <color key="textColor" red="0.0" green="0.67450980390000004" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="font" type="system" pointSize="8"/>
                                 </label>

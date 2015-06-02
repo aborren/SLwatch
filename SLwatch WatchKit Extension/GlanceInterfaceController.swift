@@ -160,6 +160,7 @@ class GlanceInterfaceController: WKInterfaceController {
     
     func setupGlanceStation(station: Station?){
         if let station = station {
+            self.topLabel.setText(NSLocalizedString("GLANCE_DEPFROM", comment: "departure from"))
             self.titleLabel.setText(station.name)
             //for handoff to main app (opens station view)
             self.passStationToMainApp(station)

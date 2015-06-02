@@ -25,3 +25,5 @@ SETTINGS = "Inställningar";
 CANCEL = "Avbryt";
 
 NOW = "Nu";
+
+GLANCE_DEPFROM = "Avångar från:";
