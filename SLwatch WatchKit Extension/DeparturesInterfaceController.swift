@@ -38,10 +38,13 @@ class DeparturesInterfaceController: WKInterfaceController {
         if let stationID = self.station?.id {
             self.loadingImage.setHidden(false)
             self.noDeparturesLabel.setHidden(true)
+            self.departuresTable.setHidden(true)
             request(.GET, "https://api.trafiklab.se/samtrafiken/resrobotstops/GetDepartures.json?apiVersion=2.2&coordSys=RT90&locationId=\(stationID)&timeSpan=30&key=TrGAqilPmbAXHY1HpIxGAUkmARCAn4qH")
                     .responseJSON { (_, _, JSON, error) in
                         if let response: AnyObject = JSON {
                             self.loadingImage.setHidden(true)
+                            self.departuresTable.setHidden(false)
+                            self.noDeparturesLabel.setHidden(true)
                             self.departures = UtilityFunctions.convertResponseToDepartures(response, filterString: self.filterString)
                             self.configureTableWithData(self.departures)
                         }
@@ -57,6 +60,16 @@ class DeparturesInterfaceController: WKInterfaceController {
     override func didDeactivate() {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
+    }
+    
+    //depracated
+    func refreshTableOnDeparture(){
+        if(self.departures.count > 0){
+            if let refreshDate = self.departures[0].departureTime{
+                let t = NSTimer(fireDate: refreshDate.dateByAddingTimeInterval(60.0), interval: 0, target: self, selector: "willActivate", userInfo: nil, repeats: false)
+                NSRunLoop.currentRunLoop().addTimer(t, forMode: NSDefaultRunLoopMode)
+            }
+        }
     }
     
     func configureTableWithData(departures: [Departure]){

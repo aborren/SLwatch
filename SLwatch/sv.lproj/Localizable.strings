@@ -23,3 +23,5 @@ SERVER_FAILED = "Misslyckades hämta data från servern";
 SETTINGS = "Inställningar";
 
 CANCEL = "Avbryt";
+
+NOW = "Nu";

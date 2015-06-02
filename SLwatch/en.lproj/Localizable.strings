@@ -23,3 +23,5 @@ SERVER_FAILED = "Failed to get data from server";
 SETTINGS = "Settings";
 
 CANCEL = "Cancel";
+
+NOW = "Now";

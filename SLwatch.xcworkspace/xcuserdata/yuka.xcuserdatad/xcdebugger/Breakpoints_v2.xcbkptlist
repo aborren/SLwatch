@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SLwatch WatchKit Extension/DeparturesInterfaceController.swift"
-            timestampString = "452078205.552644"
+            timestampString = "452417408.555609"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
             landmarkName = "willActivate()"
             landmarkType = "5">
          </BreakpointContent>
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SLwatch WatchKit Extension/DeparturesInterfaceController.swift"
-            timestampString = "452078205.552644"
+            timestampString = "452417408.555609"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
             landmarkName = "willActivate()"
             landmarkType = "5">
          </BreakpointContent>

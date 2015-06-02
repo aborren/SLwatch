@@ -20,7 +20,7 @@ class GlanceInterfaceController: WKInterfaceController {
     var station: Station?
     var filterString = ""
     var departures: [Departure] = []
-    
+    var wh: MMWormhole?
     var userDefaults = NSUserDefaults(suiteName: "group.slwatch")
     
     override func awakeWithContext(context: AnyObject?) {
@@ -35,40 +35,45 @@ class GlanceInterfaceController: WKInterfaceController {
         //Required to use Station in both extension and main application
         NSKeyedUnarchiver.setClass(Station.self, forClassName: "Station")
         NSKeyedArchiver.setClassName("Station", forClass: Station.self)
-        //hämta station
-        self.station = self.getGlanceStation()
+        //hämta station (kanske if här mot gps?)
         
-        if let station = self.station {
-            self.titleLabel.setText(station.name)
-            //for handoff to main app (opens station view)
-            self.passStationToMainApp(station)
-            self.loadFilterString()
-            self.loadingImage.setHidden(false)
-            self.tableLabel.setHidden(true)
-            self.departuresTable.setHidden(true)
-            request(.GET, "https://api.trafiklab.se/samtrafiken/resrobotstops/GetDepartures.json?apiVersion=2.2&coordSys=RT90&locationId=\(station.id)&timeSpan=30&key=TrGAqilPmbAXHY1HpIxGAUkmARCAn4qH")
-                .responseJSON { (_, _, JSON, error) in
-                    if let response: AnyObject = JSON {
-                        self.loadingImage.setHidden(true)
-                        self.departuresTable.setHidden(false)
-                        self.departures = self.convertResponseToDepartures(response)
-                        self.configureTableWithData(self.departures)
-                    }
-                    if let error = error {
-                        self.loadingImage.setHidden(true)
-                        self.tableLabel.setHidden(false)
-                        self.tableLabel.setText(NSLocalizedString("SERVER_FAILED", comment: "server failed"))
-                    }
-                    
+        self.wh = MMWormhole(applicationGroupIdentifier: "group.slwatch", optionalDirectory: "wormhole")
+        
+        //wake parent application on iPhone and request GPS location
+        WKInterfaceController.openParentApplication(["request":"location"], reply: {(replyInfo, error) -> Void in
+            let gpsAvailable = replyInfo["gpsAvailable"] as! Bool
+            if(!gpsAvailable){
+                //do something to prompt user to open
+                self.topLabel.setText("")
+                self.titleLabel.setText("")
+                self.departuresTable.setHidden(true)
+                self.tableLabel.setHidden(false)
+                self.tableLabel.setText(NSLocalizedString("NO_GPS_MESSAGE", comment: "Hi"))
+                self.loadingImage.setHidden(true)
             }
-        }else{
+        })
+        
+        var didReceiveLocation = false
+        self.wh!.listenForMessageWithIdentifier("location", listener: { (locationResponse) -> Void in
+            if let longitude: Double = locationResponse["longitude"] as? Double{
+                if let latitude: Double = locationResponse["latitude"] as? Double{
+                    if(!didReceiveLocation){
+                        didReceiveLocation = true
+                        self.tableLabel.setHidden(true)
+                        self.station = self.getClosestStation(longitude, lat: latitude)
+                        self.setupGlanceStation(self.station)
+                    }
+                }
+            }
+        })
+        self.wh!.listenForMessageWithIdentifier("failedLocation", listener: { (locationResponse) -> Void in
             self.loadingImage.setHidden(true)
             self.topLabel.setText("")
-            self.titleLabel.setText(NSLocalizedString("NO_GLANCE_MESSAGE", comment: "no glance set"))
+            self.titleLabel.setText("")
             self.departuresTable.setHidden(true)
             self.tableLabel.setHidden(false)
-            self.tableLabel.setText(NSLocalizedString("NO_GLANCE_INSTRUCTION", comment: "no glance instruction"))
-        }
+            self.tableLabel.setText(NSLocalizedString("FAILED_LOCATION", comment: "Hi"))
+        })
     }
     
     override func didDeactivate() {
@@ -97,7 +102,7 @@ class GlanceInterfaceController: WKInterfaceController {
             row.setUpRow(departures[i])
         }
     }
-    
+    /*
     func convertResponseToDepartures(responseObject: AnyObject)->[Departure]{
         var departures: [Departure] = []
         let json = JSON(responseObject)
@@ -143,7 +148,7 @@ class GlanceInterfaceController: WKInterfaceController {
         }
         return departures
     }
-    
+    */
     func getGlanceStation()->Station?{
         var glanceStation: Station?
         if let data = self.userDefaults?.objectForKey("glance") as? NSData{
@@ -151,6 +156,69 @@ class GlanceInterfaceController: WKInterfaceController {
             glanceStation = unarc.decodeObjectForKey("root") as? Station
         }
         return glanceStation
+    }
+    
+    func setupGlanceStation(station: Station?){
+        if let station = station {
+            self.titleLabel.setText(station.name)
+            //for handoff to main app (opens station view)
+            self.passStationToMainApp(station)
+            self.loadFilterString()
+            self.loadingImage.setHidden(false)
+            self.tableLabel.setHidden(true)
+            self.departuresTable.setHidden(true)
+            request(.GET, "https://api.trafiklab.se/samtrafiken/resrobotstops/GetDepartures.json?apiVersion=2.2&coordSys=RT90&locationId=\(station.id)&timeSpan=30&key=TrGAqilPmbAXHY1HpIxGAUkmARCAn4qH")
+                .responseJSON { (_, _, JSON, error) in
+                    if let response: AnyObject = JSON {
+                        self.loadingImage.setHidden(true)
+                        self.departuresTable.setHidden(false)
+                        self.tableLabel.setHidden(true)
+                        self.departures = UtilityFunctions.convertResponseToDepartures(response, filterString: self.filterString)
+                        self.configureTableWithData(self.departures)
+                    }
+                    if let error = error {
+                        self.loadingImage.setHidden(true)
+                        self.tableLabel.setHidden(false)
+                        self.tableLabel.setText(NSLocalizedString("SERVER_FAILED", comment: "server failed"))
+                    }
+                    
+            }
+        }else{
+            self.loadingImage.setHidden(true)
+            self.topLabel.setText("")
+            self.titleLabel.setText(NSLocalizedString("NO_GLANCE_MESSAGE", comment: "no glance set"))
+            self.departuresTable.setHidden(true)
+            self.tableLabel.setHidden(false)
+            self.tableLabel.setText(NSLocalizedString("NO_GLANCE_INSTRUCTION", comment: "no glance instruction"))
+        }
+    }
+    
+    func getClosestStation(long: Double, lat: Double)->Station?{
+        var stations = self.getFavouriteStations()
+        var closest: Station?
+        var closestDistance: Double = Double.infinity
+        for s in stations{
+            var d = self.measureDistance(long, alat: lat, blong: s.longitude, blat: s.latitude)
+            if(d < closestDistance){
+                closestDistance = d
+                closest = s
+            }
+        }
+        return closest
+    }
+    
+    func measureDistance(along: Double, alat: Double, blong: Double, blat: Double)->Double{
+        var distance = pow((alat-blat), 2) + pow((along-blong), 2)
+        return distance
+    }
+    
+    func getFavouriteStations()->[Station]{
+        var favourites: [Station] = []
+        if let data = self.userDefaults?.objectForKey("favourites") as? NSData{
+            let unarc = NSKeyedUnarchiver(forReadingWithData: data)
+            favourites = unarc.decodeObjectForKey("root") as! [Station]
+        }
+        return favourites
     }
     
     func loadFilterString(){

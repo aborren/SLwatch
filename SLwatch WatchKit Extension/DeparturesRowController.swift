@@ -18,6 +18,8 @@ class DeparturesRowController: NSObject {
     @IBOutlet var departureTypeColorSeparator: WKInterfaceSeparator!
     @IBOutlet var departureTypeLabel: WKInterfaceLabel!
  
+    @IBOutlet var departureTimer: WKInterfaceTimer!
+    
     func setUpRow(departure: Departure){
         if let line = departure.lineNumber {
             self.lineNumberLabel.setText(line)
@@ -82,6 +84,18 @@ class DeparturesRowController: NSObject {
     func setUpTime(departureTime: NSDate){
         var df = NSDateFormatter()
         df.dateFormat = "HH:mm"
+        self.timeLabel.setHidden(false)
+        self.departureTimer.setHidden(true)
         self.timeLabel.setText(df.stringFromDate(departureTime))
+        //self.departureTimer.setDate(departureTime.dateByAddingTimeInterval(61))
+        /*let t = NSTimer(fireDate: departureTime, interval: 0, target: self, selector: "setNowText", userInfo: nil, repeats: false)
+        NSRunLoop.currentRunLoop().addTimer(t, forMode: NSDefaultRunLoopMode)*/
+
+    }
+
+    func setNowText(){
+        self.departureTimer.setHidden(true)
+        self.timeLabel.setHidden(false)
+        self.timeLabel.setText(NSLocalizedString("NOW", comment: "Now"))
     }
 }

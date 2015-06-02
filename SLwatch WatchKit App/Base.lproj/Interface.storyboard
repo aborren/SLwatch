@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3737"/>
     </dependencies>
     <scenes>
@@ -44,7 +44,7 @@
                                     <color key="textColor" red="0.0" green="0.67450980390000004" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="font" type="system" pointSize="8"/>
                                 </label>
-                                <label alignment="left" verticalAlignment="bottom" text="Label" textAlignment="left" numberOfLines="0" minimumScaleFactor="0.70000000000000007" id="5dl-RF-t3N">
+                                <label alignment="left" verticalAlignment="bottom" text=" " textAlignment="left" numberOfLines="0" minimumScaleFactor="0.70000000000000007" id="5dl-RF-t3N">
                                     <fontDescription key="font" type="system" pointSize="13"/>
                                 </label>
                             </items>
@@ -79,15 +79,20 @@
                                                             <label alignment="left" verticalAlignment="center" text="19" textAlignment="right" id="U2V-ll-AYC">
                                                                 <fontDescription key="font" type="system" pointSize="11"/>
                                                             </label>
-                                                            <label alignment="right" verticalAlignment="center" text="13:37" textAlignment="right" id="VVu-T3-e0k">
+                                                            <timer alignment="right" hidden="YES" enabled="YES" format="short" id="MMk-sP-jJY">
+                                                                <color key="textColor" red="0.0" green="0.67450980390000004" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <calendarUnit key="units" minute="YES"/>
+                                                            </timer>
+                                                            <label alignment="right" verticalAlignment="center" textAlignment="right" id="VVu-T3-e0k">
                                                                 <color key="textColor" red="0.0" green="0.67450980390000004" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <fontDescription key="font" type="system" pointSize="13"/>
+                                                                <fontDescription key="font" style="UICTFontTextStyleBody"/>
                                                             </label>
                                                         </items>
                                                     </group>
                                                 </items>
                                             </group>
                                             <connections>
+                                                <outlet property="departureTimer" destination="MMk-sP-jJY" id="Oks-sa-f96"/>
                                                 <outlet property="departureTypeColorSeparator" destination="WJq-Wx-jki" id="j2G-4t-sqt"/>
                                                 <outlet property="departureTypeGroup" destination="N85-Pq-MZk" id="eso-cR-E93"/>
                                                 <outlet property="departureTypeLabel" destination="GSZ-zx-YS5" id="XZE-7V-Yk2"/>
@@ -235,15 +240,20 @@
                                                     <label alignment="left" verticalAlignment="center" text="19" textAlignment="right" id="kH9-R4-xPM">
                                                         <fontDescription key="font" type="system" pointSize="11"/>
                                                     </label>
-                                                    <label alignment="right" verticalAlignment="center" text="13:37" textAlignment="right" id="kkW-pv-9Nv">
+                                                    <timer alignment="right" hidden="YES" enabled="YES" format="short" id="6uT-kg-2FN">
+                                                        <color key="textColor" red="0.0" green="0.67450980390000004" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <calendarUnit key="units" minute="YES"/>
+                                                    </timer>
+                                                    <label alignment="right" verticalAlignment="center" textAlignment="right" id="kkW-pv-9Nv">
                                                         <color key="textColor" red="0.0" green="0.67450980392156867" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="font" type="system" pointSize="13"/>
+                                                        <fontDescription key="font" style="UICTFontTextStyleBody"/>
                                                     </label>
                                                 </items>
                                             </group>
                                         </items>
                                     </group>
                                     <connections>
+                                        <outlet property="departureTimer" destination="6uT-kg-2FN" id="MO1-s8-EOG"/>
                                         <outlet property="departureTypeColorSeparator" destination="ezu-sr-aOx" id="tOb-4d-9uI"/>
                                         <outlet property="departureTypeGroup" destination="L1U-VO-gAC" id="RnO-hB-pz5"/>
                                         <outlet property="departureTypeLabel" destination="yv1-5Q-inh" id="1cE-kx-Tw9"/>
@@ -299,14 +309,14 @@
                     </connections>
                 </notificationController>
             </objects>
-            <point key="canvasLocation" x="220" y="643"/>
+            <point key="canvasLocation" x="25" y="712"/>
         </scene>
         <!--Notification Controller-->
         <scene sceneID="ZPc-GJ-vnh">
             <objects>
                 <controller id="4sK-HA-Art" customClass="NotificationController" customModule="SLwatch_WatchKit_App" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="468" y="643"/>
+            <point key="canvasLocation" x="273" y="748"/>
         </scene>
         <!--Back-->
         <scene sceneID="18t-1a-uEm">
