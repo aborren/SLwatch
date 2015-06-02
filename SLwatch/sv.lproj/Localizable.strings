@@ -11,8 +11,8 @@ NO_GPS_MESSAGE = "Vänligen öppna SL Watch på din iPhone och tillåt den komma
 NO_DEPARTURES_MESSAGE = "Inga avgångar funna";
 NO_NEARBYSTATIONS_MESSAGE = "Inga närliggande stationer";
 
-NO_GLANCE_MESSAGE = "Ingen station inställd som överblicksvy";
-NO_GLANCE_INSTRUCTION = "Klicka här för att öppna applikationen och ställa in en station som överblick";
+NO_GLANCE_MESSAGE = "Ingen station stjärnmarkerad";
+NO_GLANCE_INSTRUCTION = "Klicka här för att öppna applikationen och stjärnmarkera stationer.";
 
 NEARBY_STATIONS = "Närliggande stationer";
 FAVOURITE_STATIONS = "Stjärnmarkerade stationer";

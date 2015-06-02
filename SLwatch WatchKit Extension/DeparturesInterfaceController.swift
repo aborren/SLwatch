@@ -105,8 +105,9 @@ class DeparturesInterfaceController: WKInterfaceController {
         presentControllerWithName("filter", context: self.station!)
     }
 
+    /*
     @IBAction func glance() {
         self.userDefaults?.setObject(NSKeyedArchiver.archivedDataWithRootObject(self.station!), forKey: "glance")
         self.userDefaults?.synchronize()
-    }
+    }*/
 }

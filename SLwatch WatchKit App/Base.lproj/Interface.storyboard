@@ -273,11 +273,6 @@
                                     <action selector="filter" destination="MX0-6l-5lI" id="PwM-AN-wYe"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Set as Glance" image="glance" id="5Wc-Qp-2qO">
-                                <connections>
-                                    <action selector="glance" destination="MX0-6l-5lI" id="74v-Xl-lUF"/>
-                                </connections>
-                            </menuItem>
                             <menuItem title="Station location" image="map" id="UKW-Cj-gCt" userLabel="Map">
                                 <connections>
                                     <action selector="map" destination="MX0-6l-5lI" id="XZ6-QI-QZ2"/>
