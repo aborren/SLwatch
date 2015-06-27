@@ -50,6 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let request: String = (userInfo as! [String : String])["request"]!
         
+        //obsolete
         if(request == "location"){
             let gpsAvailable = self.locHandler.upDateCoordinates()
             if (gpsAvailable){
@@ -61,6 +62,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
     }
-
 }
 

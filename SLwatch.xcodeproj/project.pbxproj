@@ -26,6 +26,7 @@
 		B25F2CB11AD6835C002731A7 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25F2CAF1AD6835C002731A7 /* Alamofire.swift */; };
 		B2764B1B1AAEF48B00B22A85 /* FilterInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2764B1A1AAEF48B00B22A85 /* FilterInterfaceController.swift */; };
 		B2764B251AAF464900B22A85 /* FavouritesInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2764B241AAF464900B22A85 /* FavouritesInterfaceController.swift */; };
+		B28589511B3EAF53006C2BFB /* LocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20016E91AA8AB9F00886DAB /* LocationHandler.swift */; };
 		B29AD4AF1AB30A3900A5B853 /* MapInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29AD4AE1AB30A3900A5B853 /* MapInterfaceController.swift */; };
 		B2B133791AD4109300D90F58 /* FavouriteStationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B133781AD4109300D90F58 /* FavouriteStationsTableViewController.swift */; };
 		B2D253191AB334E200565001 /* GlanceInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D253181AB334E200565001 /* GlanceInterfaceController.swift */; };
@@ -634,6 +635,7 @@
 				B2EFB1A31AA896A2001E2F26 /* Departure.swift in Sources */,
 				B2D5302B1AA7589700F4FBA2 /* NearbyStationsInterfaceController.swift in Sources */,
 				B29AD4AF1AB30A3900A5B853 /* MapInterfaceController.swift in Sources */,
+				B28589511B3EAF53006C2BFB /* LocationHandler.swift in Sources */,
 				B2D5302D1AA75AFE00F4FBA2 /* RowController.swift in Sources */,
 				B2D253191AB334E200565001 /* GlanceInterfaceController.swift in Sources */,
 				B2EF0B1C1AA0D0E400AA093B /* InterfaceController.swift in Sources */,

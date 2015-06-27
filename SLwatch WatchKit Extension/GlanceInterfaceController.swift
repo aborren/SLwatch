@@ -22,6 +22,7 @@ class GlanceInterfaceController: WKInterfaceController {
     var departures: [Departure] = []
     var wh: MMWormhole?
     var userDefaults = NSUserDefaults(suiteName: "group.slwatch")
+    var locHandler = LocationHandler()
     
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)        
@@ -39,19 +40,15 @@ class GlanceInterfaceController: WKInterfaceController {
         
         self.wh = MMWormhole(applicationGroupIdentifier: "group.slwatch", optionalDirectory: "wormhole")
         
-        //wake parent application on iPhone and request GPS location
-        WKInterfaceController.openParentApplication(["request":"location"], reply: {(replyInfo, error) -> Void in
-            let gpsAvailable = replyInfo["gpsAvailable"] as! Bool
-            if(!gpsAvailable){
-                //do something to prompt user to open
-                self.topLabel.setText("")
-                self.titleLabel.setText("")
-                self.departuresTable.setHidden(true)
-                self.tableLabel.setHidden(false)
-                self.tableLabel.setText(NSLocalizedString("NO_GPS_MESSAGE", comment: "Hi"))
-                self.loadingImage.setHidden(true)
-            }
-        })
+        if(!self.locHandler.upDateCoordinates()){
+            //do something to prompt user to open
+            self.topLabel.setText("")
+            self.titleLabel.setText("")
+            self.departuresTable.setHidden(true)
+            self.tableLabel.setHidden(false)
+            self.tableLabel.setText(NSLocalizedString("NO_GPS_MESSAGE", comment: "Hi"))
+            self.loadingImage.setHidden(true)
+        }
         
         var didReceiveLocation = false
         self.wh!.listenForMessageWithIdentifier("location", listener: { (locationResponse) -> Void in

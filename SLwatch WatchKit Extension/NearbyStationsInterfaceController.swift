@@ -12,7 +12,7 @@ import Foundation
 class NearbyStationsInterfaceController: WKInterfaceController {
 
     @IBOutlet var stationsTable: WKInterfaceTable!
-    var locationManager: CLLocationManager!
+    var locHandler = LocationHandler()
     var wh: MMWormhole?
     var stations: [Station] = []
     var userDefaults = NSUserDefaults(suiteName: "group.slwatch")
@@ -23,17 +23,13 @@ class NearbyStationsInterfaceController: WKInterfaceController {
         super.awakeWithContext(context)
         
         self.wh = MMWormhole(applicationGroupIdentifier: "group.slwatch", optionalDirectory: "wormhole")
+                
+        if(!self.locHandler.upDateCoordinates()){
+            self.informationLabel.setHidden(false)
+            self.informationLabel.setText(NSLocalizedString("NO_GPS_MESSAGE", comment: "Hi"))
+            self.loadingImage.setHidden(true)
+        }
         
-        //wake parent application on iPhone and request GPS location
-        WKInterfaceController.openParentApplication(["request":"location"], reply: {(replyInfo, error) -> Void in
-            let gpsAvailable = replyInfo["gpsAvailable"] as! Bool
-            if(!gpsAvailable){
-                //do something to prompt user to open
-                self.informationLabel.setHidden(false)
-                self.informationLabel.setText(NSLocalizedString("NO_GPS_MESSAGE", comment: "Hi"))
-                self.loadingImage.setHidden(true)
-            }
-        })
         
         var didReceiveLocation = false
         self.wh!.listenForMessageWithIdentifier("location", listener: { (locationResponse) -> Void in

@@ -14,6 +14,7 @@ class MapInterfaceController: WKInterfaceController {
     
     @IBOutlet var map: WKInterfaceMap!
     var wh: MMWormhole?
+    var locHandler = LocationHandler()
 
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
@@ -22,9 +23,9 @@ class MapInterfaceController: WKInterfaceController {
         
         self.wh = MMWormhole(applicationGroupIdentifier: "group.slwatch", optionalDirectory: "wormhole")
         
-        //wake parent application on iPhone and reques GPS location
-        WKInterfaceController.openParentApplication(["request":"location"], reply: {(replyInfo, error) -> Void in
-        })
+        if(!self.locHandler.upDateCoordinates()){
+            //handle errors
+        }
         
         self.wh!.listenForMessageWithIdentifier("location", listener: { (locationResponse) -> Void in
             if let longitude: Double = locationResponse["longitude"] as? Double{
