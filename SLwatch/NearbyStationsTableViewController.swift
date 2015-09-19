@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class NearbyStationsTableViewController: UITableViewController, UIAlertViewDelegate {
 
@@ -22,7 +23,7 @@ class NearbyStationsTableViewController: UITableViewController, UIAlertViewDeleg
         self.wh = MMWormhole(applicationGroupIdentifier: "group.slwatch", optionalDirectory: "wormhole")
         
         if(!self.locHandler.upDateCoordinates()){
-            println("no gps")
+            print("no gps")
             self.alertNoGPS()
         }
         
@@ -31,7 +32,7 @@ class NearbyStationsTableViewController: UITableViewController, UIAlertViewDeleg
             if let longitude: Double = locationResponse["longitude"] as? Double{
                 if let latitude: Double = locationResponse["latitude"] as? Double{
                     if(!didReceiveLocation){
-                        println("got coordinates")
+                        print("got coordinates")
                         self.setUpTableFromLocation(longitude.description, latitude: latitude.description)
                         didReceiveLocation = true
                     }
@@ -86,13 +87,28 @@ class NearbyStationsTableViewController: UITableViewController, UIAlertViewDeleg
 
     func setUpTableFromLocation(longitude: String, latitude: String){
         let radius = 500 //sätt som setting
-        println("got here")
+        print("got here")
         request(.GET, "https://api.trafiklab.se/samtrafiken/resrobot/StationsInZone.json?apiVersion=2.1&centerX=\(longitude)&centerY=\(latitude)&radius=\(radius)&coordSys=WGS84&key=T5Jex4dsGQk03VZlXbvmMMC1hMECZNkm")
-            .responseJSON { (_, response, JSON, error) in
-                println(error)
-                println(response)
+            .responseJSON(completionHandler: { (_, _, result) -> Void in
+                switch result {
+                case .Success(let data):
+                    print(data)
+                    self.stations = UtilityFunctions.convertResponseToStations(data as! NSDictionary)
+                    if(self.stations.count == 0){
+                        self.tableView.hidden = true
+                        self.title = NSLocalizedString("NO_NEARBYSTATIONS_MESSAGE", comment: "No nearby stations")
+                    }else{
+                        self.tableView.reloadData()
+                    }
+                case .Failure( _, _):
+                    break
+                }
+            })
+        /*.responseJSON { (_, response, JSON, error) in
+                print(error)
+                print(response)
                 if let stationsResponse = JSON as? NSDictionary {
-                    println(stationsResponse)
+                    print(stationsResponse)
                     self.stations = UtilityFunctions.convertResponseToStations(stationsResponse as NSDictionary)
                     if(self.stations.count == 0){
                         self.tableView.hidden = true
@@ -101,7 +117,7 @@ class NearbyStationsTableViewController: UITableViewController, UIAlertViewDeleg
                         self.tableView.reloadData()
                     }
                 }
-        }
+        }*/
     }
 
     /*
@@ -147,18 +163,18 @@ class NearbyStationsTableViewController: UITableViewController, UIAlertViewDeleg
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
         
-        var departuresView = segue.destinationViewController as! DeparturesTableViewController
-        let index = self.tableView.indexPathForSelectedRow()!.row
+        let departuresView = segue.destinationViewController as! DeparturesTableViewController
+        let index = self.tableView.indexPathForSelectedRow!.row
         departuresView.station = self.stations[index]
     }
     
     func alertNoGPS(){
-        var alertView = UIAlertView(title: NSLocalizedString("NO_GPS_TITLE", comment: ""), message: NSLocalizedString("NO_GPS_IPHONEMESSAGE", comment: ""), delegate: self, cancelButtonTitle: NSLocalizedString("CANCEL", comment: ""), otherButtonTitles: NSLocalizedString("SETTINGS", comment: ""))
+        let alertView = UIAlertView(title: NSLocalizedString("NO_GPS_TITLE", comment: ""), message: NSLocalizedString("NO_GPS_IPHONEMESSAGE", comment: ""), delegate: self, cancelButtonTitle: NSLocalizedString("CANCEL", comment: ""), otherButtonTitles: NSLocalizedString("SETTINGS", comment: ""))
         alertView.show()
     }
     
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
-        println(buttonIndex)
+        print(buttonIndex)
         if(buttonIndex == 1){
             UIApplication.sharedApplication().openURL(NSURL(string: UIApplicationOpenSettingsURLString)!)
         }

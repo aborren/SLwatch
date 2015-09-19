@@ -8,7 +8,7 @@
 
 import WatchKit
 import Foundation
-
+import Alamofire
 
 class GlanceInterfaceController: WKInterfaceController {
 
@@ -95,7 +95,7 @@ class GlanceInterfaceController: WKInterfaceController {
         
         self.departuresTable.setNumberOfRows(numberOfRows, withRowType: "departuresrowcontroller")
         for(var i = 0; i < numberOfRows; i++){
-            var row: DeparturesRowController = self.departuresTable.rowControllerAtIndex(i) as! DeparturesRowController
+            let row: DeparturesRowController = self.departuresTable.rowControllerAtIndex(i) as! DeparturesRowController
             row.setUpRow(departures[i])
         }
     }
@@ -166,7 +166,21 @@ class GlanceInterfaceController: WKInterfaceController {
             self.tableLabel.setHidden(true)
             self.departuresTable.setHidden(true)
             request(.GET, "https://api.trafiklab.se/samtrafiken/resrobotstops/GetDepartures.json?apiVersion=2.2&coordSys=RT90&locationId=\(station.id)&timeSpan=30&key=TrGAqilPmbAXHY1HpIxGAUkmARCAn4qH")
-                .responseJSON { (_, _, JSON, error) in
+                .responseJSON(completionHandler: { (_, _, result) -> Void in
+                    switch result {
+                    case .Success(let data):
+                        self.loadingImage.setHidden(true)
+                        self.departuresTable.setHidden(false)
+                        self.tableLabel.setHidden(true)
+                        self.departures = UtilityFunctions.convertResponseToDepartures(data, filterString: self.filterString)
+                        self.configureTableWithData(self.departures)
+                    case .Failure( _, _):
+                        self.loadingImage.setHidden(true)
+                        self.tableLabel.setHidden(false)
+                        self.tableLabel.setText(NSLocalizedString("SERVER_FAILED", comment: "server failed"))
+                    }
+                })
+                /*.responseJSON { (_, _, JSON, error) in
                     if let response: AnyObject = JSON {
                         self.loadingImage.setHidden(true)
                         self.departuresTable.setHidden(false)
@@ -180,7 +194,7 @@ class GlanceInterfaceController: WKInterfaceController {
                         self.tableLabel.setText(NSLocalizedString("SERVER_FAILED", comment: "server failed"))
                     }
                     
-            }
+            }*/
         }else{
             self.loadingImage.setHidden(true)
             self.topLabel.setText("")
@@ -192,11 +206,11 @@ class GlanceInterfaceController: WKInterfaceController {
     }
     
     func getClosestStation(long: Double, lat: Double)->Station?{
-        var stations = self.getFavouriteStations()
+        let stations = self.getFavouriteStations()
         var closest: Station?
         var closestDistance: Double = Double.infinity
         for s in stations{
-            var d = self.measureDistance(long, alat: lat, blong: s.longitude, blat: s.latitude)
+            let d = self.measureDistance(long, alat: lat, blong: s.longitude, blat: s.latitude)
             if(d < closestDistance){
                 closestDistance = d
                 closest = s
@@ -206,7 +220,7 @@ class GlanceInterfaceController: WKInterfaceController {
     }
     
     func measureDistance(along: Double, alat: Double, blong: Double, blat: Double)->Double{
-        var distance = pow((alat-blat), 2) + pow((along-blong), 2)
+        let distance = pow((alat-blat), 2) + pow((along-blong), 2)
         return distance
     }
     

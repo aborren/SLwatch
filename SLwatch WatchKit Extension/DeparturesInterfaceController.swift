@@ -8,6 +8,7 @@
 
 import WatchKit
 import Foundation
+import Alamofire
 
 
 class DeparturesInterfaceController: WKInterfaceController {
@@ -40,7 +41,23 @@ class DeparturesInterfaceController: WKInterfaceController {
             self.noDeparturesLabel.setHidden(true)
             self.departuresTable.setHidden(true)
             request(.GET, "https://api.trafiklab.se/samtrafiken/resrobotstops/GetDepartures.json?apiVersion=2.2&coordSys=RT90&locationId=\(stationID)&timeSpan=30&key=TrGAqilPmbAXHY1HpIxGAUkmARCAn4qH")
-                    .responseJSON { (_, _, JSON, error) in
+                .responseJSON(completionHandler: { (_, _, result) -> Void in
+                    switch result {
+                    case .Success(let data):
+                        self.loadingImage.setHidden(true)
+                        self.departuresTable.setHidden(false)
+                        self.noDeparturesLabel.setHidden(true)
+                        self.departures = UtilityFunctions.convertResponseToDepartures(data, filterString: self.filterString)
+                        self.configureTableWithData(self.departures)
+                    case .Failure( _, _):
+                        self.loadingImage.setHidden(true)
+                        self.noDeparturesLabel.setHidden(false)
+                        self.noDeparturesLabel.setText(NSLocalizedString("SERVER_FAILED", comment: "Hi"))
+                    }
+                })
+                
+                
+                  /*  .responseJSON { (_, _, JSON, error) in
                         if let response: AnyObject = JSON {
                             self.loadingImage.setHidden(true)
                             self.departuresTable.setHidden(false)
@@ -53,7 +70,7 @@ class DeparturesInterfaceController: WKInterfaceController {
                             self.noDeparturesLabel.setHidden(false)
                             self.noDeparturesLabel.setText(NSLocalizedString("SERVER_FAILED", comment: "Hi"))
                         }
-            }
+            }*/
         }
     }
 
@@ -75,7 +92,7 @@ class DeparturesInterfaceController: WKInterfaceController {
     func configureTableWithData(departures: [Departure]){
         self.departuresTable.setNumberOfRows(departures.count, withRowType: "departuresrowcontroller")
         for(var i = 0; i < departures.count; i++){
-            var row: DeparturesRowController = self.departuresTable.rowControllerAtIndex(i) as! DeparturesRowController
+            let row: DeparturesRowController = self.departuresTable.rowControllerAtIndex(i) as! DeparturesRowController
             row.setUpRow(departures[i]) 
         }
         

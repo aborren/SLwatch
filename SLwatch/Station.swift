@@ -24,7 +24,7 @@ class Station: NSObject, NSCoding {
         self.latitude = (y as NSString).doubleValue
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         if let id = aDecoder.decodeObjectForKey("id") as? String {
             self.id = id
         }

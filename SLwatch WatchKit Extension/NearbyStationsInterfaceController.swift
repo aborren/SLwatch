@@ -8,6 +8,7 @@
 
 import WatchKit
 import Foundation
+import Alamofire
 
 class NearbyStationsInterfaceController: WKInterfaceController {
 
@@ -65,7 +66,7 @@ class NearbyStationsInterfaceController: WKInterfaceController {
     func configureTableWithData(stations: [Station]){
         self.stationsTable.setNumberOfRows(stations.count, withRowType: "rowcontroller")
         for(var i = 0; i < stations.count; i++){
-            var row: RowController = self.stationsTable.rowControllerAtIndex(i) as! RowController
+            let row: RowController = self.stationsTable.rowControllerAtIndex(i) as! RowController
             row.rowDescription.setText(stations[i].name)
             row.station = stations[i]
             
@@ -90,10 +91,22 @@ class NearbyStationsInterfaceController: WKInterfaceController {
     }
     
     func setUpTableFromLocation(longitude: String, latitude: String){
-        println("got coordinates")
+        print("got coordinates")
         let radius = 500 //sätt som setting
         request(.GET, "https://api.trafiklab.se/samtrafiken/resrobot/StationsInZone.json?apiVersion=2.1&centerX=\(longitude)&centerY=\(latitude)&radius=\(radius)&coordSys=WGS84&key=T5Jex4dsGQk03VZlXbvmMMC1hMECZNkm")
-            .responseJSON { (_, _, JSON, error) in
+            .responseJSON(completionHandler: { (_, _, result) -> Void in
+                switch result {
+                case .Success(let data):
+                    self.stations = UtilityFunctions.convertResponseToStations(data as! NSDictionary)
+                    self.configureTableWithData(self.stations)
+                    self.loadingImage.setHidden(true)
+                case .Failure( _, _):
+                    self.loadingImage.setHidden(true)
+                    self.informationLabel.setHidden(false)
+                    self.informationLabel.setText(NSLocalizedString("SERVER_FAILED", comment: "Hi"))
+                }
+            })
+            /*.responseJSON { (_, _, JSON, error) in
                 if let stationsResponse = JSON as? NSDictionary {
                     self.stations = UtilityFunctions.convertResponseToStations(stationsResponse as NSDictionary)
                     self.configureTableWithData(self.stations)
@@ -104,6 +117,6 @@ class NearbyStationsInterfaceController: WKInterfaceController {
                     self.informationLabel.setHidden(false)
                     self.informationLabel.setText(NSLocalizedString("SERVER_FAILED", comment: "Hi"))
                 }
-        }
+        }*/
     }
 }

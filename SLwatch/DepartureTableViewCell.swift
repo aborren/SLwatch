@@ -39,7 +39,7 @@ class DepartureTableViewCell: UITableViewCell {
         }
         
         if let departureTime = departure.departureTime {
-            var df = NSDateFormatter()
+            let df = NSDateFormatter()
             df.dateFormat = "HH:mm"
             self.secondLabel.text = df.stringFromDate(departureTime)
         }

@@ -39,7 +39,7 @@ class MapInterfaceController: WKInterfaceController {
                     self.map.addAnnotation(stationLoc, withPinColor: WKInterfaceMapPinColor.Red)
                     
                     let delta = max(abs(stationLoc.latitude - currentLoc.latitude), abs(stationLoc.longitude - currentLoc.longitude)) * 2
-                    println(delta)
+                    print(delta)
                     let coordinateSpan = MKCoordinateSpan(latitudeDelta: delta, longitudeDelta: delta)
                     
                     let midPoint = CLLocationCoordinate2D(latitude: (station.latitude + currentLoc.latitude)/2, longitude: (station.longitude + currentLoc.longitude)/2)

@@ -55,41 +55,41 @@ class FilterInterfaceController: WKInterfaceController {
     }
     
     func showSwitches(typesString: String){
-        if(typesString.rangeOfString("B", options: nil, range: nil, locale: nil) != nil){
+        if(typesString.rangeOfString("B", options: [], range: nil, locale: nil) != nil){
             self.bussSwitch.setHidden(false)
         }
-        if(typesString.rangeOfString("U", options: nil, range: nil, locale: nil) != nil){
+        if(typesString.rangeOfString("U", options: [], range: nil, locale: nil) != nil){
             self.tunnelbanaSwitch.setHidden(false)
         }
-        if(typesString.rangeOfString("S", options: nil, range: nil, locale: nil) != nil){
+        if(typesString.rangeOfString("S", options: [], range: nil, locale: nil) != nil){
             self.sparvagnSwitch.setHidden(false)
         }
-        if(typesString.rangeOfString("J", options: nil, range: nil, locale: nil) != nil){
+        if(typesString.rangeOfString("J", options: [], range: nil, locale: nil) != nil){
             self.pendeltagSwitch.setHidden(false)
         }
-        if(typesString.rangeOfString("F", options: nil, range: nil, locale: nil) != nil){
+        if(typesString.rangeOfString("F", options: [], range: nil, locale: nil) != nil){
             self.farjaSwitch.setHidden(false)
         }
     }
     
     func setSwitches(filterString: String){
-        if(filterString.rangeOfString("B", options: nil, range: nil, locale: nil) != nil){
+        if(filterString.rangeOfString("B", options: [], range: nil, locale: nil) != nil){
             self.bussSwitch.setOn(true)
             self.buss = true
         }
-        if(filterString.rangeOfString("U", options: nil, range: nil, locale: nil) != nil){
+        if(filterString.rangeOfString("U", options: [], range: nil, locale: nil) != nil){
             self.tunnelbanaSwitch.setOn(true)
             self.tunnelbana = true
         }
-        if(filterString.rangeOfString("S", options: nil, range: nil, locale: nil) != nil){
+        if(filterString.rangeOfString("S", options: [], range: nil, locale: nil) != nil){
             self.sparvagnSwitch.setOn(true)
             self.sparvagn = true
         }
-        if(filterString.rangeOfString("J", options: nil, range: nil, locale: nil) != nil){
+        if(filterString.rangeOfString("J", options: [], range: nil, locale: nil) != nil){
             self.pendeltagSwitch.setOn(true)
             self.pendeltag = true
         }
-        if(filterString.rangeOfString("F", options: nil, range: nil, locale: nil) != nil){
+        if(filterString.rangeOfString("F", options: [], range: nil, locale: nil) != nil){
             self.farjaSwitch.setOn(true)
             self.farja = true
         }

@@ -74,7 +74,7 @@ class UtilityFunctions{
                     //adds the departures if it's part of the included types in the filter
                     if let type = type {
                         if let datetime = datetime {
-                            if(filterString.rangeOfString(type, options: nil, range: nil, locale: nil) != nil){
+                            if(filterString.rangeOfString(type, options: [], range: nil, locale: nil) != nil){
                                 departures.append(Departure(direction: direction, transportType: type, lineNumber: linenumber, departureTime: dateFormater.dateFromString(datetime)))
                             }
                         }
@@ -93,7 +93,7 @@ class UtilityFunctions{
                 //adds the departures if it's part of the included types in the filter
                 if let type = type {
                     if let datetime = datetime {
-                        if(filterString.rangeOfString(type, options: nil, range: nil, locale: nil) != nil){
+                        if(filterString.rangeOfString(type, options: [], range: nil, locale: nil) != nil){
                             departures.append(Departure(direction: direction, transportType: type, lineNumber: linenumber, departureTime: dateFormater.dateFromString(datetime)))
                         }
                     }

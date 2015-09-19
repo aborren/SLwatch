@@ -104,8 +104,8 @@ class FavouriteStationsTableViewController: UITableViewController {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
         
-        var departuresView = segue.destinationViewController as! DeparturesTableViewController
-        let index = self.tableView.indexPathForSelectedRow()!.row
+        let departuresView = segue.destinationViewController as! DeparturesTableViewController
+        let index = self.tableView.indexPathForSelectedRow!.row
         departuresView.station = self.stations[index]
     }
     

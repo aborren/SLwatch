@@ -82,7 +82,7 @@ class DeparturesRowController: NSObject {
     }
     
     func setUpTime(departureTime: NSDate){
-        var df = NSDateFormatter()
+        let df = NSDateFormatter()
         df.dateFormat = "HH:mm"
         self.timeLabel.setHidden(false)
         self.departureTimer.setHidden(true)

@@ -26,7 +26,7 @@ class StationTableViewCell: UITableViewCell {
     }
 
     @IBAction func favouriteBtnPressed(sender: AnyObject) {
-        println("pressed")
+        print("pressed")
   
         if let data = self.userDefaults?.objectForKey("favourites") as? NSData{
             var isFavouriteStation = false

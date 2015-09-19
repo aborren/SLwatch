@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		558EEBD41162B63764C22BE9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A66392C99987CED2C24417 /* libPods.a */; };
+		A2D6B9911BAD70B4009E39CA /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2D6B9901BAD70B4009E39CA /* Alamofire.framework */; };
+		A2D6B9921BAD70B4009E39CA /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A2D6B9901BAD70B4009E39CA /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A2D6B9961BAD72BD009E39CA /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2D6B9901BAD70B4009E39CA /* Alamofire.framework */; };
+		A2D6B9971BAD72BD009E39CA /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A2D6B9901BAD70B4009E39CA /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B20016EA1AA8AB9F00886DAB /* LocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20016E91AA8AB9F00886DAB /* LocationHandler.swift */; };
 		B22942351AA0C6A6001F3B72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22942341AA0C6A6001F3B72 /* AppDelegate.swift */; };
 		B22942371AA0C6A6001F3B72 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22942361AA0C6A6001F3B72 /* ViewController.swift */; };
@@ -22,8 +25,6 @@
 		B25E5DA01AB349FB0081EB94 /* MMWormhole.m in Sources */ = {isa = PBXBuildFile; fileRef = B25E5D9E1AB349FB0081EB94 /* MMWormhole.m */; };
 		B25F2CAD1AD68307002731A7 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25F2CAC1AD68307002731A7 /* SwiftyJSON.swift */; };
 		B25F2CAE1AD68307002731A7 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25F2CAC1AD68307002731A7 /* SwiftyJSON.swift */; };
-		B25F2CB01AD6835C002731A7 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25F2CAF1AD6835C002731A7 /* Alamofire.swift */; };
-		B25F2CB11AD6835C002731A7 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25F2CAF1AD6835C002731A7 /* Alamofire.swift */; };
 		B2764B1B1AAEF48B00B22A85 /* FilterInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2764B1A1AAEF48B00B22A85 /* FilterInterfaceController.swift */; };
 		B2764B251AAF464900B22A85 /* FavouritesInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2764B241AAF464900B22A85 /* FavouritesInterfaceController.swift */; };
 		B28589511B3EAF53006C2BFB /* LocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20016E91AA8AB9F00886DAB /* LocationHandler.swift */; };
@@ -57,7 +58,6 @@
 		B2EFB1A51AA8A54D001E2F26 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D530261AA73BDD00F4FBA2 /* Station.swift */; };
 		B2EFB1A61AA8A55C001E2F26 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D530261AA73BDD00F4FBA2 /* Station.swift */; };
 		B2EFB1A71AA8A55D001E2F26 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D530261AA73BDD00F4FBA2 /* Station.swift */; };
-		DACFE78091DA8D0F8B10A0C7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A66392C99987CED2C24417 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +85,28 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		A2D6B9931BAD70B4009E39CA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A2D6B9921BAD70B4009E39CA /* Alamofire.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2D6B9981BAD72BD009E39CA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A2D6B9971BAD72BD009E39CA /* Alamofire.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B2EF0B381AA0D0E400AA093B /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -99,8 +121,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		20526A20AE393A3E45AFB72C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		5C9CA7B856BAF1B795E582CD /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		A2D6B9901BAD70B4009E39CA /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		B20016E91AA8AB9F00886DAB /* LocationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationHandler.swift; sourceTree = "<group>"; };
 		B229422F1AA0C6A6001F3B72 /* SLwatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SLwatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B22942331AA0C6A6001F3B72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -118,7 +139,6 @@
 		B25E5D9D1AB349FB0081EB94 /* MMWormhole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMWormhole.h; sourceTree = "<group>"; };
 		B25E5D9E1AB349FB0081EB94 /* MMWormhole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMWormhole.m; sourceTree = "<group>"; };
 		B25F2CAC1AD68307002731A7 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
-		B25F2CAF1AD6835C002731A7 /* Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alamofire.swift; sourceTree = "<group>"; };
 		B2764B1A1AAEF48B00B22A85 /* FilterInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterInterfaceController.swift; sourceTree = "<group>"; };
 		B2764B241AAF464900B22A85 /* FavouritesInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritesInterfaceController.swift; sourceTree = "<group>"; };
 		B29AD4AE1AB30A3900A5B853 /* MapInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapInterfaceController.swift; sourceTree = "<group>"; };
@@ -135,10 +155,6 @@
 		B2D530281AA73C9900F4FBA2 /* Departure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Departure.swift; sourceTree = "<group>"; };
 		B2D5302A1AA7589700F4FBA2 /* NearbyStationsInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyStationsInterfaceController.swift; sourceTree = "<group>"; };
 		B2D5302C1AA75AFE00F4FBA2 /* RowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowController.swift; sourceTree = "<group>"; };
-		B2D6055C1AA853F200C0A1C1 /* libPods-AFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-AFNetworking.a"; path = "Pods/../build/Debug-iphoneos/libPods-AFNetworking.a"; sourceTree = "<group>"; };
-		B2D6055E1AA853FA00C0A1C1 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/../build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
-		B2D605601AA8547900C0A1C1 /* libPods-AFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-AFNetworking.a"; path = "Pods/../build/Debug-iphoneos/libPods-AFNetworking.a"; sourceTree = "<group>"; };
-		B2D605621AA8548E00C0A1C1 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/../build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		B2D6EE0F1ACC147500FA53F3 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Main.strings; sourceTree = "<group>"; };
 		B2D6EE101ACC147500FA53F3 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		B2D6EE111ACC147500FA53F3 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Interface.strings; sourceTree = "<group>"; };
@@ -159,7 +175,6 @@
 		B2EF0B2D1AA0D0E400AA093B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B2EFB19D1AA86B4A001E2F26 /* SLwatch WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "SLwatch WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		B2EFB19E1AA86BD3001E2F26 /* SLwatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SLwatch.entitlements; sourceTree = "<group>"; };
-		D9A66392C99987CED2C24417 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,7 +183,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2D530251AA71B6000F4FBA2 /* CoreLocation.framework in Frameworks */,
-				DACFE78091DA8D0F8B10A0C7 /* libPods.a in Frameworks */,
+				A2D6B9911BAD70B4009E39CA /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,7 +198,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				558EEBD41162B63764C22BE9 /* libPods.a in Frameworks */,
+				A2D6B9961BAD72BD009E39CA /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,34 +208,20 @@
 		2785C6086B91C2E7677ACFC1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B2D605621AA8548E00C0A1C1 /* libPods.a */,
-				B2D605601AA8547900C0A1C1 /* libPods-AFNetworking.a */,
-				B2D6055E1AA853FA00C0A1C1 /* libPods.a */,
-				B2D6055C1AA853F200C0A1C1 /* libPods-AFNetworking.a */,
 				B2D530241AA71B6000F4FBA2 /* CoreLocation.framework */,
-				D9A66392C99987CED2C24417 /* libPods.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		A93AAE6C3EB263C5609E2165 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				20526A20AE393A3E45AFB72C /* Pods.debug.xcconfig */,
-				5C9CA7B856BAF1B795E582CD /* Pods.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		B22942261AA0C6A6001F3B72 = {
 			isa = PBXGroup;
 			children = (
+				A2D6B9901BAD70B4009E39CA /* Alamofire.framework */,
 				B22942311AA0C6A6001F3B72 /* SLwatch */,
 				B22942471AA0C6A6001F3B72 /* SLwatchTests */,
 				B2EF0B171AA0D0E400AA093B /* SLwatch WatchKit Extension */,
 				B2EF0B271AA0D0E400AA093B /* SLwatch WatchKit App */,
 				B22942301AA0C6A6001F3B72 /* Products */,
-				A93AAE6C3EB263C5609E2165 /* Pods */,
 				2785C6086B91C2E7677ACFC1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -291,7 +292,6 @@
 		B25C61DB1AB1F8BE00048B30 /* Swift Extension Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				B25F2CAF1AD6835C002731A7 /* Alamofire.swift */,
 				B25F2CAC1AD68307002731A7 /* SwiftyJSON.swift */,
 			);
 			name = "Swift Extension Libraries";
@@ -356,12 +356,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B229424E1AA0C6A6001F3B72 /* Build configuration list for PBXNativeTarget "SLwatch" */;
 			buildPhases = (
-				DD81E87D9C049D2C7D26AD6B /* Check Pods Manifest.lock */,
 				B229422B1AA0C6A6001F3B72 /* Sources */,
 				B229422C1AA0C6A6001F3B72 /* Frameworks */,
 				B229422D1AA0C6A6001F3B72 /* Resources */,
-				6723CDAA86A13D0EE5A63CEC /* Copy Pods Resources */,
 				B2EF0B381AA0D0E400AA093B /* Embed App Extensions */,
+				A2D6B9931BAD70B4009E39CA /* Embed Frameworks */,
+				A2D6B9941BAD70EE009E39CA /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -395,11 +395,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B2EF0B351AA0D0E400AA093B /* Build configuration list for PBXNativeTarget "SLwatch WatchKit Extension" */;
 			buildPhases = (
-				9584267C73B38C94EC6CC954 /* Check Pods Manifest.lock */,
 				B2EF0B121AA0D0E400AA093B /* Sources */,
 				B2EF0B131AA0D0E400AA093B /* Frameworks */,
 				B2EF0B141AA0D0E400AA093B /* Resources */,
-				8D0EE26C0CC7329BC76F8E94 /* Copy Pods Resources */,
+				A2D6B9981BAD72BD009E39CA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -432,6 +431,8 @@
 		B22942271AA0C6A6001F3B72 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = dna;
 				TargetAttributes = {
@@ -531,65 +532,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6723CDAA86A13D0EE5A63CEC /* Copy Pods Resources */ = {
+		A2D6B9941BAD70EE009E39CA /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 			);
-			name = "Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8D0EE26C0CC7329BC76F8E94 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9584267C73B38C94EC6CC954 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		DD81E87D9C049D2C7D26AD6B /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -604,7 +559,6 @@
 				B2EFB1A61AA8A55C001E2F26 /* Station.swift in Sources */,
 				B2D312B31AB71D3500F72B6A /* DeparturesTableViewController.swift in Sources */,
 				B25F2CAD1AD68307002731A7 /* SwiftyJSON.swift in Sources */,
-				B25F2CB01AD6835C002731A7 /* Alamofire.swift in Sources */,
 				B25E5D9F1AB349FB0081EB94 /* MMWormhole.m in Sources */,
 				B2D312AB1AB7135A00F72B6A /* NearbyStationsTableViewController.swift in Sources */,
 				B20016EA1AA8AB9F00886DAB /* LocationHandler.swift in Sources */,
@@ -643,7 +597,6 @@
 				B2D312AD1AB717CA00F72B6A /* UtilityFunctions.swift in Sources */,
 				B2764B251AAF464900B22A85 /* FavouritesInterfaceController.swift in Sources */,
 				B25F2CAE1AD68307002731A7 /* SwiftyJSON.swift in Sources */,
-				B25F2CB11AD6835C002731A7 /* Alamofire.swift in Sources */,
 				B25E5DA01AB349FB0081EB94 /* MMWormhole.m in Sources */,
 				B244118F1AA9FE6D0005F26C /* DeparturesRowController.swift in Sources */,
 			);
@@ -792,7 +745,6 @@
 		};
 		B229424F1AA0C6A6001F3B72 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 20526A20AE393A3E45AFB72C /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -800,6 +752,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SLwatch/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -812,7 +768,6 @@
 		};
 		B22942501AA0C6A6001F3B72 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5C9CA7B856BAF1B795E582CD /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -820,6 +775,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SLwatch/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -895,12 +854,15 @@
 		};
 		B2EF0B361AA0D0E400AA093B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 20526A20AE393A3E45AFB72C /* Pods.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "SLwatch WatchKit Extension/SLwatch WatchKit Extension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -919,12 +881,15 @@
 		};
 		B2EF0B371AA0D0E400AA093B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5C9CA7B856BAF1B795E582CD /* Pods.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "SLwatch WatchKit Extension/SLwatch WatchKit Extension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "SLwatch WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";

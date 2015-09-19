@@ -45,7 +45,7 @@ class FavouritesInterfaceController: WKInterfaceController {
     func configureTableWithData(stations: [Station]){
         self.stationsTable.setNumberOfRows(stations.count, withRowType: "rowcontroller")
         for(var i = 0; i < stations.count; i++){
-            var row: RowController = self.stationsTable.rowControllerAtIndex(i) as! RowController
+            let row: RowController = self.stationsTable.rowControllerAtIndex(i) as! RowController
             row.rowDescription.setText(stations[i].name)
             row.station = stations[i]
             row.favouriteButtonImage.setImageNamed("star_filled-50.png")

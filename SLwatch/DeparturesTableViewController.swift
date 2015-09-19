@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class DeparturesTableViewController: UITableViewController {
 
@@ -27,7 +28,22 @@ class DeparturesTableViewController: UITableViewController {
         self.title = station?.name
         if let stationID = self.station?.id {
             request(.GET, "https://api.trafiklab.se/samtrafiken/resrobotstops/GetDepartures.json?apiVersion=2.2&coordSys=RT90&locationId=\(stationID)&timeSpan=30&key=TrGAqilPmbAXHY1HpIxGAUkmARCAn4qH")
-                .responseJSON { (_, _, JSON, _) in
+                .responseJSON(completionHandler: { (_, _, result) -> Void in
+                    switch result {
+                    case .Success(let data):
+                        self.departures = UtilityFunctions.convertResponseToDepartures(data, filterString: self.filterString)
+                        if(self.departures.count == 0){
+                            self.title = NSLocalizedString("NO_DEPARTURES_MESSAGE", comment: "no departures")
+                            self.tableView.hidden = true
+                        }else{
+                            self.tableView.reloadData()
+                        }
+                    case .Failure( _, _):
+                        break
+                    }
+                })
+
+                /*.responseJSON { (_, _, JSON, _) in
                     if let response: AnyObject = JSON {
                         self.departures = UtilityFunctions.convertResponseToDepartures(response, filterString: self.filterString)
                         if(self.departures.count == 0){
@@ -37,7 +53,7 @@ class DeparturesTableViewController: UITableViewController {
                             self.tableView.reloadData()
                         }
                     }
-            }
+            }*/
         }
         
     }

@@ -29,8 +29,8 @@ class LocationHandler: NSObject, CLLocationManagerDelegate {
         return false
     }
 
-    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
-        println("failed" + error.description)
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        print("failed" + error.description)
         self.wh!.passMessageObject(nil, identifier: "failedLocation")
     }
     
@@ -42,7 +42,7 @@ class LocationHandler: NSObject, CLLocationManagerDelegate {
             self.wh!.passMessageObject(response as NSDictionary, identifier: "location")
             locationManager.stopUpdatingLocation()
         }else{
-            println("lol")
+            print("lol")
         }
     }
     
